@@ -405,9 +405,9 @@ footer { border-top:1px solid rgba(255,255,255,.05); padding:52px 24px 32px; tex
       <span class="nav-link" onclick="document.getElementById('tools-section').scrollIntoView({behavior:'smooth'})">Free Tools</span>
       <span class="nav-link" onclick="document.getElementById('guides-section').scrollIntoView({behavior:'smooth'})">Free Guides</span>
       <span class="nav-link" onclick="document.getElementById('tips-section').scrollIntoView({behavior:'smooth'})">Training Tips</span>
-      <a class="nav-link" href="https://harrisons-newsletter-bc428b.beehiiv.com/subscribe" target="_blank">Newsletter</a>
+      <span class="nav-link" onclick="document.getElementById('guides-section').scrollIntoView({behavior:'smooth'})">Free Guides</span>
     </div>
-    <a class="nav-cta" href="https://harrisons-newsletter-bc428b.beehiiv.com/subscribe" target="_blank">Get Free Plan →</a>
+    <a class="nav-cta" href="#" onclick="event.preventDefault();document.getElementById('tools-section').scrollIntoView({behavior:'smooth'})">Get Free Plan →</a>
   </div>
 </nav>
 
@@ -804,7 +804,12 @@ footer { border-top:1px solid rgba(255,255,255,.05); padding:52px 24px 32px; tex
           <li>Beginner strength circuit</li>
         </ul>
         <div class="guide-price"><div class="guide-price-val">Free</div><div class="guide-price-note">instant delivery to inbox</div></div>
-        <a class="btn-primary" href="https://harrisons-newsletter-bc428b.beehiiv.com/subscribe" target="_blank" style="text-decoration:none;">Get It Free →</a>
+        <div id="tg-form">
+          <input id="tg-name" type="text" placeholder="Your first name" style="width:100%;padding:10px;margin-bottom:8px;border:1px solid #ddd;border-radius:6px;font-size:14px;box-sizing:border-box;" />
+          <input id="tg-email" type="email" placeholder="Your email address" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid #ddd;border-radius:6px;font-size:14px;box-sizing:border-box;" />
+          <button class="btn-primary" onclick="submitGuide('tg')" style="width:100%;cursor:pointer;border:none;">Get It Free →</button>
+        </div>
+        <div id="tg-success" style="display:none;padding:12px;background:#f0faf0;border-radius:6px;text-align:center;color:#2d7a2d;font-weight:600;">✅ Check your inbox — guide on its way!</div>
       </div>
       <div class="guide-card">
         <div class="guide-tag">Free Download</div>
@@ -818,7 +823,12 @@ footer { border-top:1px solid rgba(255,255,255,.05); padding:52px 24px 32px; tex
           <li>Hydration guide for UK weather</li>
         </ul>
         <div class="guide-price"><div class="guide-price-val">Free</div><div class="guide-price-note">instant delivery to inbox</div></div>
-        <a class="btn-primary" href="https://harrisons-newsletter-bc428b.beehiiv.com/subscribe" target="_blank" style="text-decoration:none;">Get It Free →</a>
+        <div id="ng-form">
+          <input id="ng-name" type="text" placeholder="Your first name" style="width:100%;padding:10px;margin-bottom:8px;border:1px solid #ddd;border-radius:6px;font-size:14px;box-sizing:border-box;" />
+          <input id="ng-email" type="email" placeholder="Your email address" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid #ddd;border-radius:6px;font-size:14px;box-sizing:border-box;" />
+          <button class="btn-primary" onclick="submitGuide('ng')" style="width:100%;cursor:pointer;border:none;">Get It Free →</button>
+        </div>
+        <div id="ng-success" style="display:none;padding:12px;background:#f0faf0;border-radius:6px;text-align:center;color:#2d7a2d;font-weight:600;">✅ Check your inbox — guide on its way!</div>
       </div>
     </div>
   </div>
@@ -870,7 +880,7 @@ footer { border-top:1px solid rgba(255,255,255,.05); padding:52px 24px 32px; tex
     <span class="footer-link" onclick="document.getElementById('tools-section').scrollIntoView({behavior:'smooth'})">Free Tools</span>
     <span class="footer-link" onclick="document.getElementById('guides-section').scrollIntoView({behavior:'smooth'})">Free Guides</span>
     <span class="footer-link" onclick="document.getElementById('tips-section').scrollIntoView({behavior:'smooth'})">Training Tips</span>
-    <a class="footer-link" href="https://harrisons-newsletter-bc428b.beehiiv.com/subscribe" target="_blank">Newsletter</a>
+    <span class="footer-link" onclick="document.getElementById('guides-section').scrollIntoView({behavior:'smooth'})">Free Guides</span>
   </div>
   <div class="footer-copy">© 2025 PaceChange. All rights reserved. Built for UK runners.</div>
 </footer>
@@ -989,6 +999,17 @@ function submitCalEmail() {
 }
 
 function resetCalc() { document.getElementById('cal-results').classList.remove('visible'); document.getElementById('tools-section').scrollIntoView({behavior:'smooth'}); }
+
+function submitGuide(prefix) {
+  const name = document.getElementById(prefix+'-name').value.trim();
+  const email = document.getElementById(prefix+'-email').value.trim();
+  if(!name||!email||!email.includes('@')){alert('Please enter your name and a valid email address.');return;}
+  const tag = prefix==='ng' ? 'goal-weightloss' : 'goal-5k';
+  const source = prefix==='ng' ? 'nutrition-guide-card' : 'training-guide-card';
+  document.getElementById(prefix+'-form').style.display='none';
+  document.getElementById(prefix+'-success').style.display='block';
+  fetch('https://script.google.com/macros/s/AKfycbwssTres__1EbYYa5ZVHPY16mpe56XUoEmUeXAaX4sMRafZVQS0_Kgi3ZHcZtulS0B7/exec',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name,email:email,tag:tag,source:source}),mode:'no-cors'}).catch(()=>{});
+}
 
 function submitNewsletter() {
   const email=document.getElementById('nl-email').value.trim();
