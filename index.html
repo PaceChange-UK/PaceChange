@@ -945,11 +945,13 @@ function generatePlan() {
 }
 
 function submitRunEmail() {
-  const name=document.getElementById('r-first-name').value, email=document.getElementById('r-email-addr').value;
+  const name=document.getElementById('r-first-name').value.trim(), email=document.getElementById('r-email-addr').value.trim();
   if(!name||!email||!email.includes('@')){alert('Please enter your name and a valid email.');return;}
   document.getElementById('r-email-form').style.display='none';
   document.getElementById('r-success-state').classList.add('visible');
-  setTimeout(()=>{ window.open('https://harrisons-newsletter-bc428b.beehiiv.com/subscribe?first_name='+encodeURIComponent(name)+'&email='+encodeURIComponent(email),'_blank'); },1500);
+  const goalTags={'5K':'goal-5k','10K':'goal-10k','HM':'goal-halfmarathon','M':'goal-marathon'};
+  const tag=goalTags[selectedRace]||'goal-5k';
+  fetch('https://script.google.com/macros/s/AKfycbwssTres__1EbYYa5ZVHPY16mpe56XUoEmUeXAaX4sMRafZVQS0_Kgi3ZHcZtulS0B7/exec',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name,email:email,tag:tag,source:'running-calculator'}),mode:'no-cors'}).catch(()=>{});
 }
 
 // ===== CALORIE CALC =====
@@ -979,19 +981,21 @@ function calculateCalories() {
 }
 
 function submitCalEmail() {
-  const name=document.getElementById('c-first-name').value, email=document.getElementById('c-email-addr').value;
+  const name=document.getElementById('c-first-name').value.trim(), email=document.getElementById('c-email-addr').value.trim();
   if(!name||!email||!email.includes('@')){alert('Please enter your name and a valid email.');return;}
   document.getElementById('c-email-form').style.display='none';
   document.getElementById('c-success-state').classList.add('visible');
-  setTimeout(()=>{ window.open('https://harrisons-newsletter-bc428b.beehiiv.com/subscribe?first_name='+encodeURIComponent(name)+'&email='+encodeURIComponent(email),'_blank'); },1500);
+  fetch('https://script.google.com/macros/s/AKfycbwssTres__1EbYYa5ZVHPY16mpe56XUoEmUeXAaX4sMRafZVQS0_Kgi3ZHcZtulS0B7/exec',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name,email:email,tag:'goal-weightloss',source:'calorie-calculator'}),mode:'no-cors'}).catch(()=>{});
 }
 
 function resetCalc() { document.getElementById('cal-results').classList.remove('visible'); document.getElementById('tools-section').scrollIntoView({behavior:'smooth'}); }
 
 function submitNewsletter() {
-  const email=document.getElementById('nl-email').value;
+  const email=document.getElementById('nl-email').value.trim();
   if(!email||!email.includes('@')){alert('Please enter a valid email address.');return;}
-  window.open('https://harrisons-newsletter-bc428b.beehiiv.com/subscribe?email='+encodeURIComponent(email),'_blank');
+  fetch('https://script.google.com/macros/s/AKfycbwssTres__1EbYYa5ZVHPY16mpe56XUoEmUeXAaX4sMRafZVQS0_Kgi3ZHcZtulS0B7/exec',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:'Runner',email:email,tag:'goal-5k',source:'newsletter-footer'}),mode:'no-cors'}).catch(()=>{});
+  document.getElementById('nl-email').value='';
+  alert('You\'re in! Check your inbox in the next 60 seconds.');
 }
 </script>
 </body>
