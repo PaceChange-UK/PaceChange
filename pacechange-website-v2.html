@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PaceChange — Change Your Pace. Change Your Life.</title>
+<meta name="description" content="Free running plans and nutrition calculators for UK runners. Training plans for 5K, 10K, Half Marathon and Marathon. Real results for real people.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --g0: #0d1f10;
+  --g1: #122614;
+  --g2: #1a3520;
+  --g3: #22422a;
+  --g4: #2d5438;
+  --lime: #c6f135;
+  --lime2: #a8cd28;
+  --lime3: #d4f55a;
+  --lime-soft: rgba(198,241,53,0.08);
+  --white: #ffffff;
+  --cream: #f5f2eb;
+  --track: rgba(198,241,53,0.1);
+  --card-border: rgba(198,241,53,0.1);
+  --section-bg: #111e14;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'DM Sans',sans-serif;
+  background: linear-gradient(160deg, #0d1f10 0%, #122614 40%, #0f1d12 100%);
+  background-attachment: fixed;
+  color:var(--white);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+body::before {
+  content:'';
+  position:fixed; inset:0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 20%, rgba(198,241,53,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(198,241,53,0.03) 0%, transparent 60%),
+    repeating-linear-gradient(90deg, transparent, transparent 119px, rgba(198,241,53,0.025) 120px),
+    repeating-linear-gradient(180deg, transparent, transparent 79px, rgba(198,241,53,0.015) 80px);
+  pointer-events:none; z-index:0;
+}
+
+/* ===== NAV ===== */
+nav {
+  position:sticky; top:0; z-index:100;
+  background:rgba(13,31,16,0.93);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(198,241,53,0.08);
+  padding:0 24px;
+}
+.nav-inner {
+  max-width:1100px; margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between;
+  height:64px;
+}
+.nav-logo { font-family:'Bebas Neue',sans-serif; font-size:1.7rem; letter-spacing:0.1em; color:var(--lime); text-decoration:none; }
+.nav-links { display:flex; gap:28px; align-items:center; }
+.nav-link { font-size:0.85rem; font-weight:500; color:rgba(255,255,255,0.55); text-decoration:none; transition:color .2s; cursor:pointer; }
+.nav-link:hover { color:var(--lime); }
+.nav-cta { background:var(--lime); color:var(--g0); font-family:'DM Sans',sans-serif; font-size:0.82rem; font-weight:800; padding:10px 22px; border-radius:8px; border:none; cursor:pointer; transition:all .2s; text-decoration:none; }
+.nav-cta:hover { background:var(--lime3); transform:translateY(-1px); box-shadow:0 4px 16px rgba(198,241,53,0.3); }
+
+/* ===== LAYOUT ===== */
+.container { max-width:900px; margin:0 auto; padding:0 24px; position:relative; z-index:1; }
+.container-wide { max-width:1100px; margin:0 auto; padding:0 24px; position:relative; z-index:1; }
+
+/* ===== HERO ===== */
+.hero { padding:88px 0 64px; text-align:center; }
+.hero-brand {
+  display:inline-flex; align-items:center; gap:10px;
+  background:var(--track); border:1px solid var(--card-border);
+  border-radius:50px; padding:7px 20px; margin-bottom:36px;
+}
+.brand-dot { width:8px; height:8px; background:var(--lime); border-radius:50%; animation:pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.8)} }
+.brand-text { font-family:'DM Mono',monospace; font-size:0.72rem; letter-spacing:.15em; text-transform:uppercase; color:var(--lime); }
+.hero h1 { font-family:'Bebas Neue',sans-serif; font-size:clamp(4rem,10vw,9.5rem); letter-spacing:.02em; line-height:.88; margin-bottom:24px; }
+.hero h1 .hl { color:var(--lime); }
+.hero-sub { font-size:1.12rem; color:rgba(255,255,255,0.55); line-height:1.75; max-width:560px; margin:0 auto 48px; }
+.hero-stats { display:flex; justify-content:center; gap:56px; flex-wrap:wrap; margin-bottom:52px; }
+.hero-stat-val { font-family:'Bebas Neue',sans-serif; font-size:2.8rem; color:var(--lime); letter-spacing:.05em; line-height:1; }
+.hero-stat-label { font-size:0.72rem; color:rgba(255,255,255,0.35); letter-spacing:.1em; text-transform:uppercase; margin-top:5px; }
+.hero-scroll { display:flex; flex-direction:column; align-items:center; gap:8px; color:rgba(255,255,255,.28); font-size:0.75rem; letter-spacing:.1em; text-transform:uppercase; cursor:pointer; transition:color .2s; }
+.hero-scroll:hover { color:var(--lime); }
+.scroll-arrow { width:32px; height:32px; border-radius:50%; border:1px solid rgba(255,255,255,.15); display:flex; align-items:center; justify-content:center; animation:bounce 2s ease-in-out infinite; }
+@keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
+
+/* ===== TOOLS ===== */
+.tools-intro { padding:0 0 36px; text-align:center; }
+.eyebrow { font-family:'DM Mono',monospace; font-size:0.7rem; letter-spacing:.18em; text-transform:uppercase; color:var(--lime); margin-bottom:12px; }
+.section-h { font-family:'Bebas Neue',sans-serif; font-size:clamp(2.2rem,5vw,3.8rem); letter-spacing:.03em; line-height:1.05; margin-bottom:12px; }
+.section-h span { color:var(--lime); }
+.section-p { font-size:0.95rem; color:rgba(255,255,255,.42); line-height:1.7; max-width:500px; margin:0 auto; }
+
+/* TOOL TABS */
+.tool-tabs { display:flex; gap:10px; margin-bottom:28px; background:rgba(255,255,255,.025); border:1px solid var(--card-border); border-radius:14px; padding:7px; }
+.tool-tab { flex:1; padding:15px 18px; border-radius:10px; border:none; background:transparent; color:rgba(255,255,255,.4); font-family:'DM Sans',sans-serif; font-size:0.95rem; font-weight:600; cursor:pointer; transition:all .25s ease; display:flex; align-items:center; justify-content:center; gap:10px; }
+.tool-tab:hover { color:rgba(255,255,255,.7); background:rgba(255,255,255,.03); }
+.tool-tab.active { background:var(--lime); color:var(--g0); box-shadow:0 4px 20px rgba(198,241,53,.25); }
+.tool-tab-icon { font-size:1.2rem; }
+
+/* ===== CALC SECTIONS ===== */
+.calc-section { display:none; animation:fadeUp .35s ease both; }
+.calc-section.active { display:block; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+
+/* ===== SHARED CARD ===== */
+.panel-card { background:rgba(255,255,255,.03); border:1px solid var(--card-border); border-radius:16px; padding:36px; margin-bottom:16px; backdrop-filter:blur(8px); }
+.panel-label { font-family:'DM Mono',monospace; font-size:.7rem; letter-spacing:.15em; text-transform:uppercase; color:var(--lime); margin-bottom:10px; }
+.panel-title { font-family:'Bebas Neue',sans-serif; font-size:2.2rem; letter-spacing:.03em; line-height:1; margin-bottom:8px; }
+.panel-desc { font-size:.88rem; color:rgba(255,255,255,.45); line-height:1.65; margin-bottom:28px; }
+
+/* ===== RUNNING CALC ===== */
+.race-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-bottom:28px; }
+.race-option { background:var(--g1); border:1.5px solid rgba(255,255,255,.07); border-radius:12px; padding:18px 14px; cursor:pointer; transition:all .2s ease; text-align:center; }
+.race-option:hover { border-color:rgba(198,241,53,.35); background:var(--g2); }
+.race-option.selected { border-color:var(--lime); background:rgba(198,241,53,.09); box-shadow:0 0 24px rgba(198,241,53,.12); }
+.race-distance { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:var(--lime); letter-spacing:.05em; line-height:1; margin-bottom:4px; }
+.race-name { font-size:.78rem; color:rgba(255,255,255,.45); letter-spacing:.06em; text-transform:uppercase; }
+.time-input-group { margin-bottom:24px; }
+.time-label { font-size:.8rem; font-weight:600; color:rgba(255,255,255,.6); margin-bottom:10px; display:block; }
+.time-fields { display:flex; align-items:center; gap:10px; }
+.time-field-wrap { display:flex; flex-direction:column; align-items:center; gap:6px; flex:1; }
+.time-input { width:100%; background:var(--g1); border:1px solid rgba(255,255,255,.09); border-radius:10px; padding:14px 10px; font-family:'DM Mono',monospace; font-size:1.6rem; color:var(--white); text-align:center; outline:none; transition:border-color .2s; -moz-appearance:textfield; }
+.time-input::-webkit-inner-spin-button,.time-input::-webkit-outer-spin-button{-webkit-appearance:none;}
+.time-input:focus { border-color:var(--lime); box-shadow:0 0 0 3px rgba(198,241,53,.1); }
+.time-sublabel { font-size:.68rem; color:rgba(255,255,255,.25); letter-spacing:.08em; text-transform:uppercase; }
+.time-sep { font-family:'Bebas Neue',sans-serif; font-size:2rem; color:rgba(255,255,255,.2); margin-bottom:18px; flex-shrink:0; }
+.slider-group { margin-bottom:28px; }
+.slider-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:14px; }
+.slider-label { font-size:.82rem; font-weight:600; color:rgba(255,255,255,.6); }
+.slider-val { font-family:'Bebas Neue',sans-serif; font-size:1.6rem; color:var(--lime); letter-spacing:.05em; line-height:1; }
+.slider-unit { font-size:.72rem; color:rgba(255,255,255,.35); margin-left:4px; }
+.slider { -webkit-appearance:none; width:100%; height:4px; border-radius:4px; background:rgba(255,255,255,.1); outline:none; cursor:pointer; }
+.slider::-webkit-slider-thumb { -webkit-appearance:none; width:22px; height:22px; border-radius:50%; background:var(--lime); cursor:pointer; box-shadow:0 0 12px rgba(198,241,53,.5); transition:transform .2s; }
+.slider::-webkit-slider-thumb:hover { transform:scale(1.2); }
+.commitment-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(80px,1fr)); gap:8px; margin-bottom:8px; }
+.commit-option { background:var(--g1); border:1.5px solid rgba(255,255,255,.07); border-radius:10px; padding:14px 8px; cursor:pointer; text-align:center; transition:all .2s; }
+.commit-option:hover { border-color:rgba(198,241,53,.3); }
+.commit-option.selected { border-color:var(--lime); background:rgba(198,241,53,.09); }
+.commit-num { font-family:'Bebas Neue',sans-serif; font-size:1.6rem; color:var(--lime); line-height:1; }
+.commit-label { font-size:.65rem; color:rgba(255,255,255,.35); text-transform:uppercase; letter-spacing:.06em; }
+
+/* STEPS BAR */
+.steps-bar { display:flex; align-items:center; justify-content:center; gap:0; margin:0 0 36px; }
+.step-item { display:flex; flex-direction:column; align-items:center; gap:8px; position:relative; z-index:1; }
+.step-circle { width:36px; height:36px; border-radius:50%; border:1.5px solid rgba(255,255,255,.12); background:var(--g1); display:flex; align-items:center; justify-content:center; font-family:'DM Mono',monospace; font-size:.8rem; color:rgba(255,255,255,.3); transition:all .3s ease; }
+.step-circle.active { border-color:var(--lime); background:var(--lime); color:var(--g0); font-weight:700; box-shadow:0 0 20px rgba(198,241,53,.4); }
+.step-circle.done { border-color:var(--lime2); background:var(--g2); color:var(--lime); }
+.step-label { font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.25); transition:color .3s; white-space:nowrap; }
+.step-label.active { color:var(--lime); }
+.step-line { width:72px; height:1px; background:rgba(255,255,255,.08); margin-bottom:22px; flex-shrink:0; }
+.step-line.done { background:var(--lime2); }
+
+/* RESULTS */
+.result-hero { background:linear-gradient(135deg,var(--g2) 0%,var(--g1) 100%); border:1px solid rgba(198,241,53,.18); border-radius:16px; padding:36px; margin-bottom:16px; text-align:center; position:relative; overflow:hidden; }
+.result-hero::before { content:''; position:absolute; top:-50%; left:-50%; width:200%; height:200%; background:radial-gradient(ellipse at center,rgba(198,241,53,.06) 0%,transparent 60%); pointer-events:none; }
+.result-label { font-family:'DM Mono',monospace; font-size:.68rem; letter-spacing:.15em; text-transform:uppercase; color:rgba(198,241,53,.65); margin-bottom:12px; }
+.result-time { font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,8vw,5.5rem); color:var(--lime); letter-spacing:.04em; line-height:1; margin-bottom:8px; }
+.result-race { font-size:.88rem; color:rgba(255,255,255,.45); margin-bottom:24px; }
+.result-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,.07); border-radius:10px; overflow:hidden; }
+.result-stat { background:var(--g1); padding:16px 12px; text-align:center; }
+.result-stat-val { font-family:'Bebas Neue',sans-serif; font-size:1.6rem; color:var(--lime); letter-spacing:.04em; line-height:1; }
+.result-stat-label { font-size:.65rem; color:rgba(255,255,255,.3); text-transform:uppercase; letter-spacing:.08em; margin-top:4px; }
+.plan-breakdown { background:rgba(255,255,255,.025); border:1px solid var(--card-border); border-radius:16px; padding:28px; margin-bottom:16px; }
+.breakdown-title { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; margin-bottom:16px; display:flex; align-items:center; gap:10px; }
+.breakdown-title::after { content:''; flex:1; height:1px; background:rgba(255,255,255,.07); }
+.phase-row { display:flex; gap:14px; padding:14px 0; border-bottom:1px solid rgba(255,255,255,.05); align-items:flex-start; }
+.phase-row:last-child { border-bottom:none; }
+.phase-num { width:32px; height:32px; border-radius:50%; background:var(--track); border:1px solid rgba(198,241,53,.2); display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:1rem; color:var(--lime); flex-shrink:0; }
+.phase-content { flex:1; }
+.phase-name { font-size:.88rem; font-weight:700; color:var(--white); margin-bottom:3px; }
+.phase-detail { font-size:.8rem; color:rgba(255,255,255,.4); line-height:1.5; }
+.phase-weeks { font-family:'DM Mono',monospace; font-size:.72rem; color:rgba(198,241,53,.65); white-space:nowrap; flex-shrink:0; }
+.predictor-row { display:flex; align-items:center; justify-content:space-between; padding:12px 0; border-bottom:1px solid rgba(255,255,255,.05); }
+.predictor-row:last-child { border-bottom:none; }
+.predictor-race { font-size:.88rem; color:rgba(255,255,255,.6); }
+.predictor-time { font-family:'Bebas Neue',sans-serif; font-size:1.3rem; color:var(--lime); letter-spacing:.04em; }
+.pace-zones { display:flex; gap:6px; margin-top:14px; flex-wrap:wrap; }
+.pace-zone { padding:4px 12px; border-radius:50px; font-size:.72rem; font-weight:600; letter-spacing:.06em; }
+.zone-easy { background:rgba(74,197,114,.12); color:#4ac572; border:1px solid rgba(74,197,114,.2); }
+.zone-tempo { background:rgba(251,191,36,.12); color:#fbbf24; border:1px solid rgba(251,191,36,.2); }
+.zone-hard { background:rgba(239,68,68,.12); color:#ef4444; border:1px solid rgba(239,68,68,.2); }
+.zone-rest { background:rgba(255,255,255,.05); color:rgba(255,255,255,.4); border:1px solid rgba(255,255,255,.09); }
+.inside-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:24px; }
+.inside-item { background:var(--g2); border:1px solid rgba(255,255,255,.05); border-radius:10px; padding:14px; display:flex; gap:10px; align-items:flex-start; }
+.inside-icon { font-size:1.2rem; flex-shrink:0; margin-top:1px; }
+.inside-title { font-size:.82rem; font-weight:700; color:var(--white); margin-bottom:2px; }
+.inside-desc { font-size:.75rem; color:rgba(255,255,255,.35); line-height:1.45; }
+
+/* BUTTONS */
+.btn-primary { width:100%; padding:18px; background:var(--lime); color:var(--g0); font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:800; letter-spacing:.04em; border:none; border-radius:12px; cursor:pointer; transition:all .2s ease; display:flex; align-items:center; justify-content:center; gap:10px; }
+.btn-primary:hover { background:var(--lime3); transform:translateY(-2px); box-shadow:0 8px 32px rgba(198,241,53,.3); }
+.btn-secondary { background:transparent; border:1px solid rgba(255,255,255,.14); color:rgba(255,255,255,.5); font-family:'DM Sans',sans-serif; font-size:.85rem; font-weight:500; padding:12px 24px; border-radius:8px; cursor:pointer; transition:all .2s; }
+.btn-secondary:hover { border-color:rgba(255,255,255,.28); color:rgba(255,255,255,.7); }
+
+/* CALORIE CALC */
+.sec-div { font-family:'DM Mono',monospace; font-size:.68rem; letter-spacing:.15em; text-transform:uppercase; color:var(--lime); margin-bottom:18px; display:flex; align-items:center; gap:10px; }
+.sec-div::after { content:''; flex:1; height:1px; background:rgba(198,241,53,.1); }
+.toggle-row { display:flex; gap:10px; margin-bottom:24px; }
+.toggle-btn { flex:1; padding:14px; border-radius:10px; border:1.5px solid rgba(255,255,255,.09); background:var(--g1); color:rgba(255,255,255,.4); font-family:'DM Sans',sans-serif; font-size:.9rem; font-weight:600; cursor:pointer; transition:all .2s; text-align:center; }
+.toggle-btn.selected { border-color:var(--lime); background:rgba(198,241,53,.09); color:var(--lime); }
+.input-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:18px; }
+.input-group { display:flex; flex-direction:column; gap:8px; }
+.input-label { font-size:.78rem; font-weight:600; color:rgba(255,255,255,.5); letter-spacing:.04em; }
+.input-wrap { position:relative; display:flex; align-items:center; }
+.calc-input { width:100%; background:var(--g1); border:1px solid rgba(255,255,255,.09); border-radius:10px; padding:14px 48px 14px 16px; font-family:'DM Mono',monospace; font-size:1.3rem; color:var(--white); outline:none; transition:border-color .2s; -moz-appearance:textfield; }
+.calc-input::-webkit-inner-spin-button,.calc-input::-webkit-outer-spin-button{-webkit-appearance:none;}
+.calc-input:focus { border-color:var(--lime); box-shadow:0 0 0 3px rgba(198,241,53,.08); }
+.input-unit { position:absolute; right:14px; font-size:.72rem; color:rgba(255,255,255,.3); letter-spacing:.06em; text-transform:uppercase; pointer-events:none; }
+.activity-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:8px; margin-bottom:24px; }
+.activity-option { background:var(--g1); border:1.5px solid rgba(255,255,255,.07); border-radius:12px; padding:14px 10px; cursor:pointer; transition:all .2s; text-align:center; }
+.activity-option:hover { border-color:rgba(198,241,53,.3); background:var(--g2); }
+.activity-option.selected { border-color:var(--lime); background:rgba(198,241,53,.09); }
+.activity-icon { font-size:1.4rem; margin-bottom:6px; }
+.activity-label { font-size:.75rem; color:rgba(255,255,255,.5); line-height:1.3; }
+.activity-label strong { display:block; color:var(--white); font-size:.8rem; }
+.goal-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:24px; }
+.goal-option { background:var(--g1); border:1.5px solid rgba(255,255,255,.07); border-radius:12px; padding:16px 10px; cursor:pointer; transition:all .2s; text-align:center; }
+.goal-option:hover { border-color:rgba(198,241,53,.3); }
+.goal-option.selected { border-color:var(--lime); background:rgba(198,241,53,.09); }
+.goal-icon { font-size:1.5rem; margin-bottom:6px; }
+.goal-name { font-size:.8rem; font-weight:700; color:var(--white); margin-bottom:3px; }
+.goal-desc { font-size:.7rem; color:rgba(255,255,255,.35); line-height:1.3; }
+.cal-result-calories { font-family:'Bebas Neue',sans-serif; font-size:clamp(3.5rem,9vw,6rem); color:var(--lime); letter-spacing:.04em; line-height:1; }
+.cal-result-unit { font-size:.9rem; color:rgba(255,255,255,.35); margin-bottom:24px; letter-spacing:.06em; text-transform:uppercase; }
+.macro-card { background:rgba(255,255,255,.025); border:1px solid var(--card-border); border-radius:16px; padding:28px; margin-bottom:16px; }
+.macro-row { display:flex; align-items:center; gap:14px; padding:12px 0; border-bottom:1px solid rgba(255,255,255,.05); }
+.macro-row:last-child { border-bottom:none; }
+.macro-icon { font-size:1.4rem; flex-shrink:0; }
+.macro-info { flex:1; }
+.macro-name { font-size:.88rem; font-weight:700; color:var(--white); margin-bottom:2px; }
+.macro-desc { font-size:.75rem; color:rgba(255,255,255,.35); }
+.macro-bar-wrap { flex:1; height:6px; background:rgba(255,255,255,.07); border-radius:3px; overflow:hidden; }
+.macro-bar { height:100%; border-radius:3px; transition:width .8s ease; }
+.macro-val { font-family:'Bebas Neue',sans-serif; font-size:1.1rem; color:var(--lime); letter-spacing:.04em; min-width:54px; text-align:right; flex-shrink:0; }
+.timing-card { background:rgba(255,255,255,.025); border:1px solid var(--card-border); border-radius:16px; padding:28px; margin-bottom:16px; }
+.timing-row { display:flex; gap:14px; padding:12px 0; border-bottom:1px solid rgba(255,255,255,.05); align-items:flex-start; }
+.timing-row:last-child { border-bottom:none; }
+.timing-badge { background:var(--track); border:1px solid rgba(198,241,53,.15); border-radius:8px; padding:4px 10px; font-family:'DM Mono',monospace; font-size:.68rem; color:var(--lime); white-space:nowrap; flex-shrink:0; margin-top:2px; }
+.timing-text { flex:1; }
+.timing-title { font-size:.85rem; font-weight:700; color:var(--white); margin-bottom:2px; }
+.timing-desc { font-size:.78rem; color:rgba(255,255,255,.4); line-height:1.5; }
+.food-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:24px; }
+.food-item { background:var(--g2); border:1px solid rgba(255,255,255,.05); border-radius:10px; padding:12px 14px; display:flex; justify-content:space-between; align-items:center; }
+.food-name { font-size:.8rem; color:rgba(255,255,255,.6); }
+.food-cal { font-family:'Bebas Neue',sans-serif; font-size:1rem; color:var(--lime); letter-spacing:.04em; }
+.cal-results { display:none; animation:fadeUp .4s ease both; }
+.cal-results.visible { display:block; }
+
+/* EMAIL */
+.email-panel { background:linear-gradient(135deg,var(--g2) 0%,var(--g1) 100%); border:1px solid rgba(198,241,53,.22); border-radius:16px; padding:36px; text-align:center; }
+.email-title { font-family:'Bebas Neue',sans-serif; font-size:2.2rem; letter-spacing:.03em; margin-bottom:8px; }
+.email-title span { color:var(--lime); }
+.email-desc { font-size:.9rem; color:rgba(255,255,255,.5); line-height:1.65; margin-bottom:28px; max-width:440px; margin-left:auto; margin-right:auto; }
+.email-form { display:flex; flex-direction:column; gap:12px; }
+.email-input { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:16px 20px; font-family:'DM Sans',sans-serif; font-size:.95rem; color:var(--white); outline:none; transition:border-color .2s; }
+.email-input::placeholder { color:rgba(255,255,255,.25); }
+.email-input:focus { border-color:var(--lime); }
+.email-note { font-size:.72rem; color:rgba(255,255,255,.25); margin-top:8px; line-height:1.5; }
+.success-state { display:none; text-align:center; padding:32px 16px; }
+.success-state.visible { display:block; }
+.success-icon { width:64px; height:64px; border-radius:50%; background:rgba(198,241,53,.1); border:2px solid var(--lime); display:flex; align-items:center; justify-content:center; margin:0 auto 20px; font-size:1.8rem; }
+.success-title { font-family:'Bebas Neue',sans-serif; font-size:2.5rem; color:var(--lime); letter-spacing:.04em; margin-bottom:10px; }
+.success-desc { font-size:.92rem; color:rgba(255,255,255,.5); line-height:1.7; max-width:420px; margin:0 auto; }
+
+/* UPSELL */
+.upsell-card { background:var(--g0); border:1px solid rgba(198,241,53,.18); border-radius:16px; padding:32px; display:flex; align-items:center; gap:24px; margin-top:16px; flex-wrap:wrap; }
+.upsell-content { flex:1; min-width:220px; }
+.upsell-tag { font-family:'DM Mono',monospace; font-size:.65rem; color:var(--lime2); letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px; }
+.upsell-title { font-family:'Bebas Neue',sans-serif; font-size:1.6rem; letter-spacing:.04em; margin-bottom:6px; }
+.upsell-desc { font-size:.82rem; color:rgba(255,255,255,.4); line-height:1.55; }
+.upsell-price { font-family:'Bebas Neue',sans-serif; font-size:2.8rem; color:var(--lime); letter-spacing:.04em; line-height:1; }
+.upsell-price-note { font-size:.72rem; color:rgba(255,255,255,.3); margin-bottom:12px; }
+
+/* ===== SECTION DIVIDERS ===== */
+.full-section { padding:72px 0; position:relative; z-index:1; }
+.full-section.alt { background:rgba(255,255,255,.015); border-top:1px solid rgba(255,255,255,.04); border-bottom:1px solid rgba(255,255,255,.04); }
+.full-section.lime-tint { background:rgba(198,241,53,.03); border-top:1px solid rgba(198,241,53,.07); border-bottom:1px solid rgba(198,241,53,.07); }
+
+/* ===== WHY PACECHANGE ===== */
+.why-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; margin-top:40px; }
+.why-card { background:rgba(255,255,255,.03); border:1px solid var(--card-border); border-radius:16px; padding:28px; transition:border-color .2s; }
+.why-card:hover { border-color:rgba(198,241,53,.25); }
+.why-icon { font-size:2rem; margin-bottom:16px; }
+.why-title { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.04em; margin-bottom:8px; color:var(--lime); }
+.why-desc { font-size:.85rem; color:rgba(255,255,255,.5); line-height:1.65; }
+
+/* ===== STATS STRIP ===== */
+.stats-strip { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:24px; text-align:center; }
+.stat-val { font-family:'Bebas Neue',sans-serif; font-size:3rem; color:var(--lime); letter-spacing:.05em; line-height:1; }
+.stat-label { font-size:.75rem; color:rgba(255,255,255,.35); letter-spacing:.1em; text-transform:uppercase; margin-top:6px; }
+
+/* ===== TESTIMONIALS ===== */
+.testimonials-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; margin-top:40px; }
+.testimonial-card { background:rgba(255,255,255,.03); border:1px solid var(--card-border); border-radius:16px; padding:28px; position:relative; }
+.testimonial-card::before { content:'"'; position:absolute; top:16px; right:20px; font-family:'Bebas Neue',sans-serif; font-size:4rem; color:rgba(198,241,53,.12); line-height:1; }
+.testi-stars { color:var(--lime); font-size:1rem; margin-bottom:14px; letter-spacing:2px; }
+.testi-text { font-size:.9rem; color:rgba(255,255,255,.65); line-height:1.7; margin-bottom:20px; font-style:italic; }
+.testi-author { display:flex; align-items:center; gap:12px; }
+.testi-avatar { width:40px; height:40px; border-radius:50%; background:var(--g3); border:2px solid var(--lime); display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:1.1rem; color:var(--lime); flex-shrink:0; }
+.testi-name { font-size:.88rem; font-weight:700; color:var(--white); }
+.testi-detail { font-size:.75rem; color:rgba(255,255,255,.35); }
+.testi-badge { font-family:'DM Mono',monospace; font-size:.65rem; color:var(--lime2); letter-spacing:.08em; text-transform:uppercase; margin-top:3px; }
+
+/* ===== TRAINING TIPS ===== */
+.tips-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; margin-top:40px; }
+.tip-card { background:rgba(255,255,255,.03); border:1px solid var(--card-border); border-radius:14px; padding:24px; display:flex; gap:16px; align-items:flex-start; transition:all .2s; }
+.tip-card:hover { border-color:rgba(198,241,53,.25); background:rgba(255,255,255,.04); }
+.tip-num { font-family:'Bebas Neue',sans-serif; font-size:2.2rem; color:rgba(198,241,53,.3); line-height:1; flex-shrink:0; min-width:36px; }
+.tip-content {}
+.tip-title { font-size:.92rem; font-weight:700; color:var(--white); margin-bottom:6px; }
+.tip-desc { font-size:.82rem; color:rgba(255,255,255,.45); line-height:1.6; }
+
+/* ===== RACE GUIDE ===== */
+.race-guide-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; margin-top:32px; }
+.race-guide-card { background:var(--g1); border:1px solid var(--card-border); border-radius:14px; padding:24px 20px; text-align:center; transition:all .2s; }
+.race-guide-card:hover { border-color:rgba(198,241,53,.3); transform:translateY(-3px); }
+.rg-dist { font-family:'Bebas Neue',sans-serif; font-size:3rem; color:var(--lime); letter-spacing:.04em; line-height:1; margin-bottom:4px; }
+.rg-name { font-size:.8rem; color:rgba(255,255,255,.5); text-transform:uppercase; letter-spacing:.08em; margin-bottom:12px; }
+.rg-time { font-family:'DM Mono',monospace; font-size:.75rem; color:rgba(198,241,53,.7); background:rgba(198,241,53,.08); padding:4px 10px; border-radius:50px; display:inline-block; margin-bottom:8px; }
+.rg-tip { font-size:.78rem; color:rgba(255,255,255,.4); line-height:1.5; }
+
+/* ===== UK RUNNING SECTION ===== */
+.uk-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:32px; }
+.uk-fact { background:rgba(255,255,255,.03); border:1px solid var(--card-border); border-radius:12px; padding:20px 22px; }
+.uk-fact-emoji { font-size:1.5rem; margin-bottom:10px; }
+.uk-fact-title { font-size:.9rem; font-weight:700; color:var(--white); margin-bottom:5px; }
+.uk-fact-desc { font-size:.82rem; color:rgba(255,255,255,.45); line-height:1.6; }
+
+/* ===== FREE GUIDES ===== */
+.guides-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; margin-top:36px; }
+.guide-card { background:linear-gradient(135deg,var(--g2) 0%,var(--g1) 100%); border:1px solid rgba(198,241,53,.15); border-radius:16px; padding:28px; position:relative; overflow:hidden; transition:transform .2s; }
+.guide-card:hover { transform:translateY(-4px); }
+.guide-card::before { content:''; position:absolute; top:-30%; right:-20%; width:200px; height:200px; background:radial-gradient(circle,rgba(198,241,53,.07) 0%,transparent 70%); pointer-events:none; }
+.guide-tag { font-family:'DM Mono',monospace; font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; color:var(--lime2); margin-bottom:12px; }
+.guide-title { font-family:'Bebas Neue',sans-serif; font-size:1.6rem; letter-spacing:.04em; margin-bottom:8px; line-height:1.1; }
+.guide-desc { font-size:.82rem; color:rgba(255,255,255,.45); line-height:1.6; margin-bottom:20px; }
+.guide-includes { list-style:none; margin-bottom:20px; }
+.guide-includes li { font-size:.8rem; color:rgba(255,255,255,.55); padding:4px 0; display:flex; gap:8px; align-items:flex-start; }
+.guide-includes li::before { content:'✓'; color:var(--lime); font-weight:700; flex-shrink:0; }
+.guide-price { display:flex; align-items:baseline; gap:6px; margin-bottom:16px; }
+.guide-price-val { font-family:'Bebas Neue',sans-serif; font-size:2.2rem; color:var(--lime); letter-spacing:.04em; }
+.guide-price-note { font-size:.78rem; color:rgba(255,255,255,.35); }
+
+/* ===== NEWSLETTER ===== */
+.newsletter-card { background:linear-gradient(135deg,var(--g3) 0%,var(--g2) 100%); border:1px solid rgba(198,241,53,.14); border-radius:20px; padding:56px 48px; position:relative; overflow:hidden; text-align:center; }
+.newsletter-card::before { content:''; position:absolute; top:-30%; left:-20%; width:60%; height:160%; background:radial-gradient(ellipse,rgba(198,241,53,.07) 0%,transparent 70%); pointer-events:none; }
+.newsletter-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,5vw,4rem); letter-spacing:.03em; margin-bottom:12px; }
+.newsletter-title span { color:var(--lime); }
+.newsletter-desc { font-size:.95rem; color:rgba(255,255,255,.5); line-height:1.75; max-width:480px; margin:0 auto 32px; }
+.newsletter-form { display:flex; gap:12px; max-width:440px; margin:0 auto; }
+.newsletter-input { flex:1; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14); border-radius:10px; padding:15px 20px; font-family:'DM Sans',sans-serif; font-size:.95rem; color:var(--white); outline:none; transition:border-color .2s; }
+.newsletter-input::placeholder { color:rgba(255,255,255,.25); }
+.newsletter-input:focus { border-color:var(--lime); }
+.newsletter-btn { background:var(--lime); color:var(--g0); font-family:'DM Sans',sans-serif; font-size:.9rem; font-weight:800; padding:15px 28px; border:none; border-radius:10px; cursor:pointer; transition:all .2s; white-space:nowrap; }
+.newsletter-btn:hover { background:var(--lime3); transform:translateY(-1px); }
+.newsletter-note { font-size:.72rem; color:rgba(255,255,255,.22); margin-top:14px; }
+.nl-perks { display:flex; justify-content:center; gap:28px; flex-wrap:wrap; margin-top:28px; }
+.nl-perk { font-size:.82rem; color:rgba(255,255,255,.45); display:flex; align-items:center; gap:6px; }
+.nl-perk::before { content:'✓'; color:var(--lime); font-weight:700; }
+
+/* ===== FOOTER ===== */
+footer { border-top:1px solid rgba(255,255,255,.05); padding:52px 24px 32px; text-align:center; background:rgba(0,0,0,.2); }
+.footer-logo { font-family:'Bebas Neue',sans-serif; font-size:2rem; color:var(--lime); letter-spacing:.1em; margin-bottom:8px; }
+.footer-tag { font-size:.88rem; color:rgba(255,255,255,.28); font-style:italic; margin-bottom:28px; }
+.footer-links { display:flex; justify-content:center; gap:28px; flex-wrap:wrap; margin-bottom:24px; }
+.footer-link { font-size:.8rem; color:rgba(255,255,255,.32); text-decoration:none; transition:color .2s; cursor:pointer; }
+.footer-link:hover { color:var(--lime); }
+.footer-copy { font-size:.72rem; color:rgba(255,255,255,.16); }
+
+/* RUNNING STEP PANELS */
+.r-panel { display:none; animation:fadeUp .35s ease both; }
+.r-panel.active { display:block; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:640px) {
+  .panel-card { padding:24px 18px; }
+  .inside-grid,.uk-grid { grid-template-columns:1fr; }
+  .result-grid { grid-template-columns:1fr 1fr; }
+  .steps-bar { gap:0; }
+  .step-line { width:36px; }
+  .tool-tabs { flex-direction:column; }
+  .input-row { grid-template-columns:1fr; }
+  .food-grid { grid-template-columns:1fr; }
+  .newsletter-form { flex-direction:column; }
+  .upsell-card { flex-direction:column; text-align:center; }
+  .hero h1 { font-size:3.5rem; }
+  .nav-links { display:none; }
+  .newsletter-card { padding:36px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">PaceChange</a>
+    <div class="nav-links">
+      <span class="nav-link" onclick="document.getElementById('tools-section').scrollIntoView({behavior:'smooth'})">Free Tools</span>
+      <span class="nav-link" onclick="document.getElementById('guides-section').scrollIntoView({behavior:'smooth'})">Free Guides</span>
+      <span class="nav-link" onclick="document.getElementById('tips-section').scrollIntoView({behavior:'smooth'})">Training Tips</span>
+      <a class="nav-link" href="https://harrisons-newsletter-bc428b.beehiiv.com/subscribe" target="_blank">Newsletter</a>
+    </div>
+    <a class="nav-cta" href="https://harrisons-newsletter-bc428b.beehiiv.com/subscribe" target="_blank">Get Free Plan →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="container">
+  <div class="hero">
+    <div class="hero-brand">
+      <div class="brand-dot"></div>
+      <span class="brand-text">PaceChange Runners · UK</span>
+    </div>
+    <h1>Change Your<br><span class="hl">Pace.</span><br>Change Your Life.</h1>
+    <p class="hero-sub">Free training plans. Real nutrition numbers. Built for UK runners who want to get faster — from your first parkrun to marathon day.</p>
+    <div class="hero-stats">
+      <div><div class="hero-stat-val">4K+</div><div class="hero-stat-label">Runners helped</div></div>
+      <div><div class="hero-stat-val">Free</div><div class="hero-stat-label">Always</div></div>
+      <div><div class="hero-stat-val">4</div><div class="hero-stat-label">Race distances</div></div>
+      <div><div class="hero-stat-val">UK</div><div class="hero-stat-label">Focused</div></div>
+    </div>
+    <div class="hero-scroll" onclick="document.getElementById('tools-section').scrollIntoView({behavior:'smooth'})">
+      <div class="scroll-arrow">↓</div>
+      <span>Start with the free tools</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TOOLS SECTION ===== -->
+<div class="container" id="tools-section">
+  <div class="tools-intro">
+    <div class="eyebrow">Free tools — use them now</div>
+    <div class="section-h">Two <span>Calculators.</span><br>Everything You Need.</div>
+    <div class="section-p">Build your training plan or get your exact nutrition numbers. Both completely free, both built for UK runners.</div>
+  </div>
+
+  <div class="tool-tabs">
+    <button class="tool-tab active" id="tab-run" onclick="switchTool('run')">
+      <span class="tool-tab-icon">🏃</span> Training Plan Builder
+    </button>
+    <button class="tool-tab" id="tab-cal" onclick="switchTool('cal')">
+      <span class="tool-tab-icon">🔥</span> Calorie Calculator
+    </button>
+  </div>
+
+  <!-- RUNNING CALC -->
+  <div class="calc-section active" id="section-run">
+    <div class="steps-bar">
+      <div class="step-item"><div class="step-circle active" id="step1-circle">1</div><div class="step-label active" id="step1-label">Your Race</div></div>
+      <div class="step-line" id="line1"></div>
+      <div class="step-item"><div class="step-circle" id="step2-circle">2</div><div class="step-label" id="step2-label">Your Times</div></div>
+      <div class="step-line" id="line2"></div>
+      <div class="step-item"><div class="step-circle" id="step3-circle">3</div><div class="step-label" id="step3-label">Commitment</div></div>
+      <div class="step-line" id="line3"></div>
+      <div class="step-item"><div class="step-circle" id="step4-circle">4</div><div class="step-label" id="step4-label">Your Plan</div></div>
+    </div>
+    <div class="r-panel active" id="rpanel1">
+      <div class="panel-card">
+        <div class="panel-label">Step 1 of 3</div>
+        <div class="panel-title">What are you training for?</div>
+        <div class="panel-desc">Whether it's your first parkrun or a marathon PB — select your race and we'll build the plan around it.</div>
+        <div class="race-grid">
+          <div class="race-option" onclick="selectRace(this,'5K','5K')"><div class="race-distance">5K</div><div class="race-name">Parkrun / 5K</div></div>
+          <div class="race-option" onclick="selectRace(this,'10K','10K')"><div class="race-distance">10K</div><div class="race-name">10 Kilometre</div></div>
+          <div class="race-option" onclick="selectRace(this,'HM','Half')"><div class="race-distance">½M</div><div class="race-name">Half Marathon</div></div>
+          <div class="race-option" onclick="selectRace(this,'M','Marathon')"><div class="race-distance">M</div><div class="race-name">Marathon</div></div>
+        </div>
+        <button class="btn-primary" onclick="rGoToStep(2)" id="rbtn1" disabled style="opacity:.4;cursor:not-allowed;">Continue →</button>
+      </div>
+    </div>
+    <div class="r-panel" id="rpanel2">
+      <div class="panel-card">
+        <div class="panel-label">Step 2 of 3</div>
+        <div class="panel-title">Your times</div>
+        <div class="panel-desc">Be honest with your current time — an accurate start gives you a better plan.</div>
+        <div class="time-input-group">
+          <label class="time-label">Your current <span id="current-race-label">5K</span> time</label>
+          <div class="time-fields">
+            <div class="time-field-wrap"><input type="number" class="time-input" id="cur-h" min="0" max="9" placeholder="0"><span class="time-sublabel">Hours</span></div>
+            <span class="time-sep">:</span>
+            <div class="time-field-wrap"><input type="number" class="time-input" id="cur-m" min="0" max="59" placeholder="28"><span class="time-sublabel">Minutes</span></div>
+            <span class="time-sep">:</span>
+            <div class="time-field-wrap"><input type="number" class="time-input" id="cur-s" min="0" max="59" placeholder="00"><span class="time-sublabel">Seconds</span></div>
+          </div>
+        </div>
+        <div class="time-input-group">
+          <label class="time-label">Your goal <span id="goal-race-label">5K</span> time</label>
+          <div class="time-fields">
+            <div class="time-field-wrap"><input type="number" class="time-input" id="goal-h" min="0" max="9" placeholder="0"><span class="time-sublabel">Hours</span></div>
+            <span class="time-sep">:</span>
+            <div class="time-field-wrap"><input type="number" class="time-input" id="goal-m" min="0" max="59" placeholder="23"><span class="time-sublabel">Minutes</span></div>
+            <span class="time-sep">:</span>
+            <div class="time-field-wrap"><input type="number" class="time-input" id="goal-s" min="0" max="59" placeholder="00"><span class="time-sublabel">Seconds</span></div>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;"><button class="btn-secondary" onclick="rGoToStep(1)">← Back</button><button class="btn-primary" onclick="rGoToStep(3)" style="flex:1">Continue →</button></div>
+      </div>
+    </div>
+    <div class="r-panel" id="rpanel3">
+      <div class="panel-card">
+        <div class="panel-label">Step 3 of 3</div>
+        <div class="panel-title">How much can you commit?</div>
+        <div class="panel-desc">Consistent training beats overambitious plans. Be realistic — we'll build around what you can actually do.</div>
+        <div style="margin-bottom:24px;">
+          <div class="time-label" style="margin-bottom:12px;">Training days per week</div>
+          <div class="commitment-grid">
+            <div class="commit-option" onclick="selectDays(this,2)"><div class="commit-num">2</div><div class="commit-label">days</div></div>
+            <div class="commit-option" onclick="selectDays(this,3)"><div class="commit-num">3</div><div class="commit-label">days</div></div>
+            <div class="commit-option" onclick="selectDays(this,4)"><div class="commit-num">4</div><div class="commit-label">days</div></div>
+            <div class="commit-option" onclick="selectDays(this,5)"><div class="commit-num">5</div><div class="commit-label">days</div></div>
+            <div class="commit-option" onclick="selectDays(this,6)"><div class="commit-num">6</div><div class="commit-label">days</div></div>
+          </div>
+        </div>
+        <div class="slider-group">
+          <div class="slider-header"><span class="slider-label">Weeks available</span><span><span class="slider-val" id="weeks-val">8</span><span class="slider-unit">weeks</span></span></div>
+          <input type="range" class="slider" id="weeks-slider" min="4" max="26" value="8" oninput="updateWeeks(this.value)">
+          <div style="display:flex;justify-content:space-between;margin-top:6px;"><span style="font-size:.7rem;color:rgba(255,255,255,.2);">4 weeks</span><span style="font-size:.7rem;color:rgba(255,255,255,.2);">26 weeks</span></div>
+        </div>
+        <div style="display:flex;gap:10px;"><button class="btn-secondary" onclick="rGoToStep(2)">← Back</button><button class="btn-primary" onclick="generatePlan()" style="flex:1">🏃 Generate My Plan</button></div>
+      </div>
+    </div>
+    <div class="r-panel" id="rpanel4">
+      <div class="result-hero">
+        <div class="result-label">Your Goal Time</div>
+        <div class="result-time" id="result-goal-time">23:00</div>
+        <div class="result-race" id="result-race-text">5K in 8 weeks</div>
+        <div class="result-grid">
+          <div class="result-stat"><div class="result-stat-val" id="result-improvement">–5:00</div><div class="result-stat-label">Time off</div></div>
+          <div class="result-stat"><div class="result-stat-val" id="result-pace">4:36</div><div class="result-stat-label">Goal pace /km</div></div>
+          <div class="result-stat"><div class="result-stat-val" id="result-weeks-disp">8wks</div><div class="result-stat-label">Training period</div></div>
+        </div>
+      </div>
+      <div class="plan-breakdown"><div class="breakdown-title">Race Predictor</div><div id="predictor-rows"></div></div>
+      <div class="plan-breakdown"><div class="breakdown-title">Your Training Plan</div><div id="phase-rows"></div></div>
+      <div class="plan-breakdown"><div class="breakdown-title">Weekly Training Structure</div><div id="weekly-structure"></div><div class="pace-zones" id="pace-zones" style="margin-top:16px;"></div></div>
+      <div class="panel-card">
+        <div class="panel-label">Your Free Guide Includes</div>
+        <div class="panel-title">The 4-Week PaceChange Runner Guide</div>
+        <div class="panel-desc">Delivered to your inbox immediately. Everything you need for the first month of your plan.</div>
+        <div class="inside-grid">
+          <div class="inside-item"><div class="inside-icon">🏃</div><div><div class="inside-title">Week-by-week workouts</div><div class="inside-desc">Every session mapped with distances, paces, and recovery days</div></div></div>
+          <div class="inside-item"><div class="inside-icon">🥗</div><div><div class="inside-title">Runner nutrition guide</div><div class="inside-desc">What to eat before, during, and after. UK foods, real portions.</div></div></div>
+          <div class="inside-item"><div class="inside-icon">😴</div><div><div class="inside-title">Sleep & recovery</div><div class="inside-desc">How sleep affects performance and how to optimise it</div></div></div>
+          <div class="inside-item"><div class="inside-icon">🧘</div><div><div class="inside-title">Stretching protocol</div><div class="inside-desc">Pre-run, post-run, and rest day routines</div></div></div>
+          <div class="inside-item"><div class="inside-icon">💪</div><div><div class="inside-title">Strength work</div><div class="inside-desc">3 exercises that improve running economy by up to 8%</div></div></div>
+          <div class="inside-item"><div class="inside-icon">📊</div><div><div class="inside-title">Progress tracker</div><div class="inside-desc">Weekly log to track sessions, times, and feel</div></div></div>
+        </div>
+        <div class="email-panel">
+          <div class="email-title">Send Me The <span>Free Guide</span></div>
+          <div class="email-desc">Enter your details and we'll send your personalised plan right away. No spam — ever.</div>
+          <div class="email-form" id="r-email-form">
+            <input type="text" class="email-input" id="r-first-name" placeholder="First name">
+            <input type="email" class="email-input" id="r-email-addr" placeholder="Email address">
+            <button class="btn-primary" onclick="submitRunEmail()">📬 Send My Free Plan</button>
+            <div class="email-note">Weekly running tips included. Unsubscribe any time.</div>
+          </div>
+          <div class="success-state" id="r-success-state">
+            <div class="success-icon">✓</div>
+            <div class="success-title">You're in!</div>
+            <div class="success-desc">Your free 4-week PaceChange guide is heading to your inbox now.<br><br>Change your pace. Change your life.</div>
+          </div>
+        </div>
+      </div>
+      <div class="upsell-card" id="upsell-card" style="display:none;">
+        <div class="upsell-content">
+          <div class="upsell-tag">Want to go further?</div>
+          <div class="upsell-title" id="upsell-title">The Full Training Programme</div>
+          <div class="upsell-desc">Full week-by-week plan, race nutrition, interval sessions, taper week, race day protocol, and the PaceChange community.</div>
+        </div>
+        <div style="text-align:center;flex-shrink:0;">
+          <div class="upsell-price" id="upsell-price">£37</div>
+          <div class="upsell-price-note">one-time payment</div>
+          <button class="btn-primary" onclick="window.open('https://gumroad.com','_blank')" style="width:auto;padding:12px 24px;">Get The Full Plan →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CALORIE CALC -->
+  <div class="calc-section" id="section-cal">
+    <div class="panel-card">
+      <div class="sec-div">About You</div>
+      <div class="toggle-row">
+        <div class="toggle-btn selected" id="gender-male" onclick="selectGender('male')">Male</div>
+        <div class="toggle-btn" id="gender-female" onclick="selectGender('female')">Female</div>
+      </div>
+      <div class="input-row">
+        <div class="input-group"><label class="input-label">Age</label><div class="input-wrap"><input type="number" class="calc-input" id="input-age" min="16" max="80" placeholder="28"><span class="input-unit">yrs</span></div></div>
+        <div class="input-group"><label class="input-label">Weight</label><div class="input-wrap"><input type="number" class="calc-input" id="input-weight" min="40" max="200" placeholder="72"><span class="input-unit">kg</span></div></div>
+      </div>
+      <div class="input-row">
+        <div class="input-group"><label class="input-label">Height</label><div class="input-wrap"><input type="number" class="calc-input" id="input-height" min="140" max="220" placeholder="175"><span class="input-unit">cm</span></div></div>
+        <div class="input-group"><label class="input-label">Weekly km run</label><div class="input-wrap"><input type="number" class="calc-input" id="input-km" min="0" max="200" placeholder="20"><span class="input-unit">km</span></div></div>
+      </div>
+      <div class="sec-div" style="margin-top:8px;">Activity Level (Outside Running)</div>
+      <div class="activity-grid">
+        <div class="activity-option selected" id="act-sed" onclick="selectActivity('sed',1.2)"><div class="activity-icon">🪑</div><div class="activity-label"><strong>Desk job</strong>Mostly sitting</div></div>
+        <div class="activity-option" id="act-light" onclick="selectActivity('light',1.375)"><div class="activity-icon">🚶</div><div class="activity-label"><strong>Light active</strong>Walking daily</div></div>
+        <div class="activity-option" id="act-mod" onclick="selectActivity('mod',1.55)"><div class="activity-icon">⚽</div><div class="activity-label"><strong>Moderate</strong>Sport 3–4x/wk</div></div>
+        <div class="activity-option" id="act-very" onclick="selectActivity('very',1.725)"><div class="activity-icon">🏋️</div><div class="activity-label"><strong>Very active</strong>Hard training daily</div></div>
+      </div>
+      <div class="sec-div">Your Goal</div>
+      <div class="goal-grid">
+        <div class="goal-option selected" id="goal-maintain" onclick="selectGoal('maintain',0)"><div class="goal-icon">⚖️</div><div class="goal-name">Maintain</div><div class="goal-desc">Hold weight, fuel performance</div></div>
+        <div class="goal-option" id="goal-lose" onclick="selectGoal('lose',-400)"><div class="goal-icon">📉</div><div class="goal-name">Lose weight</div><div class="goal-desc">Lean out, keep pace</div></div>
+        <div class="goal-option" id="goal-gain" onclick="selectGoal('gain',300)"><div class="goal-icon">💪</div><div class="goal-name">Build muscle</div><div class="goal-desc">Add strength, heavier training</div></div>
+      </div>
+      <button class="btn-primary" onclick="calculateCalories()">🔥 Calculate My Numbers</button>
+    </div>
+    <div class="cal-results" id="cal-results">
+      <div class="result-hero">
+        <div class="result-label">Your Daily Target</div>
+        <div class="cal-result-calories" id="result-cals">2,450</div>
+        <div class="cal-result-unit">calories per day</div>
+        <div class="result-grid">
+          <div class="result-stat"><div class="result-stat-val" id="result-bmr">1,680</div><div class="result-stat-label">Base (BMR)</div></div>
+          <div class="result-stat"><div class="result-stat-val" id="result-tdee">2,150</div><div class="result-stat-label">Maintenance</div></div>
+          <div class="result-stat"><div class="result-stat-val" id="result-run-burn">300</div><div class="result-stat-label">Run burn/day</div></div>
+        </div>
+      </div>
+      <div class="macro-card">
+        <div class="sec-div">Daily Macro Targets</div>
+        <div class="macro-row"><div class="macro-icon">🍗</div><div class="macro-info"><div class="macro-name">Protein</div><div class="macro-desc">Muscle repair and running recovery</div></div><div class="macro-bar-wrap"><div class="macro-bar" id="bar-protein" style="width:30%;background:#4ac572;"></div></div><div class="macro-val" id="macro-protein">165g</div></div>
+        <div class="macro-row"><div class="macro-icon">🍞</div><div class="macro-info"><div class="macro-name">Carbohydrates</div><div class="macro-desc">Your primary running fuel</div></div><div class="macro-bar-wrap"><div class="macro-bar" id="bar-carbs" style="width:50%;background:#c6f135;"></div></div><div class="macro-val" id="macro-carbs">290g</div></div>
+        <div class="macro-row"><div class="macro-icon">🥑</div><div class="macro-info"><div class="macro-name">Fats</div><div class="macro-desc">Hormones, joints, fat-burning</div></div><div class="macro-bar-wrap"><div class="macro-bar" id="bar-fats" style="width:20%;background:#fbbf24;"></div></div><div class="macro-val" id="macro-fats">70g</div></div>
+      </div>
+      <div class="timing-card">
+        <div class="sec-div">When To Eat — Runner's Timing Guide</div>
+        <div class="timing-row"><div class="timing-badge">2–3 hrs before</div><div class="timing-text"><div class="timing-title">Pre-run meal</div><div class="timing-desc">Porridge with banana, or 2 slices wholemeal toast with peanut butter. Around <span id="timing-pre">400</span> kcal.</div></div></div>
+        <div class="timing-row"><div class="timing-badge">30 min before</div><div class="timing-text"><div class="timing-title">Quick top-up (optional)</div><div class="timing-desc">Half a banana, a Jaffa Cake, or a small Nakd bar. 100–150 kcal max.</div></div></div>
+        <div class="timing-row"><div class="timing-badge">During run</div><div class="timing-text"><div class="timing-title">Fuelling on the move</div><div class="timing-desc" id="timing-during">Under 60 min: water only. Over 60 min: 30–60g carbs per hour — gels, chews, or Jelly Babies.</div></div></div>
+        <div class="timing-row"><div class="timing-badge">Within 30 min after</div><div class="timing-text"><div class="timing-title">Recovery window</div><div class="timing-desc">Protein + carbs within 30 minutes. Greek yoghurt + fruit, or a chicken wrap. Aim for <span id="timing-post">25</span>g protein.</div></div></div>
+      </div>
+      <div class="panel-card">
+        <div class="sec-div">Easy UK Food Swaps</div>
+        <div class="food-grid" id="food-grid"></div>
+      </div>
+      <div class="email-panel">
+        <div class="email-title">Get Your <span>Free Nutrition Plan</span></div>
+        <div class="email-desc">Your full runner's nutrition guide — meal timing, portions, race-day fuel, and a 7-day meal plan using UK supermarket foods.</div>
+        <div class="email-form" id="c-email-form">
+          <input type="text" class="email-input" id="c-first-name" placeholder="First name">
+          <input type="email" class="email-input" id="c-email-addr" placeholder="Email address">
+          <button class="btn-primary" onclick="submitCalEmail()">📬 Send My Free Nutrition Guide</button>
+          <div class="email-note">No spam, ever. Unsubscribe any time.</div>
+        </div>
+        <div class="success-state" id="c-success-state">
+          <div class="success-icon">✓</div>
+          <div class="success-title">You're in!</div>
+          <div class="success-desc">Your runner's nutrition guide is on its way. Check your inbox within 5 minutes.</div>
+        </div>
+      </div>
+      <button class="btn-secondary" onclick="resetCalc()" style="width:100%;margin-top:8px;">← Recalculate</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== WHY PACECHANGE ===== -->
+<div class="full-section alt">
+  <div class="container">
+    <div style="text-align:center;">
+      <div class="eyebrow">Why runners choose us</div>
+      <div class="section-h">Built for <span>Real</span> UK Runners</div>
+      <div class="section-p">No jargon. No generic advice. No paid-for plans buried behind a paywall. Just honest, science-backed guidance for runners at every level.</div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-icon">🇬🇧</div><div class="why-title">100% UK focused</div><div class="why-desc">Everything is built around UK runners — Parkrun distances, British weather, Greggs pre-run carbs (yes, really), and UK race calendars.</div></div>
+      <div class="why-card"><div class="why-icon">🔬</div><div class="why-title">Science-backed</div><div class="why-desc">Our training plans use the Riegel formula and Mifflin-St Jeor equations — the same methods used by professional coaches and sports scientists.</div></div>
+      <div class="why-card"><div class="why-icon">🆓</div><div class="why-title">Actually free</div><div class="why-desc">The calculators, the guides, the newsletter — all genuinely free. No trial period, no card required, no strings. We just love running.</div></div>
+      <div class="why-card"><div class="why-icon">📱</div><div class="why-title">Works for everyone</div><div class="why-desc">Whether you've never run a km in your life or you're chasing a sub-3 marathon — we have a plan that works for where you are right now.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== STATS ===== -->
+<div class="full-section">
+  <div class="container">
+    <div class="stats-strip">
+      <div><div class="stat-val">4,000+</div><div class="stat-label">Runners helped</div></div>
+      <div><div class="stat-val">5K → M</div><div class="stat-label">All distances</div></div>
+      <div><div class="stat-val">100%</div><div class="stat-label">Free tools</div></div>
+      <div><div class="stat-val">Weekly</div><div class="stat-label">Newsletter tips</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TESTIMONIALS ===== -->
+<div class="full-section lime-tint">
+  <div class="container">
+    <div style="text-align:center;">
+      <div class="eyebrow">What runners are saying</div>
+      <div class="section-h">Real Runners. <span>Real Results.</span></div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"I went from dreading the weekly parkrun to smashing my PB by nearly 4 minutes in 8 weeks. The training plan was realistic and I actually stuck to it."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">S</div>
+          <div><div class="testi-name">Sarah M.</div><div class="testi-detail">Sheffield</div><div class="testi-badge">5K: 28:12 → 24:06</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"The calorie calculator was a game changer. I didn't realise I was massively undereating for the amount I was running. Once I sorted my nutrition, everything clicked."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">J</div>
+          <div><div class="testi-name">James T.</div><div class="testi-detail">Manchester</div><div class="testi-badge">Half Marathon PB</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"As a complete beginner I had no idea where to start. The step-by-step plan made everything so simple. Ran my first 10K in under an hour — absolutely buzzing."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">L</div>
+          <div><div class="testi-name">Laura P.</div><div class="testi-detail">Bristol</div><div class="testi-badge">First 10K completed</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TRAINING TIPS ===== -->
+<div class="full-section alt" id="tips-section">
+  <div class="container">
+    <div style="text-align:center;">
+      <div class="eyebrow">Training tips</div>
+      <div class="section-h">6 Things Every <span>UK Runner</span> Should Know</div>
+      <div class="section-p">The small changes that make the biggest difference to your training.</div>
+    </div>
+    <div class="tips-grid">
+      <div class="tip-card"><div class="tip-num">01</div><div class="tip-content"><div class="tip-title">80% of your running should be easy</div><div class="tip-desc">Most runners go too hard, too often. If you can hold a full conversation while running, you're at the right pace. Save the hard efforts for your one quality session per week.</div></div></div>
+      <div class="tip-card"><div class="tip-num">02</div><div class="tip-content"><div class="tip-title">Sleep is your secret weapon</div><div class="tip-desc">You don't get fitter during runs — you get fitter when you sleep. 7–9 hours is non-negotiable for runners. Less than 6 hours and performance drops by up to 30%.</div></div></div>
+      <div class="tip-card"><div class="tip-num">03</div><div class="tip-content"><div class="tip-title">Don't skip the warm-up</div><div class="tip-desc">5 minutes of brisk walking followed by dynamic stretches reduces injury risk significantly. Cold muscles don't perform and they snap. The warm-up is not optional.</div></div></div>
+      <div class="tip-card"><div class="tip-num">04</div><div class="tip-content"><div class="tip-title">Eat before long runs — always</div><div class="tip-desc">Running on empty feels heroic but it isn't. Fuelling properly before a long run means you run faster, recover better, and actually enjoy it. Porridge oats are your best friend.</div></div></div>
+      <div class="tip-card"><div class="tip-num">05</div><div class="tip-content"><div class="tip-title">Increase mileage by 10% max per week</div><div class="tip-desc">The 10% rule exists for a reason. Your bones and tendons adapt slower than your cardiovascular system. Jump too fast and you'll be injured within weeks. Build slow, race fast.</div></div></div>
+      <div class="tip-card"><div class="tip-num">06</div><div class="tip-content"><div class="tip-title">Strength training makes you faster</div><div class="tip-desc">Two sessions of strength work per week improves running economy by up to 8%. Squats, single-leg deadlifts, and calf raises. 20 minutes is all you need.</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== RACE GUIDE ===== -->
+<div class="full-section">
+  <div class="container">
+    <div style="text-align:center;">
+      <div class="eyebrow">Race distances explained</div>
+      <div class="section-h">Pick Your <span>Distance</span></div>
+      <div class="section-p">Not sure which race to target? Here's what each distance actually involves — and how long it takes a typical UK runner.</div>
+    </div>
+    <div class="race-guide-grid">
+      <div class="race-guide-card">
+        <div class="rg-dist">5K</div>
+        <div class="rg-name">Parkrun / 5K</div>
+        <div class="rg-time">Avg UK time: 28–32 min</div>
+        <div class="rg-tip">Perfect first race. Parkrun is free every Saturday morning at 900+ locations across the UK. The friendliest running event in the world.</div>
+      </div>
+      <div class="race-guide-card">
+        <div class="rg-dist">10K</div>
+        <div class="rg-name">10 Kilometre</div>
+        <div class="rg-time">Avg UK time: 55–65 min</div>
+        <div class="rg-tip">The step up from 5K. A great distance to really test your pace. Hundreds of 10Ks happen across the UK every weekend — easy to find one near you.</div>
+      </div>
+      <div class="race-guide-card">
+        <div class="rg-dist">½M</div>
+        <div class="rg-name">Half Marathon</div>
+        <div class="rg-time">Avg UK time: 2hr 02min</div>
+        <div class="rg-tip">13.1 miles. The distance where proper training and nutrition start to matter a lot. Great Rock 'n' Roll events, Great North Run, and more across the UK.</div>
+      </div>
+      <div class="race-guide-card">
+        <div class="rg-dist">M</div>
+        <div class="rg-name">Marathon</div>
+        <div class="rg-time">Avg UK time: 4hr 22min</div>
+        <div class="rg-tip">26.2 miles. The big one. London Marathon, Manchester, Brighton, Edinburgh — the UK has world-class marathons. Needs 16–20 weeks of serious preparation.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FREE GUIDES ===== -->
+<div class="full-section lime-tint" id="guides-section">
+  <div class="container">
+    <div style="text-align:center;">
+      <div class="eyebrow">Free resources</div>
+      <div class="section-h">Your Free <span>Guides</span></div>
+      <div class="section-p">Download instantly. No credit card. No catch. Built for UK runners by people who actually run.</div>
+    </div>
+    <div class="guides-grid">
+      <div class="guide-card">
+        <div class="guide-tag">Free Download</div>
+        <div class="guide-title">4-Week Runner's Training Guide</div>
+        <div class="guide-desc">Your complete first month of training — every session, every pace, every rest day planned out for you.</div>
+        <ul class="guide-includes">
+          <li>4 weeks of structured sessions</li>
+          <li>Pace zones explained simply</li>
+          <li>Weekly mileage progression</li>
+          <li>Post-run stretching routine</li>
+          <li>Beginner strength circuit</li>
+        </ul>
+        <div class="guide-price"><div class="guide-price-val">Free</div><div class="guide-price-note">instant delivery to inbox</div></div>
+        <a class="btn-primary" href="https://harrisons-newsletter-bc428b.beehiiv.com/subscribe" target="_blank" style="text-decoration:none;">Get It Free →</a>
+      </div>
+      <div class="guide-card">
+        <div class="guide-tag">Free Download</div>
+        <div class="guide-title">Runner's Nutrition & Weight Loss Guide</div>
+        <div class="guide-desc">Lose weight without losing pace. UK-specific meal plans, calorie targets, and the exact foods that fuel fast running.</div>
+        <ul class="guide-includes">
+          <li>7-day UK meal plan (Tesco, Aldi, Sainsbury's)</li>
+          <li>Pre-run, during and post-run fuel guide</li>
+          <li>Calorie targets by training load</li>
+          <li>How to lose weight and still PB</li>
+          <li>Hydration guide for UK weather</li>
+        </ul>
+        <div class="guide-price"><div class="guide-price-val">Free</div><div class="guide-price-note">instant delivery to inbox</div></div>
+        <a class="btn-primary" href="https://harrisons-newsletter-bc428b.beehiiv.com/subscribe" target="_blank" style="text-decoration:none;">Get It Free →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== UK RUNNING FACTS ===== -->
+<div class="full-section alt">
+  <div class="container">
+    <div style="text-align:center;">
+      <div class="eyebrow">Did you know?</div>
+      <div class="section-h">UK Running <span>Facts</span></div>
+    </div>
+    <div class="uk-grid" style="margin-top:36px;">
+      <div class="uk-fact"><div class="uk-fact-emoji">🏃</div><div class="uk-fact-title">Parkrun changes lives</div><div class="uk-fact-desc">Over 400,000 people run a Parkrun every Saturday morning across the UK. It's completely free and there's likely one within 5 miles of you right now.</div></div>
+      <div class="uk-fact"><div class="uk-fact-emoji">🌧️</div><div class="uk-fact-title">British weather is actually an advantage</div><div class="uk-fact-desc">Running in the cold and rain builds mental resilience. Studies show runners who train in tough conditions perform better on race day. Lean into it.</div></div>
+      <div class="uk-fact"><div class="uk-fact-emoji">🍫</div><div class="uk-fact-title">Jaffa Cakes are a legitimate running fuel</div><div class="uk-fact-desc">Each Jaffa Cake has about 46 calories and a near-perfect carb profile for pre-run fuelling. Cheaper than gels, available everywhere, and delicious.</div></div>
+      <div class="uk-fact"><div class="uk-fact-emoji">📈</div><div class="uk-fact-title">Running in the UK is booming</div><div class="uk-fact-desc">UK race participation has grown by 35% in the last five years. Over 2.5 million people now run regularly — the community has never been bigger or more welcoming.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== NEWSLETTER ===== -->
+<div class="full-section" id="newsletter-section" style="padding-bottom:80px;">
+  <div class="container">
+    <div class="newsletter-card">
+      <div class="eyebrow">Weekly newsletter</div>
+      <div class="newsletter-title">Join <span>4,000+</span> UK Runners</div>
+      <div class="newsletter-desc">Every week: one training tip, one nutrition insight, and one thing to try on your next run. 5 minutes. Free. Trusted by runners across the UK.</div>
+      <div class="newsletter-form">
+        <input type="email" class="newsletter-input" id="nl-email" placeholder="Your email address">
+        <button class="newsletter-btn" onclick="submitNewsletter()">Join Free →</button>
+      </div>
+      <div class="newsletter-note">No spam. Unsubscribe any time.</div>
+      <div class="nl-perks">
+        <span class="nl-perk">Weekly training tip</span>
+        <span class="nl-perk">Nutrition insights</span>
+        <span class="nl-perk">UK race recommendations</span>
+        <span class="nl-perk">Community stories</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">PaceChange</div>
+  <div class="footer-tag">Change your pace. Change your life.</div>
+  <div class="footer-links">
+    <span class="footer-link" onclick="document.getElementById('tools-section').scrollIntoView({behavior:'smooth'})">Free Tools</span>
+    <span class="footer-link" onclick="document.getElementById('guides-section').scrollIntoView({behavior:'smooth'})">Free Guides</span>
+    <span class="footer-link" onclick="document.getElementById('tips-section').scrollIntoView({behavior:'smooth'})">Training Tips</span>
+    <a class="footer-link" href="https://harrisons-newsletter-bc428b.beehiiv.com/subscribe" target="_blank">Newsletter</a>
+  </div>
+  <div class="footer-copy">© 2025 PaceChange. All rights reserved. Built for UK runners.</div>
+</footer>
+
+<script>
+// ===== TOOL SWITCHER =====
+function switchTool(tool) {
+  document.getElementById('section-run').classList.toggle('active', tool==='run');
+  document.getElementById('section-cal').classList.toggle('active', tool==='cal');
+  document.getElementById('tab-run').classList.toggle('active', tool==='run');
+  document.getElementById('tab-cal').classList.toggle('active', tool==='cal');
+}
+
+// ===== RUNNING CALC =====
+let selectedRace=null, selectedDays=null, selectedWeeks=8;
+const raceDist={'5K':5,'10K':10,'HM':21.1,'M':42.195};
+const raceNames={'5K':'5K','10K':'10K','HM':'Half Marathon','M':'Marathon'};
+
+function selectRace(el,code,label) {
+  document.querySelectorAll('.race-option').forEach(r=>r.classList.remove('selected'));
+  el.classList.add('selected'); selectedRace=code;
+  document.getElementById('current-race-label').textContent=label;
+  document.getElementById('goal-race-label').textContent=label;
+  const b=document.getElementById('rbtn1'); b.disabled=false; b.style.opacity='1'; b.style.cursor='pointer';
+}
+function selectDays(el,days) { document.querySelectorAll('.commit-option').forEach(o=>o.classList.remove('selected')); el.classList.add('selected'); selectedDays=days; }
+function updateWeeks(v) { selectedWeeks=parseInt(v); document.getElementById('weeks-val').textContent=v; }
+function toSecs(h,m,s) { return (parseInt(h)||0)*3600+(parseInt(m)||0)*60+(parseInt(s)||0); }
+function fmtTime(secs) { const h=Math.floor(secs/3600),m=Math.floor((secs%3600)/60),s=Math.round(secs%60); return h>0?`${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`:`${m}:${String(s).padStart(2,'0')}`; }
+function fmtPace(spk) { const m=Math.floor(spk/60),s=Math.round(spk%60); return `${m}:${String(s).padStart(2,'0')}`; }
+function predictTime(t,bd,td) { return t*Math.pow(td/bd,1.06); }
+
+function rGoToStep(step) {
+  for(let i=1;i<=4;i++) document.getElementById(`rpanel${i}`).classList.remove('active');
+  document.getElementById(`rpanel${step}`).classList.add('active');
+  for(let i=1;i<=4;i++) {
+    const c=document.getElementById(`step${i}-circle`),l=document.getElementById(`step${i}-label`);
+    c.classList.remove('active','done'); l.classList.remove('active');
+    if(i<step){c.classList.add('done');c.textContent='✓';}
+    else if(i===step){c.classList.add('active');c.textContent=i;l.classList.add('active');}
+    else c.textContent=i;
+    const ln=document.getElementById(`line${i}`); if(ln) ln.classList.toggle('done',i<step);
+  }
+  document.getElementById('tools-section').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function generatePlan() {
+  if(!selectedRace||!selectedDays){alert('Please select your training days.');return;}
+  const cS=toSecs(document.getElementById('cur-h').value,document.getElementById('cur-m').value,document.getElementById('cur-s').value);
+  const gS=toSecs(document.getElementById('goal-h').value,document.getElementById('goal-m').value,document.getElementById('goal-s').value);
+  const dist=raceDist[selectedRace], imp=cS-gS, gPace=gS/dist;
+  document.getElementById('result-goal-time').textContent=fmtTime(gS);
+  document.getElementById('result-race-text').textContent=`${raceNames[selectedRace]} in ${selectedWeeks} weeks`;
+  document.getElementById('result-improvement').textContent=imp>0?`-${fmtTime(imp)}`:'PB target';
+  document.getElementById('result-pace').textContent=fmtPace(gPace)+'/km';
+  document.getElementById('result-weeks-disp').textContent=`${selectedWeeks}wks`;
+  document.getElementById('predictor-rows').innerHTML=Object.entries(raceDist).map(([k,d])=>`<div class="predictor-row"><span class="predictor-race">${raceNames[k]}</span><span class="predictor-time">${fmtTime(predictTime(gS,dist,d))}</span></div>`).join('');
+  let phases=[];
+  if(selectedWeeks<=6) phases=[{name:'Base Building',weeks:'Weeks 1–2',detail:`Easy runs at conversational pace. Time on feet over speed.`},{name:'Speed Development',weeks:'Weeks 3–4',detail:`Intervals. One tempo run weekly at ${fmtPace(gPace*1.05)}/km.`},{name:'Race Sharpening',weeks:`Weeks 5–${selectedWeeks}`,detail:`Race-pace sessions. Final week: cut volume 40%, keep intensity.`}];
+  else if(selectedWeeks<=12) phases=[{name:'Foundation',weeks:'Weeks 1–3',detail:`80% sessions at conversational pace. Volume up 10%/week max.`},{name:'Aerobic Dev',weeks:'Weeks 4–6',detail:`Tempo runs at ${fmtPace(gPace*1.08)}/km. Long run grows weekly.`},{name:'Threshold',weeks:'Weeks 7–9',detail:`Intervals at ${fmtPace(gPace)}/km race pace.`},{name:'Sharpening',weeks:`Weeks 10–${selectedWeeks-1}`,detail:`Race-specific sessions. Practise race-day nutrition.`},{name:'Taper',weeks:`Week ${selectedWeeks}`,detail:`Volume down 50%. Keep 2 quality sessions.`}];
+  else phases=[{name:'Base Phase',weeks:'Weeks 1–4',detail:`Pure easy running. No hard efforts.`},{name:'Dev Phase',weeks:'Weeks 5–8',detail:`Tempo weekly at ${fmtPace(gPace*1.1)}/km.`},{name:'Build Phase',weeks:`Weeks 9–${Math.floor(selectedWeeks*.6)}`,detail:`Two quality sessions. Intervals at ${fmtPace(gPace*.98)}/km.`},{name:'Peak Phase',weeks:`Weeks ${Math.floor(selectedWeeks*.6)+1}–${selectedWeeks-2}`,detail:`Race simulation. Nail your nutrition.`},{name:'Taper',weeks:`Weeks ${selectedWeeks-1}–${selectedWeeks}`,detail:`Volume 50–60% down. 2 quality sessions. Arrive fresh.`}];
+  document.getElementById('phase-rows').innerHTML=phases.map((p,i)=>`<div class="phase-row"><div class="phase-num">${i+1}</div><div class="phase-content"><div class="phase-name">${p.name}</div><div class="phase-detail">${p.detail}</div></div><div class="phase-weeks">${p.weeks}</div></div>`).join('');
+  const structs={2:[{day:'Day 1',session:'Easy run + strides',zone:'easy'},{day:'Day 2',session:'Long run at easy pace',zone:'easy'}],3:[{day:'Day 1',session:'Easy run 20–30 min',zone:'easy'},{day:'Day 2',session:'Tempo / intervals',zone:'tempo'},{day:'Day 3',session:'Long run + cool-down',zone:'easy'}],4:[{day:'Day 1',session:'Easy run + strides',zone:'easy'},{day:'Day 2',session:'Intervals at race pace',zone:'hard'},{day:'Day 3',session:'Recovery run — very easy',zone:'easy'},{day:'Day 4',session:'Long run + strength',zone:'easy'}],5:[{day:'Mon',session:'Easy 30 min',zone:'easy'},{day:'Tue',session:'Intervals — race pace',zone:'hard'},{day:'Wed',session:'Easy recovery run',zone:'easy'},{day:'Thu',session:'Tempo 20–25 min',zone:'tempo'},{day:'Sat',session:'Long run (easy)',zone:'easy'}],6:[{day:'Mon',session:'Easy 30–35 min',zone:'easy'},{day:'Tue',session:'Intervals — target pace',zone:'hard'},{day:'Wed',session:'Easy + strength',zone:'easy'},{day:'Thu',session:'Tempo 25–30 min',zone:'tempo'},{day:'Fri',session:'Rest / light walk',zone:'rest'},{day:'Sat',session:'Long run + race sim',zone:'easy'}]};
+  const zc={easy:'zone-easy',tempo:'zone-tempo',hard:'zone-hard',rest:'zone-rest'};
+  document.getElementById('weekly-structure').innerHTML=(structs[selectedDays]||structs[4]).map(s=>`<div class="predictor-row"><span style="font-weight:700;color:rgba(255,255,255,.5);min-width:56px;">${s.day}</span><span class="predictor-race" style="flex:1">${s.session}</span><span class="pace-zone ${zc[s.zone]}" style="margin-left:8px;">${s.zone}</span></div>`).join('');
+  document.getElementById('pace-zones').innerHTML=`<span class="pace-zone zone-easy">Easy: ${fmtPace(gPace*1.25)}–${fmtPace(gPace*1.4)}/km</span><span class="pace-zone zone-tempo">Tempo: ${fmtPace(gPace*1.05)}–${fmtPace(gPace*1.12)}/km</span><span class="pace-zone zone-hard">Intervals: ${fmtPace(gPace*.95)}–${fmtPace(gPace)}/km</span>`;
+  const prices={'5K':'£27','10K':'£27','HM':'£37','M':'£47'}, ebooks={'5K':'8-Week 5K Transformation','10K':'10-Week 10K Programme','HM':'12-Week Half Marathon Plan','M':'18-Week Marathon Blueprint'};
+  document.getElementById('upsell-title').textContent=ebooks[selectedRace];
+  document.getElementById('upsell-price').textContent=prices[selectedRace];
+  rGoToStep(4);
+  setTimeout(()=>{ document.getElementById('upsell-card').style.display='flex'; },2000);
+}
+
+function submitRunEmail() {
+  const name=document.getElementById('r-first-name').value, email=document.getElementById('r-email-addr').value;
+  if(!name||!email||!email.includes('@')){alert('Please enter your name and a valid email.');return;}
+  document.getElementById('r-email-form').style.display='none';
+  document.getElementById('r-success-state').classList.add('visible');
+  setTimeout(()=>{ window.open('https://harrisons-newsletter-bc428b.beehiiv.com/subscribe?first_name='+encodeURIComponent(name)+'&email='+encodeURIComponent(email),'_blank'); },1500);
+}
+
+// ===== CALORIE CALC =====
+let gender='male', actMult=1.2, goalAdj=0;
+function selectGender(g) { gender=g; document.getElementById('gender-male').classList.toggle('selected',g==='male'); document.getElementById('gender-female').classList.toggle('selected',g==='female'); }
+function selectActivity(id,mult) { ['sed','light','mod','very'].forEach(a=>document.getElementById('act-'+a).classList.remove('selected')); document.getElementById('act-'+id).classList.add('selected'); actMult=mult; }
+function selectGoal(id,adj) { ['maintain','lose','gain'].forEach(g=>document.getElementById('goal-'+g).classList.remove('selected')); document.getElementById('goal-'+id).classList.add('selected'); goalAdj=adj; }
+
+function calculateCalories() {
+  const age=parseFloat(document.getElementById('input-age').value)||28, wt=parseFloat(document.getElementById('input-weight').value)||72, ht=parseFloat(document.getElementById('input-height').value)||175, km=parseFloat(document.getElementById('input-km').value)||20;
+  const bmr=gender==='male'?(10*wt)+(6.25*ht)-(5*age)+5:(10*wt)+(6.25*ht)-(5*age)-161;
+  const dailyBurn=(km*wt*0.9)/7, tdee=Math.round((bmr*actMult)+dailyBurn), target=Math.round(tdee+goalAdj);
+  const protein=Math.round(wt*1.8), fats=Math.round((target*.25)/9), carbs=Math.round((target-(protein*4)-(fats*9))/4), maxM=Math.max(protein,carbs,fats*2);
+  document.getElementById('result-cals').textContent=target.toLocaleString();
+  document.getElementById('result-bmr').textContent=Math.round(bmr).toLocaleString();
+  document.getElementById('result-tdee').textContent=Math.round(tdee-dailyBurn).toLocaleString();
+  document.getElementById('result-run-burn').textContent=Math.round(dailyBurn);
+  document.getElementById('macro-protein').textContent=protein+'g'; document.getElementById('macro-carbs').textContent=carbs+'g'; document.getElementById('macro-fats').textContent=fats+'g';
+  document.getElementById('bar-protein').style.width=Math.round((protein/maxM)*80)+'%';
+  document.getElementById('bar-carbs').style.width=Math.round((carbs/maxM)*80)+'%';
+  document.getElementById('bar-fats').style.width=Math.round(((fats*2)/maxM)*80)+'%';
+  document.getElementById('timing-pre').textContent=Math.round(target*.2);
+  document.getElementById('timing-post').textContent=Math.round(protein*.15);
+  document.getElementById('food-grid').innerHTML=[{name:'Tesco chicken breast (150g)',cal:165},{name:"Sainsbury's Greek yoghurt (200g)",cal:130},{name:'Porridge oats (80g dry)',cal:300},{name:'Banana (medium)',cal:90},{name:'Whole egg x2',cal:140},{name:'Brown rice (100g cooked)',cal:130},{name:'Aldi wholemeal bread x2',cal:160},{name:'Peanut butter (2 tbsp)',cal:188}].map(f=>`<div class="food-item"><span class="food-name">${f.name}</span><span class="food-cal">${f.cal} kcal</span></div>`).join('');
+  document.getElementById('cal-results').classList.add('visible');
+  document.getElementById('cal-results').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function submitCalEmail() {
+  const name=document.getElementById('c-first-name').value, email=document.getElementById('c-email-addr').value;
+  if(!name||!email||!email.includes('@')){alert('Please enter your name and a valid email.');return;}
+  document.getElementById('c-email-form').style.display='none';
+  document.getElementById('c-success-state').classList.add('visible');
+  setTimeout(()=>{ window.open('https://harrisons-newsletter-bc428b.beehiiv.com/subscribe?first_name='+encodeURIComponent(name)+'&email='+encodeURIComponent(email),'_blank'); },1500);
+}
+
+function resetCalc() { document.getElementById('cal-results').classList.remove('visible'); document.getElementById('tools-section').scrollIntoView({behavior:'smooth'}); }
+
+function submitNewsletter() {
+  const email=document.getElementById('nl-email').value;
+  if(!email||!email.includes('@')){alert('Please enter a valid email address.');return;}
+  window.open('https://harrisons-newsletter-bc428b.beehiiv.com/subscribe?email='+encodeURIComponent(email),'_blank');
+}
+</script>
+</body>
+</html>
