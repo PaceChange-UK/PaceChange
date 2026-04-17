@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="UK running calorie calculator. Find out exactly how many calories you burn running based on your weight, distance, and pace. Plus UK food equivalents and weight loss tips.">
+    <meta name="keywords" content="running calorie calculator UK, calories burned running, running calories, weight loss running">
+    <link rel="canonical" href="https://pacechange-uk.github.io/PaceChange/running-calorie-calculator-uk.html">
+    <title>Running Calorie Calculator UK — How Many Calories Do You Burn? | PaceChange</title>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "UK Running Calorie Calculator — How Many Calories Do You Actually Burn?",
+        "description": "UK running calorie calculator. Find out exactly how many calories you burn running based on your weight, distance, and pace. Plus UK food equivalents and weight loss tips.",
+        "image": "https://pacechange-uk.github.io/PaceChange/og-image.png",
+        "datePublished": "2026-04-17",
+        "author": {
+            "@type": "Organization",
+            "name": "PaceChange"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "PaceChange"
+        }
+    }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f8fdf4;
+            color: #0d1f10;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #0d1f10;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .cta-button {
+            background-color: #c6f135;
+            color: #0d1f10;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #b0d620;
+            transform: translateY(-2px);
+        }
+
+        /* Main content */
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .meta-info {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #c6f135;
+            padding-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.2rem;
+            color: #0d1f10;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: #0d1f10;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+        }
+
+        table {
+            width: 100%;
+            margin: 2rem 0;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th {
+            background-color: #0d1f10;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            text-align: right;
+        }
+
+        td:first-child {
+            text-align: left;
+            font-weight: 500;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Food equivalents box */
+        .food-equiv {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0d1f10;
+            padding: 1.2rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .food-equiv h3 {
+            margin-top: 0;
+        }
+
+        .food-equiv ul {
+            margin-left: 1.5rem;
+        }
+
+        /* CTA Box */
+        .cta-section {
+            background-color: #0d1f10;
+            color: white;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .cta-section p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .cta-section .cta-button {
+            display: inline-block;
+            font-size: 1.1rem;
+            padding: 1rem 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0d1f10;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            font-size: 0.95rem;
+        }
+
+        footer a {
+            color: #c6f135;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight {
+            color: #c6f135;
+            font-weight: 600;
+        }
+
+        .formula {
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            main {
+                padding: 2rem 1.5rem;
+            }
+
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="https://pacechange-uk.github.io/PaceChange/" class="logo">PaceChange</a>
+        <a href="https://pacechange-uk.github.io/PaceChange/" class="cta-button">Free Race Predictor →</a>
+    </nav>
+
+    <main>
+        <h1>UK Running Calorie Calculator — How Many Calories Do You Actually Burn?</h1>
+
+        <div class="meta-info">
+            <span>17 April 2026</span> • <span>6 min read</span>
+        </div>
+
+        <p>"How many calories does a 5K burn?" is one of the most Googled running questions in the UK. The honest answer: it depends on your weight and pace. This guide breaks it down with real numbers — and compares your burn to actual UK foods so you can see exactly what your runs are worth in caloric terms.</p>
+
+        <h2>How Running Calorie Burn is Calculated</h2>
+
+        <p>The running calorie calculator UK uses a simple but accurate formula based on body weight and distance:</p>
+
+        <div class="formula">
+            Calories Burned = Body Weight (kg) × 0.9 × Distance (km)
+        </div>
+
+        <p>Let's break this down. The <span class="highlight">0.9 multiplier</span> is based on research showing that running burns approximately 0.9 kcal per kilogram of body weight per kilometre. This number works across all distances and paces.</p>
+
+        <h3>Why Body Weight Matters Most</h3>
+
+        <p>Your body weight is the biggest factor in how many calories you burn running. A heavier person burns more calories covering the same distance because their body requires more energy to move that weight. A 90kg runner doing 5K will burn roughly 50% more calories than a 60kg runner doing the same 5K.</p>
+
+        <p>This is why running is genuinely effective for weight loss — but it's also why comparing your calorie burn to a friend's doesn't make sense. If your mate is 80kg and you're 65kg, they'll burn more calories on the same run. That's physics, not fitness level.</p>
+
+        <h3>Why Pace Matters Less Than You'd Think</h3>
+
+        <p>Here's something that surprises most runners: pace doesn't matter nearly as much as distance. Whether you run 5K in 25 minutes or 35 minutes, you burn roughly the same calories. Why? Because you're covering the same distance, and distance is what your body cares about.</p>
+
+        <p>A slower runner burns calories over a longer period. A faster runner burns them faster. Either way, the total is similar. So if you're doing a steady, sustainable pace (which you should be), don't worry about speed. Just get the distance done.</p>
+
+        <h2>UK Running Calorie Calculator — Common Scenarios</h2>
+
+        <p>Here's a complete running calorie calculator table showing what different distances burn for people of various weights:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Distance</th>
+                    <th>60kg Runner</th>
+                    <th>75kg Runner</th>
+                    <th>90kg Runner</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1km</td>
+                    <td>54 kcal</td>
+                    <td>68 kcal</td>
+                    <td>81 kcal</td>
+                </tr>
+                <tr>
+                    <td>3km</td>
+                    <td>162 kcal</td>
+                    <td>203 kcal</td>
+                    <td>243 kcal</td>
+                </tr>
+                <tr>
+                    <td>5km parkrun</td>
+                    <td>270 kcal</td>
+                    <td>338 kcal</td>
+                    <td>405 kcal</td>
+                </tr>
+                <tr>
+                    <td>10km</td>
+                    <td>540 kcal</td>
+                    <td>675 kcal</td>
+                    <td>810 kcal</td>
+                </tr>
+                <tr>
+                    <td>Half Marathon (21.1km)</td>
+                    <td>1,134 kcal</td>
+                    <td>1,418 kcal</td>
+                    <td>1,701 kcal</td>
+                </tr>
+                <tr>
+                    <td>Marathon (42.2km)</td>
+                    <td>2,268 kcal</td>
+                    <td>2,835 kcal</td>
+                    <td>3,402 kcal</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>What Does Your Run Burn in UK Food Terms?</h2>
+
+        <p>Numbers are abstract. Food is real. Here's what a few common runs actually burn, compared to UK foods:</p>
+
+        <h3>A 5K Parkrun (70kg runner = ~315 kcal)</h3>
+
+        <div class="food-equiv">
+            <ul>
+                <li><strong>= 1 Greggs sausage roll</strong> (327 kcal) — Almost exactly. You could literally replace your parkrun with a sausage roll.</li>
+                <li><strong>= 1.5 pints of lager</strong> (Guinness, ~250 kcal per pint)</li>
+                <li><strong>= 2 Cadbury Creme Eggs</strong> (160 kcal each)</li>
+                <li><strong>= 1 Starbucks grande cappuccino with a blueberry muffin</strong> (310 kcal combined)</li>
+            </ul>
+        </div>
+
+        <h3>A 10K Run (70kg runner = ~630 kcal)</h3>
+
+        <div class="food-equiv">
+            <ul>
+                <li><strong>= 1 Big Mac meal</strong> (~600 kcal) — Minus the fries.</li>
+                <li><strong>= 3 pints of lager</strong></li>
+                <li><strong>= 4 Kit Kats</strong> (160 kcal each)</li>
+                <li><strong>= 2 Greggs chicken bakes</strong> (~310 kcal each)</li>
+            </ul>
+        </div>
+
+        <h3>A Half Marathon (70kg runner = ~1,330 kcal)</h3>
+
+        <div class="food-equiv">
+            <ul>
+                <li><strong>= 2 Big Mac meals</strong></li>
+                <li><strong>= 1 full Tesco ready meal + pudding + a lager</strong></li>
+                <li><strong>= Almost a full day's food for an adult</strong> (recommended daily intake is ~2,000 kcal)</li>
+            </ul>
+        </div>
+
+        <h2>Running for Weight Loss — What Actually Works</h2>
+
+        <p>Here's the hard truth: <span class="highlight">you cannot outrun a bad diet.</span></p>
+
+        <p>A 10K burns 630 kcal. A McDonald's meal is 1,000 kcal. That means one meal erases your run and adds 370 kcal on top. This is why so many runners don't lose weight despite running regularly — they're rewarding their effort with food.</p>
+
+        <h3>The Real Math of Running for Weight Loss</h3>
+
+        <p>Weight loss happens in a caloric deficit. To lose 0.5kg per week, you need a 3,500 kcal deficit (500 kcal/day). Here's how to achieve it:</p>
+
+        <ul>
+            <li><strong>Option A: Diet alone.</strong> Reduce food intake by 500 kcal/day. Lose 0.5kg/week. No running needed.</li>
+            <li><strong>Option B: Running alone.</strong> Run enough to burn 500 kcal/day. For a 70kg person, that's roughly 10km daily. Sustainable? Probably not.</li>
+            <li><strong>Option C: Both (realistic).</strong> Run 3× per week (~1,900 kcal/week) and reduce food by ~250 kcal/day (~1,750 kcal/week). Total deficit = ~3,650 kcal/week = 0.5kg loss/week.</li>
+        </ul>
+
+        <h3>The Most Important Rule: Don't Reward Your Runs With Food</h3>
+
+        <p>This is where most runners derail their weight loss. After a hard 10K, you feel like you've "earned" a treat. Your brain screams for rewards. So you grab a coffee and a muffin (400 kcal). You just cancelled out your run.</p>
+
+        <p>It's not that running doesn't work for weight loss. It's that most people subconsciously eat more after running. Studies show this happens without conscious awareness — your appetite and cravings genuinely increase.</p>
+
+        <p>Solution: Plan your food intake the same way you plan your runs. Don't eat based on how tired you feel. Eat based on what your deficit plan requires.</p>
+
+        <h3>Running + Strength Training = Faster Results</h3>
+
+        <p>Pure running burns calories while you run, but strength training has an afterburn effect. Muscle tissue requires energy to maintain. Build muscle 3×/week (20 minutes of basic weights or bodyweight) while running 2–3×/week, and you'll see faster fat loss than running alone.</p>
+
+        <h2>Get Your Personalised Calorie Plan</h2>
+
+        <p>Want to know exactly how many calories you burn running? Visit the PaceChange running calorie calculator. Enter your weight, distance, and running frequency, and we'll show you your weekly calorie burn — plus a realistic plan for weight loss if that's your goal.</p>
+
+                <div class="cta-section">
+            <h2>Get Your Free Weight Loss Running Plan</h2>
+            <p>Know your calories — now get the plan. Your personalised running + nutrition guide lands in your inbox in 60 seconds, completely free.</p>
+            <div id="cal-form" style="max-width:400px;margin:1.5rem auto 0;">
+                <input id="cal-name" type="text" placeholder="Your first name" style="width:100%;padding:12px 16px;margin-bottom:10px;border:none;border-radius:6px;font-size:15px;box-sizing:border-box;font-family:inherit;" />
+                <input id="cal-email" type="email" placeholder="Your email address" style="width:100%;padding:12px 16px;margin-bottom:12px;border:none;border-radius:6px;font-size:15px;box-sizing:border-box;font-family:inherit;" />
+                <button onclick="submitCapture('cal','goal-weightloss','calorie-calculator-page')" class="cta-button" style="width:100%;padding:14px;font-size:16px;border:none;cursor:pointer;">Get My Free Weight Loss Plan \u2192</button>
+            </div>
+            <div id="cal-success" style="display:none;margin-top:1.5rem;padding:16px;background:rgba(198,241,53,0.15);border-radius:8px;color:#0d1f10;font-weight:600;font-size:16px;">\u2705 Check your inbox \u2014 your plan is on its way!</div>
+            <p style="margin-top:12px;font-size:13px;opacity:0.7;">No spam. Unsubscribe any time.</p>
+        </div>
+        
+        <script>
+        function submitCapture(prefix, tag, source) {
+            var name = document.getElementById(prefix+'-name').value.trim();
+            var email = document.getElementById(prefix+'-email').value.trim();
+            if (!name || !email || email.indexOf('@') === -1) {
+                alert('Please enter your name and a valid email address.');
+                return;
+            }
+            document.getElementById(prefix+'-form').style.display = 'none';
+            document.getElementById(prefix+'-success').style.display = 'block';
+            fetch('https://script.google.com/macros/s/AKfycbwssTres__1EbYYa5ZVHPY16mpe56XUoEmUeXAaX4sMRafZVQS0_Kgi3ZHcZtulS0B7/exec', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: name, email: email, tag: tag, source: source }),
+                mode: 'no-cors'
+            }).catch(function(){});
+        }
+        </script>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 PaceChange. All rights reserved. | <a href="https://pacechange-uk.github.io/PaceChange/">Back to PaceChange</a></p>
+    </footer>
+</body>
+</html>

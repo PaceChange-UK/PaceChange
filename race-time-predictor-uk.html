@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Use the UK's most accurate race time predictor. Enter your 5K time and instantly calculate your predicted 10K, half marathon, and marathon finish time using the Riegel formula.">
+    <meta name="keywords" content="race time predictor UK, marathon calculator, running calculator, 5K to marathon predictor">
+    <link rel="canonical" href="https://pacechange-uk.github.io/PaceChange/race-time-predictor-uk.html">
+    <title>Race Time Predictor UK — Calculate Your Marathon, 10K & Half Marathon Time | PaceChange</title>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "UK Race Time Predictor — What Will Your Marathon Time Be?",
+        "description": "Use the UK's most accurate race time predictor. Enter your 5K time and instantly calculate your predicted 10K, half marathon, and marathon finish time using the Riegel formula.",
+        "image": "https://pacechange-uk.github.io/PaceChange/og-image.png",
+        "datePublished": "2026-04-17",
+        "author": {
+            "@type": "Organization",
+            "name": "PaceChange"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "PaceChange"
+        }
+    }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f8fdf4;
+            color: #0d1f10;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #0d1f10;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .cta-button {
+            background-color: #c6f135;
+            color: #0d1f10;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #b0d620;
+            transform: translateY(-2px);
+        }
+
+        /* Main content */
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .meta-info {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #c6f135;
+            padding-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.2rem;
+            color: #0d1f10;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: #0d1f10;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+        }
+
+        table {
+            width: 100%;
+            margin: 2rem 0;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th {
+            background-color: #0d1f10;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* CTA Box */
+        .cta-section {
+            background-color: #0d1f10;
+            color: white;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .cta-section p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .cta-section .cta-button {
+            display: inline-block;
+            font-size: 1.1rem;
+            padding: 1rem 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0d1f10;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            font-size: 0.95rem;
+        }
+
+        footer a {
+            color: #c6f135;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight {
+            color: #c6f135;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            main {
+                padding: 2rem 1.5rem;
+            }
+
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="https://pacechange-uk.github.io/PaceChange/" class="logo">PaceChange</a>
+        <a href="https://pacechange-uk.github.io/PaceChange/" class="cta-button">Free Race Predictor →</a>
+    </nav>
+
+    <main>
+        <h1>UK Race Time Predictor — What Will Your Marathon Time Be?</h1>
+
+        <div class="meta-info">
+            <span>17 April 2026</span> • <span>6 min read</span>
+        </div>
+
+        <p>You've just done parkrun in 25 minutes and you're wondering: "Could I do a half marathon? What would my time be?" This guide explains exactly how race time prediction works — and why PaceChange's free race time predictor UK uses the same formula trusted by elite athletics coaches worldwide.</p>
+
+        <h2>How UK Race Time Prediction Works (The Riegel Formula)</h2>
+
+        <p>The secret to predicting your race time across different distances is a mathematical model called the <span class="highlight">Riegel formula</span>. Created by running scientist Peter Riegel, it works like this:</p>
+
+        <p style="text-align: center; font-weight: 600; font-size: 1.2rem; background-color: white; padding: 1.5rem; border-radius: 4px; margin: 1.5rem 0;">T₂ = T₁ × (D₂/D₁)^1.06</p>
+
+        <p>What does this mean? If T₁ is your current time for distance D₁, then T₂ is your predicted time for distance D₂. The magic number is <span class="highlight">1.06</span> — the exponent that captures a simple truth: longer races are harder than shorter ones, not just because they're longer, but because fatigue compounds.</p>
+
+        <p>The 1.06 exponent tells us that for every kilometre you add, the effort required increases by 6% more than the distance alone would suggest. This is why a runner who does a sub-20 minute 5K might not be able to run a sub-40 minute 10K, even though it's exactly double the distance.</p>
+
+        <h3>Real-World Example: 25-Minute 5K Predictor</h3>
+
+        <p>Let's say you've just run parkrun in 25 minutes. Using the Riegel formula:</p>
+
+        <ul>
+            <li><strong>10K prediction:</strong> ~52 minutes 10 seconds</li>
+            <li><strong>Half marathon prediction:</strong> ~1 hour 54 minutes</li>
+            <li><strong>Marathon prediction:</strong> ~3 hours 59 minutes</li>
+        </ul>
+
+        <h2>Race Time Predictor Table — Common 5K Times</h2>
+
+        <p>Here's a complete race time predictor table showing what different 5K times predict for longer distances:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Your 5K Time</th>
+                    <th>Predicted 10K</th>
+                    <th>Predicted Half Marathon</th>
+                    <th>Predicted Marathon</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>20 minutes</td>
+                    <td>41m 40s</td>
+                    <td>1h 31m 30s</td>
+                    <td>3h 11m</td>
+                </tr>
+                <tr>
+                    <td>25 minutes</td>
+                    <td>52m 10s</td>
+                    <td>1h 54m 00s</td>
+                    <td>3h 59m</td>
+                </tr>
+                <tr>
+                    <td>30 minutes</td>
+                    <td>1h 02m 40s</td>
+                    <td>2h 17m 30s</td>
+                    <td>4h 47m</td>
+                </tr>
+                <tr>
+                    <td>35 minutes</td>
+                    <td>1h 13m 10s</td>
+                    <td>2h 41m 00s</td>
+                    <td>5h 35m</td>
+                </tr>
+                <tr>
+                    <td>40 minutes</td>
+                    <td>1h 23m 40s</td>
+                    <td>3h 04m 30s</td>
+                    <td>6h 23m</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Is the Race Time Predictor Accurate?</h2>
+
+        <p>The Riegel formula is remarkably accurate — but it's not magic. Here's what you need to know:</p>
+
+        <ul>
+            <li><strong>Accuracy is best for similar distances.</strong> Predicting your 10K from your 5K is more reliable than predicting your marathon. The longer you go, the more variables come into play.</li>
+            <li><strong>It assumes similar training and conditions.</strong> If you trained specifically for a half marathon while your 5K was just a casual parkrun, your actual half marathon time might be faster than predicted.</li>
+            <li><strong>Fatigue and pacing matter.</strong> On the day, a badly paced race (too fast early) will be slower than the prediction. A well-paced race might be faster.</li>
+            <li><strong>Weather affects longer races more.</strong> A 5K predictor won't account for running a marathon in a British heatwave.</li>
+        </ul>
+
+        <p>In practice, most UK runners find their actual times within 5–10% of the Riegel prediction, especially for distances within 5K of their reference race.</p>
+
+        <h2>How to Use Your Predicted Race Time</h2>
+
+        <p>Once you know your predicted time, what do you do with it?</p>
+
+        <h3>1. Set a Realistic Goal</h3>
+
+        <p>Your prediction is a good starting point for a "A goal" (stretch target) or "B goal" (realistic target). If the Riegel formula predicts 1:55 for a half marathon, 1:50 is ambitious but within reach; 2:05 is a safe backup goal.</p>
+
+        <h3>2. Calculate Your Training Paces</h3>
+
+        <p>Once you have a goal race time, you can work backwards to find your training pace. A long run should be 1–2 minutes per km slower than your goal race pace. Easy runs should be 1–1.5 minutes slower still.</p>
+
+        <h3>3. Use It as a Reality Check</h3>
+
+        <p>If you're aiming for a marathon time that's far from your prediction, you might need to do more specific marathon training (longer runs, better fuelling strategy, mental toughness work).</p>
+
+        <h3>4. What if You're Faster or Slower Than Predicted?</h3>
+
+        <p>If you race faster than predicted, congratulations — you might have better aerobic fitness or mental toughness than your 5K suggested. Slower? Don't be disheartened. Longer races expose weaknesses in nutrition, pacing, and endurance training that a 5K doesn't reveal.</p>
+
+        <h2>Try the UK Race Time Predictor Free</h2>
+
+        <p>Want to calculate your exact race time prediction right now? Visit the PaceChange race time predictor and enter your current best time. You'll get instant predictions for 10K, half marathon, and marathon distances — no subscription, no email required.</p>
+
+        <div class="cta-section">
+            <h2>Get Your Free Training Plan</h2>
+            <p>Now you know your predicted race time — get the free training plan to actually hit it. Delivered to your inbox in 60 seconds.</p>
+            <div id="rtp-form" style="max-width:400px;margin:1.5rem auto 0;">
+                <input id="rtp-name" type="text" placeholder="Your first name" style="width:100%;padding:12px 16px;margin-bottom:10px;border:none;border-radius:6px;font-size:15px;box-sizing:border-box;font-family:inherit;" />
+                <input id="rtp-email" type="email" placeholder="Your email address" style="width:100%;padding:12px 16px;margin-bottom:12px;border:none;border-radius:6px;font-size:15px;box-sizing:border-box;font-family:inherit;" />
+                <button onclick="submitCapture('rtp','goal-5k','race-time-predictor-page')" class="cta-button" style="width:100%;padding:14px;font-size:16px;border:none;cursor:pointer;">Get My Free 5K Plan \u2192</button>
+            </div>
+            <div id="rtp-success" style="display:none;margin-top:1.5rem;padding:16px;background:rgba(198,241,53,0.15);border-radius:8px;color:#0d1f10;font-weight:600;font-size:16px;">\u2705 Check your inbox \u2014 your plan is on its way!</div>
+            <p style="margin-top:12px;font-size:13px;opacity:0.7;">No spam. Unsubscribe any time.</p>
+        </div>
+        
+        <script>
+        function submitCapture(prefix, tag, source) {
+            var name = document.getElementById(prefix+'-name').value.trim();
+            var email = document.getElementById(prefix+'-email').value.trim();
+            if (!name || !email || email.indexOf('@') === -1) {
+                alert('Please enter your name and a valid email address.');
+                return;
+            }
+            document.getElementById(prefix+'-form').style.display = 'none';
+            document.getElementById(prefix+'-success').style.display = 'block';
+            fetch('https://script.google.com/macros/s/AKfycbwssTres__1EbYYa5ZVHPY16mpe56XUoEmUeXAaX4sMRafZVQS0_Kgi3ZHcZtulS0B7/exec', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: name, email: email, tag: tag, source: source }),
+                mode: 'no-cors'
+            }).catch(function(){});
+        }
+        </script>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 PaceChange. All rights reserved. | <a href="https://pacechange-uk.github.io/PaceChange/">Back to PaceChange</a></p>
+    </footer>
+</body>
+</html>
