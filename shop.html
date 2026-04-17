@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Shop — PaceChange | UK Running Programmes & Guides</title>
+<meta name="description" content="Buy PaceChange running programmes and guides. 5K, 10K, Half Marathon, Marathon training plans. Built for UK runners. Instant download.">
+<link rel="canonical" href="https://pacechange-uk.github.io/PaceChange/shop.html">
+<meta property="og:title" content="Shop — PaceChange UK Running Programmes">
+<meta property="og:description" content="Training plans from 5K to Marathon. Built for UK runners. Instant download.">
+<meta property="og:url" content="https://pacechange-uk.github.io/PaceChange/shop.html">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+:root{
+  --dark:#0d1f10;--dark2:#122614;--dark3:#1a3520;
+  --lime:#c6f135;--lime2:#a8cd28;--lime-soft:rgba(198,241,53,0.08);
+  --white:#fff;--muted:rgba(255,255,255,0.55);--faint:rgba(255,255,255,0.06);
+  --border:rgba(255,255,255,0.09);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--dark);color:var(--white);min-height:100vh;}
+
+/* ── NAV ── */
+nav{display:flex;align-items:center;justify-content:space-between;padding:16px 5%;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(13,31,16,0.95);backdrop-filter:blur(12px);z-index:100;}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--lime);letter-spacing:3px;text-decoration:none;}
+.nav-right{display:flex;align-items:center;gap:16px;}
+.nav-link{font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nav-link:hover{color:var(--lime);}
+.nav-free{font-size:13px;font-weight:600;color:var(--lime);text-decoration:none;border:1px solid rgba(198,241,53,.3);padding:7px 16px;border-radius:20px;transition:all .2s;}
+.nav-free:hover{background:rgba(198,241,53,.1);}
+
+/* ── HERO ── */
+.hero{padding:56px 5% 48px;text-align:center;max-width:680px;margin:0 auto;}
+.hero-tag{display:inline-block;background:rgba(198,241,53,.1);border:1px solid rgba(198,241,53,.2);color:var(--lime);font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:7px 18px;border-radius:20px;margin-bottom:22px;}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,9vw,80px);line-height:.92;letter-spacing:2px;margin-bottom:18px;}
+.hero h1 .lime{color:var(--lime);}
+.hero-sub{font-size:16px;color:var(--muted);line-height:1.7;max-width:520px;margin:0 auto;}
+
+/* ── SECTION LABELS ── */
+.section{padding:16px 5% 0;max-width:1000px;margin:0 auto;}
+.section-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.section-eyebrow-line{flex:1;height:1px;background:var(--border);}
+.section-eyebrow-text{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(198,241,53,.5);white-space:nowrap;}
+
+/* ── BUNDLE CARD (hero product) ── */
+.bundle-card{background:linear-gradient(135deg,#122614,#0d1f10);border:1px solid rgba(198,241,53,.25);border-radius:20px;padding:0;overflow:hidden;margin:0 5% 48px;max-width:920px;margin-left:auto;margin-right:auto;position:relative;}
+.bundle-badge{position:absolute;top:20px;right:20px;background:var(--lime);color:var(--dark);font-family:'DM Mono',monospace;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:20px;}
+.bundle-inner{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.bundle-left{padding:40px;}
+.bundle-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--lime);margin-bottom:14px;}
+.bundle-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,4vw,52px);letter-spacing:1px;line-height:.95;margin-bottom:16px;}
+.bundle-h .lime{color:var(--lime);}
+.bundle-desc{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:24px;}
+.bundle-items{display:flex;flex-direction:column;gap:8px;margin-bottom:28px;}
+.bundle-item{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,.75);}
+.bundle-item::before{content:"✓";color:var(--lime);font-weight:700;font-size:12px;flex-shrink:0;}
+.bundle-price-row{display:flex;align-items:baseline;gap:12px;margin-bottom:20px;}
+.bundle-was{font-size:14px;color:rgba(255,255,255,.3);text-decoration:line-through;}
+.bundle-now{font-family:'Bebas Neue',sans-serif;font-size:56px;color:var(--lime);letter-spacing:2px;line-height:1;}
+.bundle-saving{font-size:12px;color:rgba(198,241,53,.6);background:rgba(198,241,53,.08);border-radius:20px;padding:4px 12px;align-self:center;}
+.btn-buy-bundle{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:17px;background:var(--lime);color:var(--dark);font-weight:700;font-size:16px;border-radius:12px;text-decoration:none;transition:all .2s;border:none;cursor:pointer;}
+.btn-buy-bundle:hover{background:var(--lime2);transform:translateY(-2px);box-shadow:0 8px 30px rgba(198,241,53,.2);}
+.bundle-guarantee{font-size:11px;color:rgba(255,255,255,.28);text-align:center;margin-top:10px;}
+.bundle-right{background:rgba(255,255,255,.02);border-left:1px solid rgba(255,255,255,.07);padding:40px;display:flex;flex-direction:column;justify-content:center;}
+.bundle-right-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(198,241,53,.5);margin-bottom:18px;}
+.bundle-programme{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.05);}
+.bundle-programme:last-child{border-bottom:none;}
+.bp-num{font-family:'DM Mono',monospace;font-size:10px;color:rgba(198,241,53,.5);min-width:20px;margin-top:2px;}
+.bp-info h4{font-size:14px;font-weight:600;margin-bottom:3px;}
+.bp-info p{font-size:12px;color:var(--muted);line-height:1.4;}
+.bp-price{font-family:'DM Mono',monospace;font-size:12px;color:rgba(255,255,255,.3);text-decoration:line-through;margin-left:auto;flex-shrink:0;padding-top:2px;}
+
+/* ── PRODUCT GRID ── */
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;padding:0 5% 48px;max-width:1000px;margin:0 auto;}
+.prod-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,transform .2s;}
+.prod-card:hover{border-color:rgba(198,241,53,.25);transform:translateY(-3px);}
+.prod-header{padding:24px 24px 0;position:relative;}
+.prod-distance{font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--lime);letter-spacing:2px;line-height:1;margin-bottom:2px;}
+.prod-type{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(198,241,53,.5);margin-bottom:12px;}
+.prod-title{font-size:16px;font-weight:700;margin-bottom:8px;}
+.prod-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:18px;}
+.prod-features{padding:0 24px;flex:1;}
+.prod-feature{display:flex;align-items:flex-start;gap:9px;font-size:12px;color:rgba(255,255,255,.65);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);}
+.prod-feature:last-child{border-bottom:none;}
+.prod-feature::before{content:"→";color:var(--lime);font-size:11px;flex-shrink:0;margin-top:1px;}
+.prod-footer{padding:20px 24px 24px;margin-top:auto;}
+.prod-price-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.prod-price{font-family:'Bebas Neue',sans-serif;font-size:38px;color:var(--white);letter-spacing:1px;line-height:1;}
+.prod-price-note{font-size:11px;color:var(--muted);}
+.btn-buy{display:block;width:100%;padding:14px;background:var(--faint);border:1px solid var(--border);color:var(--white);font-weight:700;font-size:14px;border-radius:10px;text-decoration:none;text-align:center;transition:all .2s;}
+.btn-buy:hover{background:var(--lime);color:var(--dark);border-color:var(--lime);}
+
+/* ── FREE SECTION ── */
+.free-section{margin:0 5% 56px;max-width:920px;margin-left:auto;margin-right:auto;}
+.free-card{background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:16px;padding:32px;text-align:center;}
+.free-tag{display:inline-block;background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.2);color:rgb(74,222,128);font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:18px;}
+.free-card h3{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:2px;margin-bottom:10px;}
+.free-card p{font-size:14px;color:var(--muted);line-height:1.7;max-width:500px;margin:0 auto 24px;}
+.btn-free{display:inline-block;padding:14px 36px;background:transparent;border:1px solid rgba(198,241,53,.3);color:var(--lime);font-weight:700;font-size:14px;border-radius:10px;text-decoration:none;transition:all .2s;}
+.btn-free:hover{background:rgba(198,241,53,.1);}
+
+/* ── TRUST BAR ── */
+.trust-bar{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;padding:32px 5%;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:56px;}
+.trust-item{display:flex;align-items:center;gap:10px;padding:12px 28px;font-size:13px;color:var(--muted);}
+.trust-icon{font-size:18px;}
+.trust-divider{width:1px;height:20px;background:var(--border);}
+
+/* ── FOOTER ── */
+footer{text-align:center;padding:32px 5% 48px;border-top:1px solid var(--border);}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--lime);letter-spacing:3px;margin-bottom:10px;}
+footer p{font-size:12px;color:rgba(255,255,255,.25);line-height:1.7;}
+footer a{color:rgba(255,255,255,.35);text-decoration:none;}
+
+/* ── MOBILE ── */
+@media(max-width:680px){
+  .bundle-inner{grid-template-columns:1fr;}
+  .bundle-right{border-left:none;border-top:1px solid rgba(255,255,255,.07);padding:28px;}
+  .bundle-badge{top:14px;right:14px;}
+  .bundle-left{padding:28px;}
+  .products-grid{grid-template-columns:1fr;}
+  .trust-item{padding:10px 14px;font-size:12px;}
+  .trust-divider{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="https://pacechange-uk.github.io/PaceChange/">PACECHANGE</a>
+  <div class="nav-right">
+    <a class="nav-link" href="https://pacechange-uk.github.io/PaceChange/">Home</a>
+    <a class="nav-free" href="https://pacechange-uk.github.io/PaceChange/start.html">Free Plan →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Instant Download · UK Running</div>
+  <h1>Train Smarter.<br><span class="lime">Run</span> Faster.</h1>
+  <p class="hero-sub">Every PaceChange programme built for UK runners. Personalised training, real paces, no fluff. Download and start today.</p>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-icon">⚡</span>Instant download</div>
+  <div class="trust-divider"></div>
+  <div class="trust-item"><span class="trust-icon">🇬🇧</span>Built for UK runners</div>
+  <div class="trust-divider"></div>
+  <div class="trust-item"><span class="trust-icon">🔒</span>Secure via Gumroad</div>
+  <div class="trust-divider"></div>
+  <div class="trust-item"><span class="trust-icon">↩️</span>30-day money back</div>
+</div>
+
+<!-- BUNDLE — HERO PRODUCT -->
+<div class="section">
+  <div class="section-eyebrow">
+    <div class="section-eyebrow-line"></div>
+    <div class="section-eyebrow-text">Best Value</div>
+    <div class="section-eyebrow-line"></div>
+  </div>
+</div>
+
+<div style="padding:0 5%;max-width:1000px;margin:0 auto 48px;">
+  <div class="bundle-card">
+    <div class="bundle-badge">Best Value</div>
+    <div class="bundle-inner">
+      <div class="bundle-left">
+        <div class="bundle-tag">Complete Kit</div>
+        <div class="bundle-h">The Complete<br><span class="lime">Runner's</span><br>Kit</div>
+        <div class="bundle-desc">Every programme. Every guide. One price, forever. The complete system for going from where you are now to wherever you want to be.</div>
+        <div class="bundle-items">
+          <div class="bundle-item">All 4 training programmes (5K → Marathon)</div>
+          <div class="bundle-item">Running for Weight Loss Guide</div>
+          <div class="bundle-item">Strength Moves Guide for Runners</div>
+          <div class="bundle-item">Race Day Blueprint</div>
+          <div class="bundle-item">PB Blueprint — Running Faster After 30</div>
+        </div>
+        <div class="bundle-price-row">
+          <div class="bundle-was">£183</div>
+          <div class="bundle-now">£97</div>
+          <div class="bundle-saving">Save £86</div>
+        </div>
+        <a class="btn-buy-bundle" href="https://pacechange.gumroad.com/l/complete-kit" target="_blank">
+          Get The Complete Kit — £97 →
+        </a>
+        <div class="bundle-guarantee">🔒 Instant access · 30-day money back guarantee</div>
+      </div>
+      <div class="bundle-right">
+        <div class="bundle-right-label">What's inside</div>
+        <div class="bundle-programme">
+          <div class="bp-num">01</div>
+          <div class="bp-info"><h4>12-Week 5K Programme</h4><p>From first run to confident 5K finish</p></div>
+          <div class="bp-price">£27</div>
+        </div>
+        <div class="bundle-programme">
+          <div class="bp-num">02</div>
+          <div class="bp-info"><h4>12-Week 10K Programme</h4><p>Sub-60 and sub-50 strategies included</p></div>
+          <div class="bp-price">£27</div>
+        </div>
+        <div class="bundle-programme">
+          <div class="bp-num">03</div>
+          <div class="bp-info"><h4>16-Week Half Marathon</h4><p>Sub-2:00 and sub-1:45 race plans</p></div>
+          <div class="bp-price">£37</div>
+        </div>
+        <div class="bundle-programme">
+          <div class="bp-num">04</div>
+          <div class="bp-info"><h4>20-Week Marathon</h4><p>Sub-4, Sub-3:30, Sub-3 strategies</p></div>
+          <div class="bp-price">£47</div>
+        </div>
+        <div class="bundle-programme">
+          <div class="bp-num">05</div>
+          <div class="bp-info"><h4>4 Bonus Guides</h4><p>Nutrition · Strength · Race Day · PB Blueprint</p></div>
+          <div class="bp-price">£45</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INDIVIDUAL PROGRAMMES -->
+<div class="section">
+  <div class="section-eyebrow">
+    <div class="section-eyebrow-line"></div>
+    <div class="section-eyebrow-text">Individual Programmes</div>
+    <div class="section-eyebrow-line"></div>
+  </div>
+</div>
+
+<div class="products-grid">
+
+  <!-- 5K -->
+  <div class="prod-card">
+    <div class="prod-header">
+      <div class="prod-distance">5K</div>
+      <div class="prod-type">12-Week Programme</div>
+      <div class="prod-title">5K Training Programme</div>
+      <div class="prod-desc">Go from zero to 5K — or smash your current PB. Built for UK runners of all abilities.</div>
+    </div>
+    <div class="prod-features">
+      <div class="prod-feature">12 weeks · 3 phases · progressive overload</div>
+      <div class="prod-feature">Personalised pace zones + easy run guide</div>
+      <div class="prod-feature">Interval sessions + strength routine</div>
+      <div class="prod-feature">Race day pacing strategy</div>
+      <div class="prod-feature">Beginner-friendly from Week 1</div>
+    </div>
+    <div class="prod-footer">
+      <div class="prod-price-row">
+        <div>
+          <div class="prod-price">£27</div>
+          <div class="prod-price-note">one-time · instant download</div>
+        </div>
+      </div>
+      <a class="btn-buy" href="https://pacechange.gumroad.com/l/5k-programme" target="_blank">Buy Now — £27 →</a>
+    </div>
+  </div>
+
+  <!-- 10K -->
+  <div class="prod-card">
+    <div class="prod-header">
+      <div class="prod-distance">10K</div>
+      <div class="prod-type">12-Week Programme</div>
+      <div class="prod-title">10K Training Programme</div>
+      <div class="prod-desc">Build the aerobic base for a strong 10K finish. Sub-60 and sub-50 strategies both included.</div>
+    </div>
+    <div class="prod-features">
+      <div class="prod-feature">12 weeks · sub-60 and sub-50 strategies</div>
+      <div class="prod-feature">Speed sessions at race pace</div>
+      <div class="prod-feature">Long run structure to build endurance</div>
+      <div class="prod-feature">Complete race week protocol</div>
+      <div class="prod-feature">UK parkrun integration tips</div>
+    </div>
+    <div class="prod-footer">
+      <div class="prod-price-row">
+        <div>
+          <div class="prod-price">£27</div>
+          <div class="prod-price-note">one-time · instant download</div>
+        </div>
+      </div>
+      <a class="btn-buy" href="https://pacechange.gumroad.com/l/10k-programme" target="_blank">Buy Now — £27 →</a>
+    </div>
+  </div>
+
+  <!-- Half Marathon -->
+  <div class="prod-card">
+    <div class="prod-header">
+      <div class="prod-distance">HALF</div>
+      <div class="prod-type">16-Week Programme</div>
+      <div class="prod-title">Half Marathon Programme</div>
+      <div class="prod-desc">The full 16-week build to 21.1km. Sub-2:00 and sub-1:45 strategies. Long runs to 19km.</div>
+    </div>
+    <div class="prod-features">
+      <div class="prod-feature">16 weeks · long runs to 19km</div>
+      <div class="prod-feature">Sub-2:00 and sub-1:45 race strategies</div>
+      <div class="prod-feature">Carb loading + race day nutrition guide</div>
+      <div class="prod-feature">Taper week plan included</div>
+      <div class="prod-feature">UK race examples + pacing bands</div>
+    </div>
+    <div class="prod-footer">
+      <div class="prod-price-row">
+        <div>
+          <div class="prod-price">£37</div>
+          <div class="prod-price-note">one-time · instant download</div>
+        </div>
+      </div>
+      <a class="btn-buy" href="https://pacechange.gumroad.com/l/half-marathon-programme" target="_blank">Buy Now — £37 →</a>
+    </div>
+  </div>
+
+  <!-- Marathon -->
+  <div class="prod-card">
+    <div class="prod-header">
+      <div class="prod-distance">MARA</div>
+      <div class="prod-type">20-Week Programme</div>
+      <div class="prod-title">Marathon Programme</div>
+      <div class="prod-desc">The complete 26.2 mile build. Sub-4, Sub-3:30, and Sub-3 strategies. Long runs to 35km.</div>
+    </div>
+    <div class="prod-features">
+      <div class="prod-feature">20 weeks · long runs to 35km</div>
+      <div class="prod-feature">Sub-4, Sub-3:30, Sub-3 strategies</div>
+      <div class="prod-feature">Complete fuelling + hydration plan</div>
+      <div class="prod-feature">How to avoid the wall — guaranteed</div>
+      <div class="prod-feature">3-week taper protocol</div>
+    </div>
+    <div class="prod-footer">
+      <div class="prod-price-row">
+        <div>
+          <div class="prod-price">£47</div>
+          <div class="prod-price-note">one-time · instant download</div>
+        </div>
+      </div>
+      <a class="btn-buy" href="https://pacechange.gumroad.com/l/marathon-programme" target="_blank">Buy Now — £47 →</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- FREE PLAN CTA -->
+<div class="free-section">
+  <div class="free-card">
+    <div class="free-tag">Completely Free</div>
+    <h3>Not Ready to Buy? Start Free.</h3>
+    <p>Get a personalised 4-week training plan delivered to your inbox in 60 seconds. No payment, no catch. Use the free calculator and see how it feels.</p>
+    <a class="btn-free" href="https://pacechange-uk.github.io/PaceChange/start.html">Get My Free Plan →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">PACECHANGE</div>
+  <p>Built for UK runners. Trusted by runners training for everything from their first parkrun to marathon day.<br>
+  <a href="https://pacechange-uk.github.io/PaceChange/">Home</a> &nbsp;·&nbsp;
+  <a href="https://pacechange-uk.github.io/PaceChange/start.html">Free Plan</a> &nbsp;·&nbsp;
+  <a href="https://pacechange.gumroad.com">Gumroad Store</a>
+  </p>
+</footer>
+
+</body>
+</html>
