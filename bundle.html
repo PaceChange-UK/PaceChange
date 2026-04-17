@@ -1,307 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Complete Runner's Transformation Kit — PaceChange</title>
-<meta name="description" content="Every PaceChange programme in one kit. 5K, 10K, Half Marathon, Marathon + Nutrition + Strength. £97 one-time. Built for UK runners who are serious about results.">
-<link rel="canonical" href="https://pacechange-uk.github.io/PaceChange/bundle.html">
-<meta property="og:title" content="The Complete Runner's Transformation Kit — £97">
-<meta property="og:description" content="Every PaceChange programme. Every guide. One price. Built for UK runners.">
-<meta property="og:url" content="https://pacechange-uk.github.io/PaceChange/bundle.html">
-<meta property="og:type" content="product">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-:root{
-  --dark:#0d1f10;
-  --dark2:#122614;
-  --lime:#c6f135;
-  --lime2:#a8cd28;
-  --white:#fff;
-  --cream:#f5f2eb;
-  --grey:#f0f0eb;
-}
-body{font-family:'DM Sans',sans-serif;background:var(--dark);color:var(--white);line-height:1.6;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete Runner's Kit — PaceChange | All UK Running Plans</title>
+  <meta name="description" content="Every PaceChange training plan in one download. 5K, 10K, half marathon and marathon programmes plus bonus guides. £97 instead of £183.">
+  <link rel="canonical" href="https://pacechange-uk.github.io/PaceChange/bundle.html">
+  <meta property="og:title" content="The Complete Runner's Kit — PaceChange">
+  <meta property="og:description" content="All four distance plans plus bonus guides. £97 instead of £183. Instant download.">
+  <meta property="og:url" content="https://pacechange-uk.github.io/PaceChange/bundle.html">
+  <meta property="og:image" content="https://pacechange-uk.github.io/PaceChange/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark:#0d1f10;
+      --dark2:#122016;
+      --card:#162b1a;
+      --border:#1e3a24;
+      --lime:#c6f135;
+      --lime2:#d4f54a;
+      --text:#e8f5e9;
+      --muted:#7a9e82;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'DM Sans',sans-serif; background:var(--dark); color:var(--text); }
 
-/* ── NAV ── */
-nav{display:flex;align-items:center;justify-content:space-between;padding:18px 5%;border-bottom:1px solid rgba(255,255,255,0.06);}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--lime);letter-spacing:3px;text-decoration:none;}
-.nav-back{font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;}
-.nav-back:hover{color:var(--lime);}
+    /* NAV */
+    nav { position:sticky; top:0; z-index:100; background:rgba(13,31,16,0.97); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); padding:0 24px; display:flex; align-items:center; justify-content:space-between; height:60px; }
+    .nav-logo { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:0.08em; color:var(--text); text-decoration:none; }
+    .nav-logo span { color:var(--lime); }
+    .nav-links { display:flex; gap:24px; align-items:center; }
+    .nav-links a { color:var(--muted); text-decoration:none; font-size:0.9rem; transition:color 0.2s; }
+    .nav-links a:hover { color:var(--text); }
+    .nav-cta { background:var(--lime); color:var(--dark) !important; font-weight:700; padding:8px 18px; border-radius:6px; font-size:0.85rem !important; }
 
-/* ── HERO ── */
-.hero{max-width:780px;margin:0 auto;padding:70px 5% 50px;text-align:center;}
-.hero-tag{display:inline-block;background:rgba(198,241,53,0.12);color:var(--lime);font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:28px;}
-.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(42px,7vw,76px);line-height:0.95;letter-spacing:2px;margin-bottom:24px;}
-.hero h1 span{color:var(--lime);}
-.hero-sub{font-size:18px;color:rgba(255,255,255,0.7);max-width:580px;margin:0 auto 40px;line-height:1.7;}
+    /* HERO */
+    .hero { max-width:820px; margin:0 auto; padding:80px 24px 56px; text-align:center; }
+    .hero-badge { display:inline-block; background:rgba(198,241,53,0.1); border:1px solid rgba(198,241,53,0.3); color:var(--lime); font-family:'DM Mono',monospace; font-size:0.72rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; padding:6px 18px; border-radius:100px; margin-bottom:24px; }
+    .hero h1 { font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,8vw,5.5rem); line-height:0.95; margin-bottom:20px; letter-spacing:0.02em; }
+    .hero h1 span { color:var(--lime); }
+    .hero-sub { color:var(--muted); font-size:1.05rem; line-height:1.7; max-width:600px; margin:0 auto 40px; }
+    .price-block { display:flex; align-items:baseline; justify-content:center; gap:16px; margin-bottom:8px; }
+    .price-now { font-family:'Bebas Neue',sans-serif; font-size:5rem; color:var(--lime); line-height:1; letter-spacing:0.02em; }
+    .price-was { font-family:'Bebas Neue',sans-serif; font-size:2rem; color:#3a5040; text-decoration:line-through; }
+    .price-save { color:var(--muted); font-size:0.95rem; margin-bottom:32px; }
+    .price-save strong { color:var(--lime); }
 
-/* ── PRICE HERO ── */
-.price-block{background:linear-gradient(135deg,rgba(198,241,53,0.08),rgba(198,241,53,0.03));border:1px solid rgba(198,241,53,0.2);border-radius:16px;padding:36px 40px;max-width:480px;margin:0 auto 56px;text-align:center;}
-.price-was{font-size:14px;color:rgba(255,255,255,0.4);text-decoration:line-through;margin-bottom:4px;}
-.price-now{font-family:'Bebas Neue',sans-serif;font-size:72px;color:var(--lime);line-height:1;letter-spacing:2px;}
-.price-note{font-size:13px;color:rgba(255,255,255,0.5);margin-top:6px;}
-.btn-buy{display:inline-block;background:var(--lime);color:var(--dark);font-weight:700;font-size:17px;padding:18px 48px;border-radius:8px;text-decoration:none;transition:all 0.2s;margin-top:24px;border:none;cursor:pointer;width:100%;}
-.btn-buy:hover{background:var(--lime2);transform:translateY(-2px);box-shadow:0 8px 30px rgba(198,241,53,0.25);}
-.guarantee{font-size:12px;color:rgba(255,255,255,0.4);margin-top:14px;}
+    .btn-hero { display:inline-flex; align-items:center; gap:10px; background:var(--lime); color:var(--dark); font-weight:700; font-size:1rem; padding:17px 40px; border-radius:12px; text-decoration:none; transition:all 0.2s; letter-spacing:0.01em; border:none; cursor:pointer; }
+    .btn-hero:hover { background:var(--lime2); transform:translateY(-2px); box-shadow:0 8px 30px rgba(198,241,53,0.2); }
+    .btn-sub { color:#3a5040; font-size:0.82rem; margin-top:12px; font-family:'DM Mono',monospace; }
 
-/* ── WHAT YOU GET ── */
-.section{padding:60px 5%;}
-.section-inner{max-width:860px;margin:0 auto;}
-.section-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--lime);margin-bottom:14px;}
-.section h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,5vw,52px);letter-spacing:2px;margin-bottom:40px;}
+    /* INCLUDES */
+    .section { max-width:900px; margin:0 auto; padding:0 24px 64px; }
+    .section-label { font-family:'DM Mono',monospace; font-size:0.7rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--lime); margin-bottom:8px; }
+    .section-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2rem,4vw,3rem); letter-spacing:0.02em; margin-bottom:32px; line-height:1; }
 
-.programmes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin-bottom:16px;}
-.prog-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:24px 20px;}
-.prog-card-tag{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lime);margin-bottom:10px;}
-.prog-card h3{font-size:18px;font-weight:700;margin-bottom:8px;}
-.prog-card p{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.5;margin-bottom:14px;}
-.prog-card .normally{font-size:12px;color:rgba(255,255,255,0.3);}
-.prog-card .normally span{color:rgba(255,255,255,0.5);text-decoration:line-through;}
+    .includes-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:48px; }
+    .include-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:24px; display:flex; gap:16px; align-items:flex-start; transition:border-color 0.2s; }
+    .include-card:hover { border-color:rgba(198,241,53,0.25); }
+    .include-icon { width:44px; height:44px; background:rgba(198,241,53,0.08); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0; }
+    .include-name { font-weight:700; font-size:0.95rem; margin-bottom:4px; color:var(--text); }
+    .include-detail { color:var(--muted); font-size:0.82rem; line-height:1.5; }
+    .include-price { font-family:'DM Mono',monospace; font-size:0.75rem; color:#3a5040; text-decoration:line-through; margin-top:6px; }
 
-/* ── BONUSES ── */
-.bonus-list{display:flex;flex-direction:column;gap:16px;}
-.bonus-item{display:flex;align-items:flex-start;gap:18px;background:rgba(198,241,53,0.05);border:1px solid rgba(198,241,53,0.12);border-radius:12px;padding:22px 24px;}
-.bonus-icon{font-size:28px;flex-shrink:0;margin-top:2px;}
-.bonus-text h4{font-size:16px;font-weight:700;margin-bottom:5px;}
-.bonus-text p{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.5;}
-.bonus-value{font-size:12px;color:var(--lime);font-weight:700;margin-top:6px;}
+    /* VALUE TABLE */
+    .value-table { background:var(--card); border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:48px; }
+    .value-row { display:flex; justify-content:space-between; align-items:center; padding:16px 24px; border-bottom:1px solid var(--border); }
+    .value-row:last-child { border-bottom:none; background:rgba(198,241,53,0.04); }
+    .value-name { font-size:0.9rem; color:var(--muted); }
+    .value-price { font-family:'DM Mono',monospace; font-size:0.85rem; color:#3a5040; text-decoration:line-through; }
+    .value-total-name { font-weight:700; font-size:1rem; color:var(--text); }
+    .value-total-price { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; color:var(--lime); letter-spacing:0.04em; }
 
-/* ── WHO IT'S FOR ── */
-.for-section{background:rgba(255,255,255,0.02);border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);}
-.check-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;}
-.check-list li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:rgba(255,255,255,0.8);}
-.check-list li::before{content:"✓";color:var(--lime);font-weight:700;font-size:16px;flex-shrink:0;margin-top:2px;}
+    /* FOR YOU SECTION */
+    .for-you { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:36px; margin-bottom:48px; }
+    .for-you h3 { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; letter-spacing:0.03em; margin-bottom:20px; }
+    .checklist { display:flex; flex-direction:column; gap:14px; }
+    .check-item { display:flex; align-items:flex-start; gap:12px; }
+    .check-dot { width:20px; height:20px; background:rgba(198,241,53,0.15); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--lime); font-size:0.75rem; flex-shrink:0; margin-top:2px; }
+    .check-text { color:var(--muted); font-size:0.9rem; line-height:1.5; }
 
-/* ── VALUE STACK ── */
-.value-stack{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;}
-.value-row{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);font-size:15px;}
-.value-row:last-child{border-bottom:none;}
-.value-row.total{background:rgba(198,241,53,0.06);font-weight:700;}
-.value-row .item-name{color:rgba(255,255,255,0.8);}
-.value-row .item-price{color:rgba(255,255,255,0.4);font-size:14px;}
-.value-row.total .item-price{color:rgba(255,255,255,0.4);text-decoration:line-through;font-size:14px;}
-.value-row .you-pay{color:var(--lime);font-size:22px;font-family:'Bebas Neue',sans-serif;letter-spacing:1px;}
+    /* FAQ */
+    .faq { display:flex; flex-direction:column; gap:12px; margin-bottom:48px; }
+    .faq-item { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:20px 24px; }
+    .faq-q { font-weight:700; font-size:0.95rem; margin-bottom:8px; color:var(--text); }
+    .faq-a { color:var(--muted); font-size:0.88rem; line-height:1.6; }
 
-/* ── FAQ ── */
-.faq-list{display:flex;flex-direction:column;gap:0;}
-.faq-item{border-bottom:1px solid rgba(255,255,255,0.07);padding:22px 0;}
-.faq-item:first-child{border-top:1px solid rgba(255,255,255,0.07);}
-.faq-q{font-size:16px;font-weight:600;margin-bottom:10px;color:var(--white);}
-.faq-a{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.7;}
+    /* BOTTOM CTA */
+    .bottom-cta { text-align:center; padding:64px 24px; border-top:1px solid var(--border); }
+    .bottom-cta h2 { font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,5vw,4rem); letter-spacing:0.02em; margin-bottom:16px; line-height:0.95; }
+    .bottom-cta h2 span { color:var(--lime); }
+    .bottom-cta p { color:var(--muted); margin-bottom:32px; font-size:1rem; }
+    .guarantee { display:inline-flex; align-items:center; gap:10px; color:#3a5040; font-size:0.82rem; margin-top:16px; font-family:'DM Mono',monospace; }
+    .guarantee-icon { width:28px; height:28px; background:rgba(198,241,53,0.1); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--lime); font-size:0.75rem; }
 
-/* ── CTA BOTTOM ── */
-.cta-bottom{text-align:center;padding:80px 5%;background:linear-gradient(180deg,transparent,rgba(198,241,53,0.04));}
-.cta-bottom h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,6vw,64px);letter-spacing:2px;margin-bottom:16px;}
-.cta-bottom h2 span{color:var(--lime);}
-.cta-bottom p{font-size:17px;color:rgba(255,255,255,0.6);margin-bottom:36px;}
+    footer { border-top:1px solid var(--border); padding:32px 24px; text-align:center; }
+    footer a { color:#3a5040; text-decoration:none; margin:0 12px; font-size:0.85rem; transition:color 0.2s; }
+    footer a:hover { color:var(--text); }
+    .footer-brand { color:#2a3d2d; font-size:0.8rem; margin-top:12px; font-family:'DM Mono',monospace; }
 
-/* ── FOOTER ── */
-footer{text-align:center;padding:32px 5%;border-top:1px solid rgba(255,255,255,0.06);font-size:13px;color:rgba(255,255,255,0.3);}
-footer a{color:rgba(255,255,255,0.4);text-decoration:none;}
-
-@media(max-width:600px){
-  .hero{padding:50px 5% 40px;}
-  .price-block{padding:28px 24px;}
-  .prog-card{padding:20px 16px;}
-  .bonus-item{flex-direction:column;gap:10px;}
-  .value-row{padding:14px 16px;font-size:14px;}
-}
-</style>
+    @media(max-width:640px) {
+      .includes-grid { grid-template-columns:1fr; }
+      .price-now { font-size:4rem; }
+      .nav-links { display:none; }
+    }
+  </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="https://pacechange-uk.github.io/PaceChange/">PACECHANGE</a>
-  <a class="nav-back" href="https://pacechange-uk.github.io/PaceChange/">← Back to site</a>
+  <a href="https://pacechange-uk.github.io/PaceChange/" class="nav-logo">PACE<span>CHANGE</span></a>
+  <div class="nav-links">
+    <a href="https://pacechange-uk.github.io/PaceChange/">Home</a>
+    <a href="https://pacechange-uk.github.io/PaceChange/shop.html">Shop</a>
+    <a href="https://pacechange-uk.github.io/PaceChange/start.html" class="nav-cta">Free Plan →</a>
+  </div>
 </nav>
 
-<!-- ── HERO ── -->
+<!-- HERO -->
 <div class="hero">
-  <div class="hero-tag">Limited Time — One-Time Price</div>
-  <h1>The Complete<br><span>Runner's</span><br>Transformation Kit</h1>
-  <p class="hero-sub">Every programme. Every guide. Every tool PaceChange makes — in one kit, for one price, forever. Built for UK runners who are done messing around.</p>
-</div>
+  <div class="hero-badge">Best Value — Save £86</div>
+  <h1>Every Plan.<br><span>One Price.</span></h1>
+  <p class="hero-sub">The complete PaceChange library — all four distance programmes plus two bonus guides. Whether you're running your first 5K or chasing a marathon PB, you're covered.</p>
 
-<!-- ── PRICE ── -->
-<div style="max-width:480px;margin:0 auto;padding:0 5% 60px;text-align:center;">
   <div class="price-block">
-    <div class="price-was">Individual programmes cost £138+ separately</div>
     <div class="price-now">£97</div>
-    <div class="price-note">One-time payment · Instant download · Yours forever</div>
-    <a class="btn-buy" href="https://pacechange.gumroad.com/l/complete-kit" target="_blank">Get The Complete Kit — £97 →</a>
-    <div class="guarantee">🔒 Secure checkout via Gumroad · Instant access · No subscription</div>
+    <div class="price-was">£183</div>
   </div>
+  <div class="price-save">You save <strong>£86</strong> — that's 47% off buying separately</div>
+
+  <a href="https://pacechange.gumroad.com/l/complete-kit" class="btn-hero" target="_blank">Get the Complete Kit — £97 <span>→</span></a>
+  <div class="btn-sub">INSTANT PDF DOWNLOAD · SECURE CHECKOUT · 30-DAY GUARANTEE</div>
 </div>
 
-<!-- ── WHAT'S INCLUDED: PROGRAMMES ── -->
+<!-- WHAT'S INCLUDED -->
 <div class="section">
-  <div class="section-inner">
-    <div class="section-label">What's Inside</div>
-    <h2>All 4 Training Programmes</h2>
-    <div class="programmes-grid">
-      <div class="prog-card">
-        <div class="prog-card-tag">Programme 1</div>
-        <h3>12-Week 5K</h3>
-        <p>From first run to sub-30 minute 5K. Beginner-friendly with progressive overload built in.</p>
-        <div class="normally">Normally <span>£27</span></div>
+  <div class="section-label">Everything Inside</div>
+  <div class="section-title">Six guides. Every distance. One download.</div>
+
+  <div class="includes-grid">
+    <div class="include-card">
+      <div class="include-icon">🏃</div>
+      <div>
+        <div class="include-name">5K Training Programme</div>
+        <div class="include-detail">12-week plan from beginner to parkrun finisher. Easy runs, intervals, and race-day strategy.</div>
+        <div class="include-price">£27 individually</div>
       </div>
-      <div class="prog-card">
-        <div class="prog-card-tag">Programme 2</div>
-        <h3>12-Week 10K</h3>
-        <p>Build the aerobic base to go from 5K to a strong 10K finish. Includes sub-60 and sub-50 strategies.</p>
-        <div class="normally">Normally <span>£27</span></div>
+    </div>
+    <div class="include-card">
+      <div class="include-icon">🏃</div>
+      <div>
+        <div class="include-name">10K Training Programme</div>
+        <div class="include-detail">12-week plan with threshold sessions, tempo runs, and UK pace zones to break your plateau.</div>
+        <div class="include-price">£27 individually</div>
       </div>
-      <div class="prog-card">
-        <div class="prog-card-tag">Programme 3</div>
-        <h3>16-Week Half Marathon</h3>
-        <p>The full build to 21.1km. Sub-2:00 and sub-1:45 race strategies included. Long runs to 19km.</p>
-        <div class="normally">Normally <span>£37</span></div>
+    </div>
+    <div class="include-card">
+      <div class="include-icon">🏃</div>
+      <div>
+        <div class="include-name">Half Marathon Programme</div>
+        <div class="include-detail">16-week progressive plan peaking at 11-mile long runs. Includes Great North Run tips.</div>
+        <div class="include-price">£37 individually</div>
       </div>
-      <div class="prog-card">
-        <div class="prog-card-tag">Programme 4</div>
-        <h3>20-Week Marathon</h3>
-        <p>The complete 26.2 mile build. Sub-4, Sub-3:30 and Sub-3 strategies. Long runs to 35km. Full fuelling plan.</p>
-        <div class="normally">Normally <span>£47</span></div>
+    </div>
+    <div class="include-card">
+      <div class="include-icon">🏃</div>
+      <div>
+        <div class="include-name">Marathon Programme</div>
+        <div class="include-detail">20-week plan to 20-mile long runs, with London Marathon course guide and full taper.</div>
+        <div class="include-price">£47 individually</div>
       </div>
+    </div>
+    <div class="include-card">
+      <div class="include-icon">🔥</div>
+      <div>
+        <div class="include-name">Running for Weight Loss Guide</div>
+        <div class="include-detail">Nutrition, calorie targets, and training structure for UK runners wanting to lose weight while building fitness.</div>
+        <div class="include-price">£27 individually</div>
+      </div>
+    </div>
+    <div class="include-card">
+      <div class="include-icon">📊</div>
+      <div>
+        <div class="include-name">UK Pace Zone Reference Guide</div>
+        <div class="include-detail">Easy, tempo, threshold and race-pace zones based on your current 5K time. Works for every plan.</div>
+        <div class="include-price">£18 individually</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALUE TABLE -->
+  <div class="section-label">The Numbers</div>
+  <div class="section-title">What you'd pay separately</div>
+
+  <div class="value-table">
+    <div class="value-row"><span class="value-name">5K Training Programme</span><span class="value-price">£27</span></div>
+    <div class="value-row"><span class="value-name">10K Training Programme</span><span class="value-price">£27</span></div>
+    <div class="value-row"><span class="value-name">Half Marathon Programme</span><span class="value-price">£37</span></div>
+    <div class="value-row"><span class="value-name">Marathon Programme</span><span class="value-price">£47</span></div>
+    <div class="value-row"><span class="value-name">Running for Weight Loss Guide</span><span class="value-price">£27</span></div>
+    <div class="value-row"><span class="value-name">UK Pace Zone Reference Guide</span><span class="value-price">£18</span></div>
+    <div class="value-row"><span class="value-total-name">Complete Kit — your price</span><span class="value-total-price">£97</span></div>
+  </div>
+
+  <!-- IS THIS FOR YOU -->
+  <div class="for-you">
+    <h3>This kit is for you if...</h3>
+    <div class="checklist">
+      <div class="check-item"><div class="check-dot">✓</div><div class="check-text">You're just starting out and want everything you might need as your running progresses</div></div>
+      <div class="check-item"><div class="check-dot">✓</div><div class="check-text">You've already got a race in mind but know you'll be back for the next distance up</div></div>
+      <div class="check-item"><div class="check-dot">✓</div><div class="check-text">You want to run multiple distances across the year — parkrun on Saturdays, a 10K in spring, a half in autumn</div></div>
+      <div class="check-item"><div class="check-dot">✓</div><div class="check-text">You want to lose weight through running and need the full structure to do it properly</div></div>
+      <div class="check-item"><div class="check-dot">✓</div><div class="check-text">You'd rather spend £97 once than £183 across four separate purchases</div></div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="section-label">Questions</div>
+  <div class="section-title">Before you buy</div>
+
+  <div class="faq">
+    <div class="faq-item">
+      <div class="faq-q">Do I get all the files immediately?</div>
+      <div class="faq-a">Yes. Gumroad delivers all six PDFs the moment you purchase. No waiting, no email confirmation needed. They're yours to download, save, and print.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Are these built for UK runners specifically?</div>
+      <div class="faq-a">Yes. Pace zones are in minutes per mile and kilometres per hour. Race targets reference UK events — parkrun, Great North Run, London Marathon. Nutrition guidance uses UK supermarkets and brands.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">I'm a complete beginner. Is this too advanced?</div>
+      <div class="faq-a">No. The 5K plan starts from scratch — walk/run intervals in week one, building to a continuous 5K by week 12. The plans progress logically so you follow them in order as your running develops.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if I already have a 5K plan from somewhere else?</div>
+      <div class="faq-a">Then start wherever you are. The kit doesn't expire. Use the 10K plan now, the half marathon plan in six months, and the marathon plan whenever you're ready.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What's your refund policy?</div>
+      <div class="faq-a">30 days, no questions asked. If you buy it and decide it's not for you, email us and we'll refund you in full.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I print these?</div>
+      <div class="faq-a">Yes. All PDFs are print-ready. A lot of runners print the weekly schedule and stick it to the fridge — old school works.</div>
     </div>
   </div>
 </div>
 
-<!-- ── BONUSES ── -->
-<div class="section" style="padding-top:0;">
-  <div class="section-inner">
-    <div class="section-label">Included Free</div>
-    <h2>4 Bonus Guides</h2>
-    <div class="bonus-list">
-      <div class="bonus-item">
-        <div class="bonus-icon">🥗</div>
-        <div class="bonus-text">
-          <h4>Running for Weight Loss Guide</h4>
-          <p>The exact calorie targets, UK food swaps, run day vs rest day eating strategy, protein guide, and weekend survival plan. 16 pages of no-nonsense UK nutrition advice.</p>
-          <div class="bonus-value">Included free with kit</div>
-        </div>
-      </div>
-      <div class="bonus-item">
-        <div class="bonus-icon">💪</div>
-        <div class="bonus-text">
-          <h4>Strength Moves Guide for Runners</h4>
-          <p>The 8 exercises that prevent the injuries most UK runners get. 20 minutes, 3x per week. No gym membership needed — all bodyweight.</p>
-          <div class="bonus-value">Included free with kit</div>
-        </div>
-      </div>
-      <div class="bonus-item">
-        <div class="bonus-icon">📋</div>
-        <div class="bonus-text">
-          <h4>Race Day Blueprint</h4>
-          <p>The 48-hour pre-race checklist. What to eat, when to eat it, what to wear, how to warm up, pacing strategy for every distance. Never go into a race underprepared again.</p>
-          <div class="bonus-value">Included free with kit</div>
-        </div>
-      </div>
-      <div class="bonus-item">
-        <div class="bonus-icon">📈</div>
-        <div class="bonus-text">
-          <h4>PB Blueprint — Running Faster After 30</h4>
-          <p>Most runners plateau. This guide explains exactly why and what to do about it. Heart rate zones, speed work structure, recovery weeks, and the training changes that unlock new PBs regardless of age.</p>
-          <div class="bonus-value">Included free with kit</div>
-        </div>
-      </div>
-    </div>
+<!-- BOTTOM CTA -->
+<div class="bottom-cta">
+  <h2>Ready to <span>Run Your Goal?</span></h2>
+  <p>Six guides. Every distance. Instant download. £97 instead of £183.</p>
+  <a href="https://pacechange.gumroad.com/l/complete-kit" class="btn-hero" target="_blank">Get the Complete Kit — £97 <span>→</span></a>
+  <div class="guarantee">
+    <div class="guarantee-icon">✓</div>
+    30-day money-back guarantee · No questions asked
   </div>
-</div>
-
-<!-- ── VALUE STACK ── -->
-<div class="section" style="background:rgba(255,255,255,0.02);border-top:1px solid rgba(255,255,255,0.06);">
-  <div class="section-inner">
-    <div class="section-label">The Maths</div>
-    <h2>What You're Actually Getting</h2>
-    <div class="value-stack">
-      <div class="value-row"><span class="item-name">12-Week 5K Programme</span><span class="item-price">£27</span></div>
-      <div class="value-row"><span class="item-name">12-Week 10K Programme</span><span class="item-price">£27</span></div>
-      <div class="value-row"><span class="item-name">16-Week Half Marathon Programme</span><span class="item-price">£37</span></div>
-      <div class="value-row"><span class="item-name">20-Week Marathon Programme</span><span class="item-price">£47</span></div>
-      <div class="value-row"><span class="item-name">Running for Weight Loss Guide</span><span class="item-price">£15</span></div>
-      <div class="value-row"><span class="item-name">Strength Moves Guide</span><span class="item-price">£10</span></div>
-      <div class="value-row"><span class="item-name">Race Day Blueprint</span><span class="item-price">£10</span></div>
-      <div class="value-row"><span class="item-name">PB Blueprint</span><span class="item-price">£10</span></div>
-      <div class="value-row total">
-        <span class="item-name">Total value</span>
-        <div style="display:flex;align-items:center;gap:16px;">
-          <span class="item-price">£183</span>
-          <span class="you-pay">£97</span>
-        </div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:36px;">
-      <a class="btn-buy" href="https://pacechange.gumroad.com/l/complete-kit" target="_blank" style="max-width:400px;display:inline-block;">Get Everything for £97 →</a>
-    </div>
-  </div>
-</div>
-
-<!-- ── WHO IT'S FOR ── -->
-<div class="section for-section">
-  <div class="section-inner">
-    <div class="section-label">Is This For You?</div>
-    <h2>This Kit Is For You If...</h2>
-    <ul class="check-list">
-      <li>You've got more than one race on your bucket list</li>
-      <li>You want a proper plan, not a random training schedule from Google</li>
-      <li>You're serious about getting a PB, not just finishing</li>
-      <li>You want nutrition advice built around UK food, not American macros</li>
-      <li>You run alone and want structure that actually works without a coach</li>
-      <li>You've tried training before and got injured or burnt out</li>
-      <li>You want everything in one place, not scattered across 6 websites</li>
-      <li>You want to do a 5K this year and a marathon in the next two years</li>
-    </ul>
-  </div>
-</div>
-
-<!-- ── FAQ ── -->
-<div class="section">
-  <div class="section-inner">
-    <div class="section-label">Questions</div>
-    <h2>FAQ</h2>
-    <div class="faq-list">
-      <div class="faq-item">
-        <div class="faq-q">How do I get access after purchasing?</div>
-        <div class="faq-a">Instantly. Gumroad sends you a download link the moment payment clears. All programmes and guides download as PDFs — open them on your phone, tablet, or print them out.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">I'm a complete beginner. Is this suitable for me?</div>
-        <div class="faq-a">Yes. The 5K programme starts from scratch — no running experience required. The guides are written in plain English, not coaching jargon. If you can walk, you can start the 5K programme this week.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Do I need a gym or special equipment?</div>
-        <div class="faq-a">No. The running programmes require nothing but trainers. The strength guide uses bodyweight exercises only. You don't need a gym membership, a GPS watch, or any paid apps.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">What if I only want to do a 5K — do I need the whole kit?</div>
-        <div class="faq-a">The individual 5K programme is £27. The complete kit is £97. If there's any chance you'll want to go further than a 5K in the next two years — and most runners do — the kit is the better value. But if you're certain about staying at 5K, grab just that programme instead.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Is there a refund policy?</div>
-        <div class="faq-a">Yes. If you're not satisfied within 30 days, reply to your purchase confirmation and we'll refund in full. No questions asked.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Are these plans tailored to UK runners specifically?</div>
-        <div class="faq-a">Yes, deliberately. Distances are in kilometres and miles. Nutrition advice uses UK supermarkets (Tesco, Sainsbury's, Aldi, Greggs). Weather advice accounts for British conditions. Race examples are UK events. This isn't a US plan with the measurements swapped.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ── CTA BOTTOM ── -->
-<div class="cta-bottom">
-  <h2>Stop Guessing.<br><span>Start Running.</span></h2>
-  <p>Everything you need to go from where you are now to where you want to be.</p>
-  <a class="btn-buy" href="https://pacechange.gumroad.com/l/complete-kit" target="_blank" style="max-width:400px;display:inline-block;">Get The Complete Kit — £97 →</a>
-  <p style="margin-top:16px;font-size:13px;color:rgba(255,255,255,0.3);">One-time payment · Instant access · 30-day money back guarantee</p>
 </div>
 
 <footer>
-  © 2026 PaceChange · Built for UK runners ·
-  <a href="https://pacechange-uk.github.io/PaceChange/">Back to PaceChange</a>
+  <div>
+    <a href="https://pacechange-uk.github.io/PaceChange/">Home</a>
+    <a href="https://pacechange-uk.github.io/PaceChange/shop.html">Shop</a>
+    <a href="https://pacechange-uk.github.io/PaceChange/start.html">Free Plan</a>
+  </div>
+  <div class="footer-brand">© 2026 PaceChange · Built for UK Runners</div>
 </footer>
 
 </body>
