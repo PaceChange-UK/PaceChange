@@ -1041,7 +1041,7 @@ function submitRunEmail() {
   document.getElementById('r-success-state').classList.add('visible');
   const goalTags={'5K':'goal-5k','10K':'goal-10k','HM':'goal-halfmarathon','M':'goal-marathon'};
   const tag=goalTags[selectedRace]||'goal-5k';
-  fetch('https://script.google.com/macros/s/AKfycbwssTres__1EbYYa5ZVHPY16mpe56XUoEmUeXAaX4sMRafZVQS0_Kgi3ZHcZtulS0B7/exec',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name,email:email,tag:tag,source:'running-calculator'}),mode:'no-cors'}).catch(()=>{});
+  fetch('https://script.google.com/macros/s/AKfycbwssTres__1EbYYa5ZVHPY16mpe56XUoEmUeXAaX4sMRafZVQS0_Kgi3ZHcZtulS0B7/exec',{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({name:name,email:email,tag:tag,source:'running-calculator'}),mode:'no-cors'}).catch(()=>{});
 }
 
 // ===== CALORIE CALC =====
@@ -1075,7 +1075,7 @@ function submitCalEmail() {
   if(!name||!email||!email.includes('@')){alert('Please enter your name and a valid email.');return;}
   document.getElementById('c-email-form').style.display='none';
   document.getElementById('c-success-state').classList.add('visible');
-  fetch('https://script.google.com/macros/s/AKfycbwssTres__1EbYYa5ZVHPY16mpe56XUoEmUeXAaX4sMRafZVQS0_Kgi3ZHcZtulS0B7/exec',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name,email:email,tag:'goal-weightloss',source:'calorie-calculator'}),mode:'no-cors'}).catch(()=>{});
+  fetch('https://script.google.com/macros/s/AKfycbwssTres__1EbYYa5ZVHPY16mpe56XUoEmUeXAaX4sMRafZVQS0_Kgi3ZHcZtulS0B7/exec',{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({name:name,email:email,tag:'goal-weightloss',source:'calorie-calculator'}),mode:'no-cors'}).catch(()=>{});
 }
 
 function resetCalc() { document.getElementById('cal-results').classList.remove('visible'); document.getElementById('tools-section').scrollIntoView({behavior:'smooth'}); }
@@ -1088,13 +1088,13 @@ function submitGuide(prefix) {
   const source = prefix==='ng' ? 'nutrition-guide-card' : 'training-guide-card';
   document.getElementById(prefix+'-form').style.display='none';
   document.getElementById(prefix+'-success').style.display='block';
-  fetch('https://script.google.com/macros/s/AKfycbwssTres__1EbYYa5ZVHPY16mpe56XUoEmUeXAaX4sMRafZVQS0_Kgi3ZHcZtulS0B7/exec',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name,email:email,tag:tag,source:source}),mode:'no-cors'}).catch(()=>{});
+  fetch('https://script.google.com/macros/s/AKfycbwssTres__1EbYYa5ZVHPY16mpe56XUoEmUeXAaX4sMRafZVQS0_Kgi3ZHcZtulS0B7/exec',{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({name:name,email:email,tag:tag,source:source}),mode:'no-cors'}).catch(()=>{});
 }
 
 function submitNewsletter() {
   const email=document.getElementById('nl-email').value.trim();
   if(!email||!email.includes('@')){alert('Please enter a valid email address.');return;}
-  fetch('https://script.google.com/macros/s/AKfycbwssTres__1EbYYa5ZVHPY16mpe56XUoEmUeXAaX4sMRafZVQS0_Kgi3ZHcZtulS0B7/exec',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:'Runner',email:email,tag:'goal-5k',source:'newsletter-footer'}),mode:'no-cors'}).catch(()=>{});
+  fetch('https://script.google.com/macros/s/AKfycbwssTres__1EbYYa5ZVHPY16mpe56XUoEmUeXAaX4sMRafZVQS0_Kgi3ZHcZtulS0B7/exec',{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({name:'Runner',email:email,tag:'goal-5k',source:'newsletter-footer'}),mode:'no-cors'}).catch(()=>{});
   document.getElementById('nl-email').value='';
   alert('You\'re in! Check your inbox in the next 60 seconds.');
 }
