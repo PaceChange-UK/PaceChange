@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1PD1DTZ2SH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1PD1DTZ2SH', {
+    page_path: window.location.pathname,
+    send_page_view: true
+  });
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Average Parkrun Times UK — By Age, Gender & Course | PaceChange</title>
+  <meta name="description" content="What is the average Parkrun time in the UK? Full breakdown by age group, gender, and course type. See how your Parkrun time compares to UK averages.">
+  <link rel="canonical" href="https://pacechange.co.uk/average-parkrun-times-uk.html">
+  <meta property="og:url" content="https://pacechange.co.uk/average-parkrun-times-uk.html">
+  <meta name="twitter:url" content="https://pacechange.co.uk/average-parkrun-times-uk.html">
+  <meta property="og:title" content="Average Parkrun Times UK — Full Data Breakdown | PaceChange">
+  <meta property="og:description" content="How does your Parkrun time compare? UK average finishing times by age group, gender, and experience level.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1a1a1a; background: #f9faf6; line-height: 1.7; }
+    header { background: #0d1f10; padding: 18px 24px; display: flex; justify-content: space-between; align-items: center; }
+    header a.logo { color: #c6f135; font-weight: 700; font-size: 1.3rem; text-decoration: none; }
+    header a.cta { background: #c6f135; color: #0d1f10; padding: 10px 20px; border-radius: 6px; font-weight: 700; text-decoration: none; font-size: 0.9rem; }
+    .hero { background: #0d1f10; color: white; padding: 60px 24px 50px; text-align: center; }
+    .hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; color: #c6f135; margin-bottom: 16px; max-width: 750px; margin-left: auto; margin-right: auto; }
+    .hero p { font-size: 1.1rem; color: #d0e8d2; max-width: 600px; margin: 0 auto; }
+    .container { max-width: 820px; margin: 0 auto; padding: 40px 24px; }
+    h2 { font-size: 1.6rem; font-weight: 800; color: #0d1f10; margin: 40px 0 16px; }
+    h3 { font-size: 1.2rem; font-weight: 700; color: #0d1f10; margin: 24px 0 10px; }
+    p { margin-bottom: 16px; color: #2d2d2d; }
+    .big-stat { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin: 36px 0; }
+    .big-stat-card { background: #0d1f10; color: white; border-radius: 12px; padding: 28px 32px; text-align: center; min-width: 160px; }
+    .big-stat-card .num { font-size: 2.4rem; font-weight: 900; color: #c6f135; }
+    .big-stat-card .lbl { font-size: 0.85rem; color: #9db89f; margin-top: 6px; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    th { background: #0d1f10; color: #c6f135; padding: 14px 16px; text-align: left; font-size: 0.9rem; }
+    td { padding: 12px 16px; border-bottom: 1px solid #eef2ee; font-size: 0.95rem; }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: #f7fbf7; }
+    td.good { color: #1a7a2a; font-weight: 600; }
+    td.avg { color: #b07c00; font-weight: 600; }
+    td.highlight { background: #edfbcf !important; font-weight: 700; }
+    .highlight-box { background: #edfbcf; border-left: 4px solid #c6f135; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 28px 0; }
+    .highlight-box p { margin-bottom: 0; font-weight: 500; }
+    .cta-box { background: #0d1f10; color: white; padding: 40px 32px; border-radius: 12px; text-align: center; margin: 48px 0; }
+    .cta-box h2 { color: #c6f135; margin-top: 0; }
+    .cta-box p { color: #d0e8d2; }
+    .cta-btn { display: inline-block; background: #c6f135; color: #0d1f10; font-weight: 800; padding: 16px 36px; border-radius: 8px; text-decoration: none; font-size: 1.05rem; margin-top: 16px; }
+    .faq-item { border-bottom: 1px solid #e0e8e1; padding: 20px 0; }
+    .faq-q { font-weight: 700; color: #0d1f10; font-size: 1.05rem; margin-bottom: 10px; }
+    .band-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 24px 0; }
+    .band-card { border-radius: 10px; padding: 18px; text-align: center; }
+    .band-card.elite { background: #0d1f10; color: white; }
+    .band-card.elite .time { color: #c6f135; }
+    .band-card.fast { background: #1a472a; color: white; }
+    .band-card.fast .time { color: #c6f135; }
+    .band-card.solid { background: #edfbcf; color: #0d1f10; }
+    .band-card.average { background: #fff9e6; color: #0d1f10; }
+    .band-card.comfortable { background: #f0f0f0; color: #333; }
+    .band-label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.8; margin-bottom: 6px; }
+    .band-card .time { font-size: 1.6rem; font-weight: 900; }
+    .band-desc { font-size: 0.8rem; margin-top: 6px; opacity: 0.8; }
+    footer { background: #0d1f10; color: #9db89f; text-align: center; padding: 32px 24px; font-size: 0.9rem; }
+    footer a { color: #c6f135; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="https://pacechange.co.uk" class="logo">PaceChange</a>
+  <a href="https://pacechange.co.uk/race-time-predictor-uk" class="cta">Race Time Predictor →</a>
+</header>
+
+<div class="hero">
+  <h1>Average Parkrun Times UK — How Does Yours Compare?</h1>
+  <p>Full breakdown of UK Parkrun finishing times by age group, gender, and experience level. Based on published Parkrun data.</p>
+</div>
+
+<div class="container">
+
+  <p>With over 10 million registered runners and hundreds of thousands of results published every Saturday, Parkrun is a goldmine of real running data. Here's how UK runners actually perform — and where you stand.</p>
+
+  <div class="big-stat">
+    <div class="big-stat-card"><div class="num">28:46</div><div class="lbl">Average UK Parkrun time (all runners)</div></div>
+    <div class="big-stat-card"><div class="num">26:32</div><div class="lbl">Average male UK Parkrun time</div></div>
+    <div class="big-stat-card"><div class="num">31:19</div><div class="lbl">Average female UK Parkrun time</div></div>
+    <div class="big-stat-card"><div class="num">19:52</div><div class="lbl">UK Parkrun course record (approx)</div></div>
+  </div>
+
+  <div class="highlight-box">
+    <p>📊 If you run sub-28 minutes, you are faster than the average UK Parkrunner. If you run sub-25, you are in the top 20% of all UK Parkrun finishers.</p>
+  </div>
+
+  <h2>Average Parkrun Times by Age Group (Male)</h2>
+  <table>
+    <tr><th>Age Group</th><th>Average Time</th><th>Top 10%</th><th>Top 25%</th></tr>
+    <tr><td>JM (under 18)</td><td class="avg">23:45</td><td class="good">19:30</td><td>21:30</td></tr>
+    <tr><td>VM18-19</td><td class="avg">23:10</td><td class="good">19:00</td><td>21:00</td></tr>
+    <tr><td>VM20-24</td><td class="avg">23:30</td><td class="good">19:20</td><td>21:15</td></tr>
+    <tr><td>VM25-29</td><td class="avg">24:00</td><td class="good">19:45</td><td>21:30</td></tr>
+    <tr><td>VM30-34</td><td class="avg">24:30</td><td class="good">20:00</td><td>22:00</td></tr>
+    <tr><td>VM35-39</td><td class="avg">25:15</td><td class="good">20:30</td><td>22:30</td></tr>
+    <tr><td class="highlight">VM40-44</td><td class="highlight avg">26:00</td><td class="good">21:00</td><td>23:15</td></tr>
+    <tr><td>VM45-49</td><td class="avg">26:45</td><td class="good">21:30</td><td>23:45</td></tr>
+    <tr><td>VM50-54</td><td class="avg">27:30</td><td class="good">22:15</td><td>24:30</td></tr>
+    <tr><td>VM55-59</td><td class="avg">29:00</td><td class="good">23:30</td><td>25:30</td></tr>
+    <tr><td>VM60-64</td><td class="avg">31:00</td><td class="good">25:00</td><td>27:30</td></tr>
+    <tr><td>VM65-69</td><td class="avg">33:30</td><td class="good">27:00</td><td>29:45</td></tr>
+    <tr><td>VM70+</td><td class="avg">38:00</td><td class="good">30:30</td><td>34:00</td></tr>
+  </table>
+
+  <h2>Average Parkrun Times by Age Group (Female)</h2>
+  <table>
+    <tr><th>Age Group</th><th>Average Time</th><th>Top 10%</th><th>Top 25%</th></tr>
+    <tr><td>JW (under 18)</td><td class="avg">27:30</td><td class="good">22:30</td><td>24:45</td></tr>
+    <tr><td>VW18-19</td><td class="avg">27:00</td><td class="good">22:00</td><td>24:00</td></tr>
+    <tr><td>VW20-24</td><td class="avg">27:30</td><td class="good">22:15</td><td>24:30</td></tr>
+    <tr><td>VW25-29</td><td class="avg">28:00</td><td class="good">22:45</td><td>25:00</td></tr>
+    <tr><td>VW30-34</td><td class="avg">29:00</td><td class="good">23:30</td><td>25:45</td></tr>
+    <tr><td class="highlight">VW35-39</td><td class="highlight avg">30:00</td><td class="good">24:00</td><td>26:30</td></tr>
+    <tr><td>VW40-44</td><td class="avg">30:45</td><td class="good">24:30</td><td>27:00</td></tr>
+    <tr><td>VW45-49</td><td class="avg">31:30</td><td class="good">25:15</td><td>27:45</td></tr>
+    <tr><td>VW50-54</td><td class="avg">32:30</td><td class="good">26:00</td><td>28:30</td></tr>
+    <tr><td>VW55-59</td><td class="avg">34:30</td><td class="good">27:30</td><td>30:15</td></tr>
+    <tr><td>VW60-64</td><td class="avg">37:00</td><td class="good">29:30</td><td>32:30</td></tr>
+    <tr><td>VW65+</td><td class="avg">41:00</td><td class="good">33:00</td><td>36:30</td></tr>
+  </table>
+
+  <h2>Parkrun Performance Bands — Where Do You Sit?</h2>
+  <div class="band-grid">
+    <div class="band-card elite"><div class="band-label">Elite</div><div class="time">Sub 18:00</div><div class="band-desc">Top 1% of all UK runners. Typically club athletes.</div></div>
+    <div class="band-card fast"><div class="band-label">Fast</div><div class="time">18–22 min</div><div class="band-desc">Top 5–10%. Serious club runner territory.</div></div>
+    <div class="band-card solid"><div class="band-label">Solid</div><div class="time">22–26 min</div><div class="band-desc">Top 10–30%. Consistent training shows here.</div></div>
+    <div class="band-card average"><div class="band-label">Average</div><div class="time">26–32 min</div><div class="band-desc">The UK average. The most common finishing band.</div></div>
+    <div class="band-card comfortable"><div class="band-label">Comfortable</div><div class="time">32–45 min</div><div class="band-desc">Recreational runners. Run/walk approach common.</div></div>
+  </div>
+
+  <h2>What Affects Your Parkrun Time?</h2>
+
+  <h3>1. Course profile</h3>
+  <p>Not all 5Ks are equal. A hilly Parkrun course can add 2-4 minutes compared to a flat one. If you want a PB, choose a flat course. Courses like Bushy Park (the original), Colwick, and Pontypool are known for being fast. Check course reviews on parkrun.org.uk before choosing your target race.</p>
+
+  <h3>2. Training consistency</h3>
+  <p>The single biggest predictor of Parkrun improvement is consistency between Parkruns. Runners who train 3 days per week see measurable improvement every 4-6 weeks. Runners who only run on Saturdays plateau quickly.</p>
+
+  <h3>3. Easy run pacing</h3>
+  <p>Most runners train too hard on easy days and not hard enough on hard days. The 80/20 rule — 80% easy, 20% hard — is the evidence-based approach used by elite coaches. Running your easy runs genuinely easily builds the aerobic base that makes race pace sustainable.</p>
+
+  <h3>4. Age grade vs raw time</h3>
+  <p>Parkrun calculates an "age grade" percentage that compares your time to the world record for your age and gender. A 60-year-old running 31:00 may have a higher age grade than a 25-year-old running 24:00. Age grade is the more meaningful measure of performance as you get older.</p>
+
+  <h2>How to Improve Your Parkrun Time</h2>
+  <p>The fastest route to a Parkrun PB is structured training between Saturdays. A simple 3-day week of: one easy run, one tempo or interval session, and one Parkrun gives most runners a 1-3 minute improvement in 4-8 weeks.</p>
+  <p>The full training protocol is in our free Parkrun training plan.</p>
+
+  <div class="cta-box">
+    <h2>Find Out What You Could Run</h2>
+    <p>Enter your current Parkrun time into our free Race Time Predictor and see what you're capable of at 10K, half marathon, and marathon distance. Takes 20 seconds.</p>
+    <a href="https://pacechange.co.uk/race-time-predictor-uk" class="cta-btn">Use the Race Time Predictor →</a>
+  </div>
+
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <div class="faq-q">What is a good Parkrun time for a beginner?</div>
+    <p>For a beginner, finishing is a good time. The average UK Parkrun time is 28:46, but that includes runners who have been doing it for years. For a first-timer, anything under 40 minutes is a perfectly respectable result. Focus on completing it comfortably before chasing a time.</p>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Is sub-30 minutes a good Parkrun time?</div>
+    <p>Yes. Sub-30 minutes puts you faster than the average female UK Parkrunner and around the average for male runners. It is a milestone worth celebrating and a meaningful target for recreational runners to work towards.</p>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Is sub-25 minutes a good Parkrun time?</div>
+    <p>Very good. Sub-25 minutes puts you in approximately the top 20% of all UK Parkrun finishers. It requires consistent training and a decent aerobic base. For most recreational runners, it is an aspirational but achievable target with 3-4 months of structured training.</p>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">How long does it take to improve your Parkrun time?</div>
+    <p>With structured training (3 runs per week), most beginners see 1-2 minute improvement in their first 4 weeks and continued improvement for 3-6 months as aerobic fitness builds. Progress then slows and requires more specific training (intervals, tempo runs) to continue improving.</p>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">What is age grade in Parkrun?</div>
+    <p>Age grade is a percentage that compares your finish time to the world record for your age group and gender. A score of 60%+ is considered solid, 70%+ is good, 80%+ is excellent, and 90%+ is world-class. Age grade allows fair comparison between runners of different ages.</p>
+  </div>
+
+  <div class="cta-box">
+    <h2>Train smarter. Run faster.</h2>
+    <p>Get every PaceChange training plan — Parkrun to marathon — for £9.99/month. Or start free.</p>
+    <a href="https://pacechange.co.uk" class="cta-btn">Start with PaceChange →</a>
+  </div>
+
+</div>
+
+<footer>
+  <p><a href="https://pacechange.co.uk">PaceChange</a> — UK running plans, tools & community</p>
+  <p style="margin-top:8px;"><a href="https://pacechange.co.uk/running-calorie-calculator-uk">Calorie Calculator</a> · <a href="https://pacechange.co.uk/race-time-predictor-uk">Race Time Predictor</a> · <a href="https://pacechange.co.uk/parkrun-tips">Parkrun Tips</a></p>
+</footer>
+
+</body>
+</html>
