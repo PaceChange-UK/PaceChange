@@ -2,26 +2,37 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1PD1DTZ2SH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1PD1DTZ2SH', {
+    page_path: window.location.pathname,
+    send_page_view: true
+  });
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PaceChange — Free Running Plans & Training Calculators for UK Runners</title>
 <meta name="description" content="Get your free personalised running plan for 5K, 10K, Half Marathon or Marathon. Plus free calorie calculator and weight loss guide. Built for UK runners. No faff, just results.">
 <meta name="keywords" content="free running plan UK, 5K training plan, 10K training plan, half marathon plan UK, marathon training plan, running calorie calculator, weight loss running UK">
-<link rel="canonical" href="https://pacechange-uk.github.io/PaceChange/">
+<link rel="canonical" href="https://pacechange.co.uk/">
 
 <!-- Open Graph / Facebook / WhatsApp -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://pacechange-uk.github.io/PaceChange/">
+<meta property="og:url" content="https://pacechange.co.uk/">
 <meta property="og:title" content="PaceChange — Free Running Plans for UK Runners">
 <meta property="og:description" content="Get your free personalised running plan for 5K, 10K, Half Marathon or Marathon. Built for UK runners. Real training, real results.">
-<meta property="og:image" content="https://pacechange-uk.github.io/PaceChange/og-image.png">
+<meta property="og:image" content="https://pacechange.co.uk/og-image.png">
 <meta property="og:site_name" content="PaceChange">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://pacechange-uk.github.io/PaceChange/">
+<meta name="twitter:url" content="https://pacechange.co.uk/">
 <meta name="twitter:title" content="PaceChange — Free Running Plans for UK Runners">
 <meta name="twitter:description" content="Free personalised running plans for 5K, 10K, Half Marathon and Marathon. Built for UK runners.">
-<meta name="twitter:image" content="https://pacechange-uk.github.io/PaceChange/og-image.png">
+<meta name="twitter:image" content="https://pacechange.co.uk/og-image.png">
 
 <!-- Schema.org — WebSite + Organization -->
 <script type="application/ld+json">
@@ -30,27 +41,27 @@
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://pacechange-uk.github.io/PaceChange/#website",
-      "url": "https://pacechange-uk.github.io/PaceChange/",
+      "@id": "https://pacechange.co.uk/#website",
+      "url": "https://pacechange.co.uk/",
       "name": "PaceChange",
       "description": "Free running plans and training calculators for UK runners",
-      "publisher": { "@id": "https://pacechange-uk.github.io/PaceChange/#organization" }
+      "publisher": { "@id": "https://pacechange.co.uk/#organization" }
     },
     {
       "@type": "Organization",
-      "@id": "https://pacechange-uk.github.io/PaceChange/#organization",
+      "@id": "https://pacechange.co.uk/#organization",
       "name": "PaceChange",
-      "url": "https://pacechange-uk.github.io/PaceChange/",
-      "logo": "https://pacechange-uk.github.io/PaceChange/og-image.png",
+      "url": "https://pacechange.co.uk/",
+      "logo": "https://pacechange.co.uk/og-image.png",
       "sameAs": []
     },
     {
       "@type": "WebPage",
-      "@id": "https://pacechange-uk.github.io/PaceChange/#webpage",
-      "url": "https://pacechange-uk.github.io/PaceChange/",
+      "@id": "https://pacechange.co.uk/#webpage",
+      "url": "https://pacechange.co.uk/",
       "name": "PaceChange — Free Running Plans & Training Calculators for UK Runners",
-      "isPartOf": { "@id": "https://pacechange-uk.github.io/PaceChange/#website" },
-      "about": { "@id": "https://pacechange-uk.github.io/PaceChange/#organization" },
+      "isPartOf": { "@id": "https://pacechange.co.uk/#website" },
+      "about": { "@id": "https://pacechange.co.uk/#organization" },
       "description": "Get your free personalised running plan for 5K, 10K, Half Marathon or Marathon. Plus free calorie calculator and weight loss guide."
     },
     {
@@ -486,6 +497,7 @@ footer { border-top:1px solid rgba(255,255,255,.05); padding:52px 24px 32px; tex
       <span class="nav-link" onclick="document.getElementById('guides-section').scrollIntoView({behavior:'smooth'})">Free Guides</span>
       <span class="nav-link" onclick="document.getElementById('tips-section').scrollIntoView({behavior:'smooth'})">Training Tips</span>
       <span class="nav-link" onclick="document.getElementById('guides-section').scrollIntoView({behavior:'smooth'})">Free Guides</span>
+      <a class="nav-link" href="store.html">Shop</a>
     </div>
     <a class="nav-cta" href="#" onclick="event.preventDefault();document.getElementById('tools-section').scrollIntoView({behavior:'smooth'})">Get Free Plan →</a>
   </div>
@@ -657,7 +669,7 @@ footer { border-top:1px solid rgba(255,255,255,.05); padding:52px 24px 32px; tex
         <div style="text-align:center;flex-shrink:0;">
           <div class="upsell-price" id="upsell-price">£37</div>
           <div class="upsell-price-note">one-time payment</div>
-          <button class="btn-primary" onclick="window.open('https://gumroad.com','_blank')" style="width:auto;padding:12px 24px;">Get The Full Plan →</button>
+          <a id="upsell-cta-btn" href="https://pacechange.gumroad.com" target="_blank" rel="noopener" class="btn-primary" style="display:inline-block;width:auto;padding:12px 24px;text-decoration:none;">Get The Full Plan →</a>
         </div>
       </div>
     </div>
@@ -763,7 +775,7 @@ footer { border-top:1px solid rgba(255,255,255,.05); padding:52px 24px 32px; tex
 <div class="full-section">
   <div class="container">
     <div class="stats-strip">
-      <div><div class="stat-val">4,000+</div><div class="stat-label">Runners helped</div></div>
+      <div><div class="stat-val">12</div><div class="stat-label">Training Guides</div></div>
       <div><div class="stat-val">5K → M</div><div class="stat-label">All distances</div></div>
       <div><div class="stat-val">100%</div><div class="stat-label">Free tools</div></div>
       <div><div class="stat-val">Weekly</div><div class="stat-label">Newsletter tips</div></div>
@@ -776,31 +788,31 @@ footer { border-top:1px solid rgba(255,255,255,.05); padding:52px 24px 32px; tex
   <div class="container">
     <div style="text-align:center;">
       <div class="eyebrow">What runners are saying</div>
-      <div class="section-h">Real Runners. <span>Real Results.</span></div>
+      <div class="section-h">Built for UK Runners. <span>Every Distance.</span></div>
     </div>
     <div class="testimonials-grid">
       <div class="testimonial-card">
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-text">"I went from dreading the weekly parkrun to smashing my PB by nearly 4 minutes in 8 weeks. The training plan was realistic and I actually stuck to it."</div>
+        <div class="testi-stars">5K · 10K · Half · Marathon</div>
+        <div class="testi-text">Structured week-by-week plans for every distance. No guesswork — just progressive training that builds fitness without burning you out.</div>
         <div class="testi-author">
-          <div class="testi-avatar">S</div>
-          <div><div class="testi-name">Sarah M.</div><div class="testi-detail">Sheffield</div><div class="testi-badge">5K: 28:12 → 24:06</div></div>
+          <div class="testi-avatar">🏃</div>
+          <div><div class="testi-name">Training Plans</div><div class="testi-detail">All distances covered</div><div class="testi-badge">5K through Marathon</div></div>
         </div>
       </div>
       <div class="testimonial-card">
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-text">"The calorie calculator was a game changer. I didn't realise I was massively undereating for the amount I was running. Once I sorted my nutrition, everything clicked."</div>
+        <div class="testi-stars">Nutrition · Recovery · Strength</div>
+        <div class="testi-text">A dedicated Nutrition Bible, Recovery & Sleep guide, and Strength & Conditioning programme — the three pillars most runners ignore. Built specifically around running load.</div>
         <div class="testi-author">
-          <div class="testi-avatar">J</div>
-          <div><div class="testi-name">James T.</div><div class="testi-detail">Manchester</div><div class="testi-badge">Half Marathon PB</div></div>
+          <div class="testi-avatar">💪</div>
+          <div><div class="testi-name">Complete System</div><div class="testi-detail">Train the whole athlete</div><div class="testi-badge">10 specialist guides</div></div>
         </div>
       </div>
       <div class="testimonial-card">
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-text">"As a complete beginner I had no idea where to start. The step-by-step plan made everything so simple. Ran my first 10K in under an hour — absolutely buzzing."</div>
+        <div class="testi-stars">Free Tools · Free Plans</div>
+        <div class="testi-text">Race time predictor, calorie calculator, and a personalised free training plan — all free, no email required to use the tools. Pay only if you want the full programme.</div>
         <div class="testi-author">
-          <div class="testi-avatar">L</div>
-          <div><div class="testi-name">Laura P.</div><div class="testi-detail">Bristol</div><div class="testi-badge">First 10K completed</div></div>
+          <div class="testi-avatar">🎯</div>
+          <div><div class="testi-name">No Faff</div><div class="testi-detail">Start for free today</div><div class="testi-badge">Real value, upfront</div></div>
         </div>
       </div>
     </div>
@@ -935,8 +947,8 @@ footer { border-top:1px solid rgba(255,255,255,.05); padding:52px 24px 32px; tex
   <div class="container">
     <div class="newsletter-card">
       <div class="eyebrow">Weekly newsletter</div>
-      <div class="newsletter-title">Join <span>4,000+</span> UK Runners</div>
-      <div class="newsletter-desc">Every week: one training tip, one nutrition insight, and one thing to try on your next run. 5 minutes. Free. Trusted by runners across the UK.</div>
+      <div class="newsletter-title">Join UK Runners Who Train Smarter</div>
+      <div class="newsletter-desc">Every week: one training tip, one nutrition insight, and one thing to try on your next run. 5 minutes. Free. Used by runners training for 5K, 10K, half marathons, and marathons across the UK.</div>
       <div class="newsletter-form">
         <input type="email" class="newsletter-input" id="nl-email" placeholder="Your email address">
         <button class="newsletter-btn" onclick="submitNewsletter()">Join Free →</button>
@@ -1030,6 +1042,9 @@ function generatePlan() {
   const prices={'5K':'£27','10K':'£27','HM':'£37','M':'£47'}, ebooks={'5K':'8-Week 5K Transformation','10K':'10-Week 10K Programme','HM':'12-Week Half Marathon Plan','M':'18-Week Marathon Blueprint'};
   document.getElementById('upsell-title').textContent=ebooks[selectedRace];
   document.getElementById('upsell-price').textContent=prices[selectedRace];
+  var gumroadUrls={'5K':'https://pacechange.gumroad.com/l/5k-programme','10K':'https://pacechange.gumroad.com/l/10k-programme','HM':'https://pacechange.gumroad.com/l/half-marathon-programme','M':'https://pacechange.gumroad.com/l/marathon-programme'};
+  var ctaBtn=document.getElementById('upsell-cta-btn');
+  if(ctaBtn) ctaBtn.href=gumroadUrls[selectedRace]||'https://pacechange.gumroad.com';
   rGoToStep(4);
   setTimeout(()=>{ document.getElementById('upsell-card').style.display='flex'; },2000);
 }
