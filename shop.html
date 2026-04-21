@@ -15,17 +15,17 @@
 </script>
 <!-- End Google Analytics 4 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Shop — PaceChange | UK Running Programmes & Guides</title>
-<meta name="description" content="Buy PaceChange running programmes and guides. 5K, 10K, Half Marathon, Marathon training plans. Built for UK runners. Instant download.">
+<title>Shop — PaceChange | UK Running Guides & Training Plans</title>
+<meta name="description" content="Science-backed running guides for UK runners. The Complete Running Bible, Parkrun PB System, and Strength & Injury Bible. Instant download.">
 <link rel="canonical" href="https://pacechange.co.uk/shop.html">
-<meta property="og:title" content="Shop — PaceChange UK Running Programmes">
-<meta property="og:description" content="Training plans from 5K to Marathon. Built for UK runners. Instant download.">
-    <meta property="og:image" content="https://pacechange.co.uk/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://pacechange.co.uk/og-image.png">
+<meta property="og:title" content="Shop — PaceChange UK Running Guides">
+<meta property="og:description" content="Science-backed training guides for UK runners. 5K to Marathon. Instant download.">
+<meta property="og:image" content="https://pacechange.co.uk/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://pacechange.co.uk/shop.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pacechange.co.uk/og-image.png">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
@@ -60,7 +60,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 5
 .section-eyebrow-line{flex:1;height:1px;background:var(--border);}
 .section-eyebrow-text{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(198,241,53,.5);white-space:nowrap;}
 
-/* ── BUNDLE CARD (hero product) ── */
+/* ── HERO PRODUCT CARD ── */
 .bundle-card{background:linear-gradient(135deg,#122614,#0d1f10);border:1px solid rgba(198,241,53,.25);border-radius:20px;padding:0;overflow:hidden;margin:0 5% 48px;max-width:920px;margin-left:auto;margin-right:auto;position:relative;}
 .bundle-badge{position:absolute;top:20px;right:20px;background:var(--lime);color:var(--dark);font-family:'DM Mono',monospace;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:20px;}
 .bundle-inner{display:grid;grid-template-columns:1fr 1fr;gap:0;}
@@ -73,9 +73,8 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 5
 .bundle-item{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,.75);}
 .bundle-item::before{content:"✓";color:var(--lime);font-weight:700;font-size:12px;flex-shrink:0;}
 .bundle-price-row{display:flex;align-items:baseline;gap:12px;margin-bottom:20px;}
-.bundle-was{font-size:14px;color:rgba(255,255,255,.3);text-decoration:line-through;}
 .bundle-now{font-family:'Bebas Neue',sans-serif;font-size:56px;color:var(--lime);letter-spacing:2px;line-height:1;}
-.bundle-saving{font-size:12px;color:rgba(198,241,53,.6);background:rgba(198,241,53,.08);border-radius:20px;padding:4px 12px;align-self:center;}
+.bundle-note{font-size:13px;color:var(--muted);align-self:center;}
 .btn-buy-bundle{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:17px;background:var(--lime);color:var(--dark);font-weight:700;font-size:16px;border-radius:12px;text-decoration:none;transition:all .2s;border:none;cursor:pointer;}
 .btn-buy-bundle:hover{background:var(--lime2);transform:translateY(-2px);box-shadow:0 8px 30px rgba(198,241,53,.2);}
 .bundle-guarantee{font-size:11px;color:rgba(255,255,255,.28);text-align:center;margin-top:10px;}
@@ -86,10 +85,10 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 5
 .bp-num{font-family:'DM Mono',monospace;font-size:10px;color:rgba(198,241,53,.5);min-width:20px;margin-top:2px;}
 .bp-info h4{font-size:14px;font-weight:600;margin-bottom:3px;}
 .bp-info p{font-size:12px;color:var(--muted);line-height:1.4;}
-.bp-price{font-family:'DM Mono',monospace;font-size:12px;color:rgba(255,255,255,.3);text-decoration:line-through;margin-left:auto;flex-shrink:0;padding-top:2px;}
+.bp-badge{font-family:'DM Mono',monospace;font-size:10px;color:var(--dark);background:var(--lime);padding:3px 8px;border-radius:10px;margin-left:auto;flex-shrink:0;padding-top:4px;align-self:flex-start;}
 
 /* ── PRODUCT GRID ── */
-.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;padding:0 5% 48px;max-width:1000px;margin:0 auto;}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;padding:0 5% 48px;max-width:1000px;margin:0 auto;}
 .prod-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,transform .2s;}
 .prod-card:hover{border-color:rgba(198,241,53,.25);transform:translateY(-3px);}
 .prod-header{padding:24px 24px 0;position:relative;}
@@ -108,6 +107,12 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 5
 .btn-buy{display:block;width:100%;padding:14px;background:var(--faint);border:1px solid var(--border);color:var(--white);font-weight:700;font-size:14px;border-radius:10px;text-decoration:none;text-align:center;transition:all .2s;}
 .btn-buy:hover{background:var(--lime);color:var(--dark);border-color:var(--lime);}
 
+/* ── TRUST BAR ── */
+.trust-bar{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;padding:32px 5%;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:56px;}
+.trust-item{display:flex;align-items:center;gap:10px;padding:12px 28px;font-size:13px;color:var(--muted);}
+.trust-icon{font-size:18px;}
+.trust-divider{width:1px;height:20px;background:var(--border);}
+
 /* ── FREE SECTION ── */
 .free-section{margin:0 5% 56px;max-width:920px;margin-left:auto;margin-right:auto;}
 .free-card{background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:16px;padding:32px;text-align:center;}
@@ -116,12 +121,6 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 5
 .free-card p{font-size:14px;color:var(--muted);line-height:1.7;max-width:500px;margin:0 auto 24px;}
 .btn-free{display:inline-block;padding:14px 36px;background:transparent;border:1px solid rgba(198,241,53,.3);color:var(--lime);font-weight:700;font-size:14px;border-radius:10px;text-decoration:none;transition:all .2s;}
 .btn-free:hover{background:rgba(198,241,53,.1);}
-
-/* ── TRUST BAR ── */
-.trust-bar{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;padding:32px 5%;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:56px;}
-.trust-item{display:flex;align-items:center;gap:10px;padding:12px 28px;font-size:13px;color:var(--muted);}
-.trust-icon{font-size:18px;}
-.trust-divider{width:1px;height:20px;background:var(--border);}
 
 /* ── FOOTER ── */
 footer{text-align:center;padding:32px 5% 48px;border-top:1px solid var(--border);}
@@ -156,7 +155,7 @@ footer a{color:rgba(255,255,255,.35);text-decoration:none;}
 <div class="hero">
   <div class="hero-tag">Instant Download · UK Running</div>
   <h1>Train Smarter.<br><span class="lime">Run</span> Faster.</h1>
-  <p class="hero-sub">Every PaceChange programme built for UK runners. Personalised training, real paces, no fluff. Download and start today.</p>
+  <p class="hero-sub">Science-backed running guides built for UK runners. Training zones, speed blocks, race plans, and the strength work most runners skip. Download and start today.</p>
 </div>
 
 <!-- TRUST BAR -->
@@ -170,37 +169,37 @@ footer a{color:rgba(255,255,255,.35);text-decoration:none;}
   <div class="trust-item"><span class="trust-icon">↩️</span>30-day money back</div>
 </div>
 
-<!-- BUNDLE — HERO PRODUCT -->
+<!-- HERO PRODUCT — Complete Running Bible -->
 <div class="section">
   <div class="section-eyebrow">
     <div class="section-eyebrow-line"></div>
-    <div class="section-eyebrow-text">Best Value</div>
+    <div class="section-eyebrow-text">Most Comprehensive</div>
     <div class="section-eyebrow-line"></div>
   </div>
 </div>
 
-<div style="padding:0 5%;max-width:1000px;margin:0 auto 48px;">
+<div style="padding:0 5%;max-width:920px;margin:0 auto 48px;">
   <div class="bundle-card">
-    <div class="bundle-badge">Best Value</div>
+    <div class="bundle-badge">84 Pages</div>
     <div class="bundle-inner">
       <div class="bundle-left">
-        <div class="bundle-tag">Complete Kit</div>
-        <div class="bundle-h">The Complete<br><span class="lime">Runner's</span><br>Kit</div>
-        <div class="bundle-desc">Every programme. Every guide. One price, forever. The complete system for going from where you are now to wherever you want to be.</div>
+        <div class="bundle-tag">Complete Running Guide</div>
+        <div class="bundle-h">The Complete<br><span class="lime">Running</span><br>Bible</div>
+        <div class="bundle-desc">Everything you need to run faster at every distance — in one place. Training zones, speed blocks, race plans from 5K to marathon, UK race entry strategy, and a full mental performance chapter.</div>
         <div class="bundle-items">
-          <div class="bundle-item">All 4 training programmes (5K → Marathon)</div>
-          <div class="bundle-item">Running for Weight Loss Guide</div>
-          <div class="bundle-item">Strength Moves Guide for Runners</div>
-          <div class="bundle-item">Race Day Blueprint</div>
-          <div class="bundle-item">PB Blueprint — Running Faster After 30</div>
+          <div class="bundle-item">Training zones calibrated to your actual 5K time</div>
+          <div class="bundle-item">12-week speed development block, every session written out</div>
+          <div class="bundle-item">Race plans: 5K, 10K, half marathon & marathon</div>
+          <div class="bundle-item">UK race calendar — London ballot, GNR, Manchester, Chester</div>
+          <div class="bundle-item">Mental performance chapter (30-40% of race outcomes)</div>
+          <div class="bundle-item">16-week marathon plan with full fuelling science</div>
         </div>
         <div class="bundle-price-row">
-          <div class="bundle-was">£183</div>
-          <div class="bundle-now">£97</div>
-          <div class="bundle-saving">Save £86</div>
+          <div class="bundle-now">£47</div>
+          <div class="bundle-note">one-time · instant download</div>
         </div>
         <a class="btn-buy-bundle" href="https://pacechange.gumroad.com/l/runners-complete-kit" target="_blank">
-          Get The Complete Kit — £97 →
+          Get The Complete Running Bible — £47 →
         </a>
         <div class="bundle-guarantee">🔒 Instant access · 30-day money back guarantee</div>
       </div>
@@ -208,59 +207,54 @@ footer a{color:rgba(255,255,255,.35);text-decoration:none;}
         <div class="bundle-right-label">What's inside</div>
         <div class="bundle-programme">
           <div class="bp-num">01</div>
-          <div class="bp-info"><h4>12-Week 5K Programme</h4><p>From first run to confident 5K finish</p></div>
-          <div class="bp-price">£27</div>
+          <div class="bp-info"><h4>Training Zones & Speed Blocks</h4><p>Zones calibrated to your 5K time. 12-week speed block written session by session.</p></div>
         </div>
         <div class="bundle-programme">
           <div class="bp-num">02</div>
-          <div class="bp-info"><h4>12-Week 10K Programme</h4><p>Sub-60 and sub-50 strategies included</p></div>
-          <div class="bp-price">£27</div>
+          <div class="bp-info"><h4>Race Plans — Every Distance</h4><p>5K, 10K, half marathon, and marathon. Pacing strategy included.</p></div>
         </div>
         <div class="bundle-programme">
           <div class="bp-num">03</div>
-          <div class="bp-info"><h4>16-Week Half Marathon</h4><p>Sub-2:00 and sub-1:45 race plans</p></div>
-          <div class="bp-price">£37</div>
+          <div class="bp-info"><h4>UK Race Calendar</h4><p>London Marathon ballot timing, GNR, Manchester, Chester — entry strategy for every major UK race.</p></div>
         </div>
         <div class="bundle-programme">
           <div class="bp-num">04</div>
-          <div class="bp-info"><h4>20-Week Marathon</h4><p>Sub-4, Sub-3:30, Sub-3 strategies</p></div>
-          <div class="bp-price">£47</div>
+          <div class="bp-info"><h4>Mental Performance</h4><p>Self-talk, visualisation, focus cues. Responsible for 30-40% of race outcomes.</p></div>
         </div>
         <div class="bundle-programme">
           <div class="bp-num">05</div>
-          <div class="bp-info"><h4>4 Bonus Guides</h4><p>Nutrition · Strength · Race Day · PB Blueprint</p></div>
-          <div class="bp-price">£45</div>
+          <div class="bp-info"><h4>Marathon Fuelling Science</h4><p>16-week plan. How to avoid the wall. Carb strategy from mile 5.</p></div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- INDIVIDUAL PROGRAMMES -->
+<!-- INDIVIDUAL GUIDES -->
 <div class="section">
   <div class="section-eyebrow">
     <div class="section-eyebrow-line"></div>
-    <div class="section-eyebrow-text">Individual Programmes</div>
+    <div class="section-eyebrow-text">Specialist Guides</div>
     <div class="section-eyebrow-line"></div>
   </div>
 </div>
 
 <div class="products-grid">
 
-  <!-- 5K -->
+  <!-- Runner's Strength, Injury & Recovery Bible -->
   <div class="prod-card">
     <div class="prod-header">
-      <div class="prod-distance">5K</div>
-      <div class="prod-type">12-Week Programme</div>
-      <div class="prod-title">5K Training Programme</div>
-      <div class="prod-desc">Go from zero to 5K — or smash your current PB. Built for UK runners of all abilities.</div>
+      <div class="prod-distance">STRENGTH</div>
+      <div class="prod-type">Injury Prevention · Strength · Recovery</div>
+      <div class="prod-title">The Runner's Strength, Injury &amp; Recovery Bible</div>
+      <div class="prod-desc">60% of runners get injured every year. Structured strength training reduces that risk by 50%. This is the complete system — strength programme, injury protocols, and recovery science.</div>
     </div>
     <div class="prod-features">
-      <div class="prod-feature">12 weeks · 3 phases · progressive overload</div>
-      <div class="prod-feature">Personalised pace zones + easy run guide</div>
-      <div class="prod-feature">Interval sessions + strength routine</div>
-      <div class="prod-feature">Race day pacing strategy</div>
-      <div class="prod-feature">Beginner-friendly from Week 1</div>
+      <div class="prod-feature">50% reduction in injury risk (BJSM meta-analysis, 26 studies)</div>
+      <div class="prod-feature">12-week strength programme — two 30-min sessions/week</div>
+      <div class="prod-feature">The 5 most common running injuries with return-to-run protocols</div>
+      <div class="prod-feature">Recovery & sleep science — highest ROI discipline most runners ignore</div>
+      <div class="prod-feature">Load management: train harder without breaking down</div>
     </div>
     <div class="prod-footer">
       <div class="prod-price-row">
@@ -269,85 +263,33 @@ footer a{color:rgba(255,255,255,.35);text-decoration:none;}
           <div class="prod-price-note">one-time · instant download</div>
         </div>
       </div>
-      <a class="btn-buy" href="https://pacechange.gumroad.com/l/5k-programme" target="_blank">Buy Now — £27 →</a>
+      <a class="btn-buy" href="https://pacechange.gumroad.com/l/runners-body" target="_blank">Get The Strength Bible — £27 →</a>
     </div>
   </div>
 
-  <!-- 10K -->
+  <!-- Parkrun PB System -->
   <div class="prod-card">
     <div class="prod-header">
-      <div class="prod-distance">10K</div>
-      <div class="prod-type">12-Week Programme</div>
-      <div class="prod-title">10K Training Programme</div>
-      <div class="prod-desc">Build the aerobic base for a strong 10K finish. Sub-60 and sub-50 strategies both included.</div>
+      <div class="prod-distance">PARKRUN</div>
+      <div class="prod-type">8-Week Training Plan · 4 Time Brackets</div>
+      <div class="prod-title">The Parkrun PB System</div>
+      <div class="prod-desc">Every UK Parkrunner has a PB they want to break. This is the structured, science-backed system to break it — 8-week plans for four time brackets, every session written out.</div>
     </div>
     <div class="prod-features">
-      <div class="prod-feature">12 weeks · sub-60 and sub-50 strategies</div>
-      <div class="prod-feature">Speed sessions at race pace</div>
-      <div class="prod-feature">Long run structure to build endurance</div>
-      <div class="prod-feature">Complete race week protocol</div>
-      <div class="prod-feature">UK parkrun integration tips</div>
+      <div class="prod-feature">Four plans: sub-35→30, sub-30→25, sub-25→22, sub-22→20</div>
+      <div class="prod-feature">Every speed session written out — no guesswork</div>
+      <div class="prod-feature">Training paces calculated from your current Parkrun time</div>
+      <div class="prod-feature">Complete race strategy — how to run each of the 5 kilometres</div>
+      <div class="prod-feature">UK Parkrun data, benchmarks & race week plan</div>
     </div>
     <div class="prod-footer">
       <div class="prod-price-row">
         <div>
-          <div class="prod-price">£27</div>
+          <div class="prod-price">£17</div>
           <div class="prod-price-note">one-time · instant download</div>
         </div>
       </div>
-      <a class="btn-buy" href="https://pacechange.gumroad.com/l/10k-programme" target="_blank">Buy Now — £27 →</a>
-    </div>
-  </div>
-
-  <!-- Half Marathon -->
-  <div class="prod-card">
-    <div class="prod-header">
-      <div class="prod-distance">HALF</div>
-      <div class="prod-type">16-Week Programme</div>
-      <div class="prod-title">Half Marathon Programme</div>
-      <div class="prod-desc">The full 16-week build to 21.1km. Sub-2:00 and sub-1:45 strategies. Long runs to 19km.</div>
-    </div>
-    <div class="prod-features">
-      <div class="prod-feature">16 weeks · long runs to 19km</div>
-      <div class="prod-feature">Sub-2:00 and sub-1:45 race strategies</div>
-      <div class="prod-feature">Carb loading + race day nutrition guide</div>
-      <div class="prod-feature">Taper week plan included</div>
-      <div class="prod-feature">UK race examples + pacing bands</div>
-    </div>
-    <div class="prod-footer">
-      <div class="prod-price-row">
-        <div>
-          <div class="prod-price">£37</div>
-          <div class="prod-price-note">one-time · instant download</div>
-        </div>
-      </div>
-      <a class="btn-buy" href="https://pacechange.gumroad.com/l/half-marathon-programme" target="_blank">Buy Now — £37 →</a>
-    </div>
-  </div>
-
-  <!-- Marathon -->
-  <div class="prod-card">
-    <div class="prod-header">
-      <div class="prod-distance">MARA</div>
-      <div class="prod-type">20-Week Programme</div>
-      <div class="prod-title">Marathon Programme</div>
-      <div class="prod-desc">The complete 26.2 mile build. Sub-4, Sub-3:30, and Sub-3 strategies. Long runs to 35km.</div>
-    </div>
-    <div class="prod-features">
-      <div class="prod-feature">20 weeks · long runs to 35km</div>
-      <div class="prod-feature">Sub-4, Sub-3:30, Sub-3 strategies</div>
-      <div class="prod-feature">Complete fuelling + hydration plan</div>
-      <div class="prod-feature">How to avoid the wall — guaranteed</div>
-      <div class="prod-feature">3-week taper protocol</div>
-    </div>
-    <div class="prod-footer">
-      <div class="prod-price-row">
-        <div>
-          <div class="prod-price">£47</div>
-          <div class="prod-price-note">one-time · instant download</div>
-        </div>
-      </div>
-      <a class="btn-buy" href="https://pacechange.gumroad.com/l/marathon-programme" target="_blank">Buy Now — £47 →</a>
+      <a class="btn-buy" href="https://pacechange.gumroad.com/l/parkrun-pb" target="_blank">Get The Parkrun PB System — £17 →</a>
     </div>
   </div>
 
@@ -358,7 +300,7 @@ footer a{color:rgba(255,255,255,.35);text-decoration:none;}
   <div class="free-card">
     <div class="free-tag">Completely Free</div>
     <h3>Not Ready to Buy? Start Free.</h3>
-    <p>Get a personalised 4-week training plan delivered to your inbox in 60 seconds. No payment, no catch. Use the free calculator and see how it feels.</p>
+    <p>Get a personalised training plan in 60 seconds. No payment, no catch. Use the free calculator and see how it works before you decide.</p>
     <a class="btn-free" href="https://pacechange.co.uk/start.html">Get My Free Plan →</a>
   </div>
 </div>
@@ -366,10 +308,10 @@ footer a{color:rgba(255,255,255,.35);text-decoration:none;}
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">PACECHANGE</div>
-  <p>Built for UK runners. Trusted by runners training for everything from their first parkrun to marathon day.<br>
+  <p>Built for UK runners. Science-backed training guides for every distance.<br>
   <a href="https://pacechange.co.uk/">Home</a> &nbsp;·&nbsp;
   <a href="https://pacechange.co.uk/start.html">Free Plan</a> &nbsp;·&nbsp;
-  <a href="https://pacechange.gumroad.com">Gumroad Store</a>
+  <a href="https://pacechange.co.uk/privacy-policy.html">Privacy Policy</a>
   </p>
 </footer>
 
