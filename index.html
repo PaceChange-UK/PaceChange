@@ -1039,7 +1039,7 @@ function generatePlan() {
   const zc={easy:'zone-easy',tempo:'zone-tempo',hard:'zone-hard',rest:'zone-rest'};
   document.getElementById('weekly-structure').innerHTML=(structs[selectedDays]||structs[4]).map(s=>`<div class="predictor-row"><span style="font-weight:700;color:rgba(255,255,255,.5);min-width:56px;">${s.day}</span><span class="predictor-race" style="flex:1">${s.session}</span><span class="pace-zone ${zc[s.zone]}" style="margin-left:8px;">${s.zone}</span></div>`).join('');
   document.getElementById('pace-zones').innerHTML=`<span class="pace-zone zone-easy">Easy: ${fmtPace(gPace*1.25)}–${fmtPace(gPace*1.4)}/km</span><span class="pace-zone zone-tempo">Tempo: ${fmtPace(gPace*1.05)}–${fmtPace(gPace*1.12)}/km</span><span class="pace-zone zone-hard">Intervals: ${fmtPace(gPace*.95)}–${fmtPace(gPace)}/km</span>`;
-  const prices={'5K':'£17','10K':'£47','HM':'£47','M':'£47'}, ebooks={'5K':'8-Week 5K Transformation','10K':'10-Week 10K Programme','HM':'12-Week Half Marathon Plan','M':'18-Week Marathon Blueprint'};
+  const prices={'5K':'£17','10K':'£47','HM':'£47','M':'£47'}, ebooks={'5K':'The Parkrun PB System','10K':'The Complete Running Bible','HM':'The Complete Running Bible','M':'The Complete Running Bible'};
   document.getElementById('upsell-title').textContent=ebooks[selectedRace];
   document.getElementById('upsell-price').textContent=prices[selectedRace];
   var gumroadUrls={'5K':'https://pacechange.gumroad.com/l/parkrun-pb','10K':'https://pacechange.gumroad.com/l/runners-complete-kit','HM':'https://pacechange.gumroad.com/l/runners-complete-kit','M':'https://pacechange.gumroad.com/l/runners-complete-kit'};
