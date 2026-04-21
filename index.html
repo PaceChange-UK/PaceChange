@@ -2,24 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', 'YOUR_PIXEL_ID');
-fbq('track', 'PageView');
-</script>
-<noscript>
-<img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/>
-</noscript>
-<!-- End Meta Pixel Code -->
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1PD1DTZ2SH"></script>
 <script>
@@ -1074,7 +1056,7 @@ function submitRunEmail() {
   document.getElementById('r-success-state').classList.add('visible');
   const goalTags={'5K':'goal-5k','10K':'goal-10k','HM':'goal-halfmarathon','M':'goal-marathon'};
   const tag=goalTags[selectedRace]||'goal-5k';
-  fetch('https://script.google.com/macros/s/AKfycbwssTres__1EbYYa5ZVHPY16mpe56XUoEmUeXAaX4sMRafZVQS0_Kgi3ZHcZtulS0B7/exec',{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({name:name,email:email,tag:tag,source:'running-calculator'}),mode:'no-cors'}).catch(()=>{}); if(typeof fbq!=='undefined')fbq('track','Lead');
+  fetch('https://script.google.com/macros/s/AKfycbwssTres__1EbYYa5ZVHPY16mpe56XUoEmUeXAaX4sMRafZVQS0_Kgi3ZHcZtulS0B7/exec',{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({name:name,email:email,tag:tag,source:'running-calculator'}),mode:'no-cors'}).catch(()=>{});
 }
 
 // ===== CALORIE CALC =====
@@ -1108,7 +1090,7 @@ function submitCalEmail() {
   if(!name||!email||!email.includes('@')){alert('Please enter your name and a valid email.');return;}
   document.getElementById('c-email-form').style.display='none';
   document.getElementById('c-success-state').classList.add('visible');
-  fetch('https://script.google.com/macros/s/AKfycbwssTres__1EbYYa5ZVHPY16mpe56XUoEmUeXAaX4sMRafZVQS0_Kgi3ZHcZtulS0B7/exec',{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({name:name,email:email,tag:'goal-weightloss',source:'calorie-calculator'}),mode:'no-cors'}).catch(()=>{}); if(typeof fbq!=='undefined')fbq('track','Lead');
+  fetch('https://script.google.com/macros/s/AKfycbwssTres__1EbYYa5ZVHPY16mpe56XUoEmUeXAaX4sMRafZVQS0_Kgi3ZHcZtulS0B7/exec',{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({name:name,email:email,tag:'goal-weightloss',source:'calorie-calculator'}),mode:'no-cors'}).catch(()=>{});
 }
 
 function resetCalc() { document.getElementById('cal-results').classList.remove('visible'); document.getElementById('tools-section').scrollIntoView({behavior:'smooth'}); }
